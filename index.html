@@ -6934,41 +6934,49 @@ function updateProgress(id, items) {
   wrap.querySelector('.cl-progress-bar').style.width = pct + '%';
 }
 
-Object.entries(lists).forEach(([id, items]) => {
-  const el = document.getElementById(id);
-  if (!el) return;
+function renderChecklists() {
+  Object.entries(lists).forEach(([id, items]) => {
+    const el = document.getElementById(id);
+    if (!el) return;
 
-  // Container immer leeren und neu aufbauen (verhindert statische Duplikate)
-  el.innerHTML = '';
+    // Container immer leeren und neu aufbauen (verhindert statische Duplikate)
+    el.innerHTML = '';
 
-  // Progress-wrap: entfernen falls vorhanden, dann neu einfügen
-  const oldWrap = el.parentNode.querySelector('.cl-progress-wrap');
-  if (oldWrap) oldWrap.remove();
-  const progressEl = document.createElement('div');
-  progressEl.className = 'cl-progress-wrap';
-  progressEl.innerHTML = `<span class="cl-count">0 / ${items.length} erledigt</span><span class="cl-reset" onclick="resetList('${id}',${JSON.stringify(items)})">Zurücksetzen</span><div class="cl-progress-bar-bg"><div class="cl-progress-bar" style="width:0%"></div></div>`;
-  el.parentNode.insertBefore(progressEl, el);
+    // Progress-wrap: entfernen falls vorhanden, dann neu einfügen
+    const oldWrap = el.parentNode.querySelector('.cl-progress-wrap');
+    if (oldWrap) oldWrap.remove();
+    const progressEl = document.createElement('div');
+    progressEl.className = 'cl-progress-wrap';
+    progressEl.innerHTML = `<span class="cl-count">0 / ${items.length} erledigt</span><span class="cl-reset" onclick="resetList('${id}',${JSON.stringify(items)})">Zurücksetzen</span><div class="cl-progress-bar-bg"><div class="cl-progress-bar" style="width:0%"></div></div>`;
+    el.parentNode.insertBefore(progressEl, el);
 
-  items.forEach((text, i) => {
-    const key = `v3_${id}_${i}`;
-    let done = false;
-    try { done = _store.getItem(key) === '1'; } catch(e) {}
-    const div = document.createElement('div');
-    div.className = 'check-item' + (done ? ' done' : '');
-    div.innerHTML = `<div class="check-box">${done ? '✓' : ''}</div><div class="check-text">${text}</div>`;
-    div.addEventListener('click', function(e) {
-      const isDone = this.classList.toggle('done');
-      this.querySelector('.check-box').textContent = isDone ? '✓' : '';
-      try { _store.setItem(key, isDone ? '1' : '0'); } catch(e) {}
-      updateProgress(id, items);
+    items.forEach((text, i) => {
+      const key = `v3_${id}_${i}`;
+      let done = false;
+      try { done = _store.getItem(key) === '1'; } catch(e) {}
+      const div = document.createElement('div');
+      div.className = 'check-item' + (done ? ' done' : '');
+      div.innerHTML = `<div class="check-box">${done ? '✓' : ''}</div><div class="check-text">${text}</div>`;
+      div.addEventListener('click', function(e) {
+        const isDone = this.classList.toggle('done');
+        this.querySelector('.check-box').textContent = isDone ? '✓' : '';
+        try { _store.setItem(key, isDone ? '1' : '0'); } catch(e) {}
+        updateProgress(id, items);
+      });
+      el.appendChild(div);
     });
-    el.appendChild(div);
+    updateProgress(id, items);
+    updateTotalProgress();
   });
-  updateProgress(id, items);
   updateTotalProgress();
-});
-updateTotalProgress();
-updateReadinessBar();
+  updateReadinessBar();
+}
+
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', renderChecklists);
+} else {
+  renderChecklists();
+}
 
 function resetList(id, items) {
   if (!confirm('Alle Häkchen in dieser Liste zurücksetzen?')) return;
@@ -8635,5 +8643,4 @@ YouTube. Empfohlene Kanäle
 <div class="subsection" style="color:#3a7fd4;border-bottom-color:rgba(58,127,212,0.3);">CL.12 // Level 3: Heizung &amp; Wärme</div>
   <div id="cl12"></div>
 </section>
-</main></body></html>
 </main></body></html>
