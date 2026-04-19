@@ -1,5 +1,9 @@
 // GREIF XPEDITION Krisenhandbuch - Service Worker
+<<<<<<< Updated upstream
 const CACHE = 'greif-V15.1';
+=======
+const CACHE = 'greif-V15.3';
+>>>>>>> Stashed changes
 const URLS = [self.location.pathname.replace('sw.js', '') || '/'];
 
 self.addEventListener('install', e => {
