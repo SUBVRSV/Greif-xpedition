@@ -51,10 +51,8 @@ def run_tests(filepath):
     test('Mobile-Topbar CSS vorhanden', '#mobile-topbar {' in content)
     test('Burger 40x40px', 'width: 40px; height: 40px;' in content)
 
-    # === READING UX (V27.2) ===
-    test('Reading-Progress div', 'id="reading-progress"' in content)
-    test('Mini-Header div', 'id="chapter-mini-header"' in content)
-    test('_updateReadingUx fn', 'function _updateReadingUx' in content)
+    # === READING UX (V27.2 / V29.0) ===
+    # Reading-Progress, Mini-Header, Resume-Banner wurden in V29.0 entfernt
     test('_injectChapterNav fn', 'function _injectChapterNav' in content)
     test('Body max-width 72ch', 'max-width: 72ch;' in content)
 
@@ -87,10 +85,7 @@ def run_tests(filepath):
          'a[href^="http"]:not([href*="greif-xpedition"])' in content)
     test('External Links JS', '_setupExternalLinks' in content)
 
-    # === RESUME BANNER (V27.8) ===
-    test('Resume-Banner CSS', '#resume-banner {' in content)
-    test('Resume-Banner HTML', 'id="resume-banner"' in content)
-    test('_checkResumeBanner fn', 'function _checkResumeBanner' in content)
+    # === RESUME BANNER === entfernt in V29.0
 
     # === PERSONA (V27.9) ===
     test('Persona-CSS', '.persona-card {' in content)
