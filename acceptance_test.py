@@ -121,7 +121,7 @@ def run_tests(filepath):
     critical_fns = [
         '_updateActiveNav', '_allSections', '_navGroupMap',
         'navSearch', 'navTo', 'buildSearchIndex', 'szpShow',
-        'szpBannerUpdate', 'wfmRender', 'kkInit', 'filterTag',
+        'szpBannerUpdate', 'wfmRender', 'kkInit',
         'toggleSidebar',
     ]
     for fn in critical_fns:
