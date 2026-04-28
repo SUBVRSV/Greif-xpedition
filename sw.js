@@ -1,5 +1,5 @@
 // GREIF XPEDITION Krisenhandbuch - Service Worker
-const CACHE = 'greif-V28.7';
+const CACHE = 'greif-V28.8';
 
 // Robuste URL-Erkennung: funktioniert auf GitHub Pages (Unterordner) und Root
 const BASE = self.location.pathname.replace(/sw\.js$/, '');
@@ -31,29 +31,27 @@ self.addEventListener('activate', e => {
   self.clients.claim();
 });
 
-// Fetch: Network-first mit Cache-Fallback
-// Strategie: immer frisch vom Netz versuchen, Cache als Backup
+// Fetch: Stale-While-Revalidate
+// Strategie: aus Cache servieren wenn vorhanden (instant), parallel Netzwerk-Update
+// Wenn neue Version da: beim nächsten Load nutzbar
 self.addEventListener('fetch', e => {
   if (e.request.mode !== 'navigate') return;
 
   e.respondWith(
-    fetch(e.request)
-      .then(res => {
-        // Nur gueltige Antworten cachen
-        if (res && res.status === 200 && res.type === 'basic') {
-          const clone = res.clone();
-          caches.open(CACHE).then(c => c.put(e.request, clone));
-        }
-        return res;
+    caches.open(CACHE).then(cache =>
+      cache.match(e.request).then(cached => {
+        const networkFetch = fetch(e.request).then(res => {
+          // Nur gueltige Antworten cachen
+          if (res && res.status === 200 && res.type === 'basic') {
+            cache.put(e.request, res.clone());
+          }
+          return res;
+        }).catch(() => cached || cache.match(BASE || '/'));
+
+        // Cache zuerst (instant), Netz im Hintergrund fuer naechstes Mal
+        return cached || networkFetch;
       })
-      .catch(() => {
-        // Offline: Cache-Fallback
-        return caches.match(e.request)
-          .then(cached => {
-            if (cached) return cached;
-            // Letzter Ausweg: Root aus Cache
-            return caches.match(BASE || '/');
-          });
-      })
+    )
   );
 });
+
