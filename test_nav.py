@@ -17,7 +17,9 @@ def simulate_nav(filepath):
     # Alle Section-IDs sammeln
     section_ids = {s['id'] for s in soup.find_all('section', id=True)}
     div_ids = set(re.findall(r'<div[^>]+id="([^"]+)"', content))
-    all_ids = section_ids | div_ids
+    tr_ids = set(re.findall(r'<tr[^>]+id="([^"]+)"', content))
+    main_ids = set(re.findall(r'<main[^>]+id="([^"]+)"', content))
+    all_ids = section_ids | div_ids | tr_ids | main_ids
 
     errors = []
 
