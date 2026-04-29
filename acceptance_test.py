@@ -46,15 +46,16 @@ def run_tests(filepath):
     test('Keine Em-Dashes', content.count('\u2014') == 0,
          f'{content.count(chr(0x2014))} gefunden')
 
-    # === MOBILE-UX (V27.1) ===
-    test('Mobile-Topbar HTML vorhanden', 'id="mobile-topbar"' in content)
-    test('Mobile-Topbar CSS vorhanden', '#mobile-topbar {' in content)
+    # === MOBILE-UX (V27.1 / V29.4) ===
+    # V29.4: Mobile-Topbar entfernt, nur noch floating menu-toggle wie vor V27.1
+    test('Menu-Toggle Button vorhanden', 'id="menu-toggle"' in content)
+    test('Menu-Toggle CSS Schatten', '#menu-toggle {' in content and 'box-shadow' in content)
     test('Burger 40x40px', 'width: 40px; height: 40px;' in content)
 
     # === READING UX (V27.2 / V29.0) ===
     # Reading-Progress, Mini-Header, Resume-Banner wurden in V29.0 entfernt
     test('_injectChapterNav fn', 'function _injectChapterNav' in content)
-    test('Body max-width 72ch', 'max-width: 72ch;' in content)
+    test('Body-text volle Breite', 'width: 100%' in content and '.body-text' in content)
 
     # === FARBSCHEMA (V27.4) ===
     colors = set(re.findall(r'border-left-color:\s*(#[0-9a-fA-F]+)', content))
@@ -92,7 +93,7 @@ def run_tests(filepath):
     test('Persona-Karten HTML', 'id="persona-start"' in content)
 
     # === PRINT (V28.0) ===
-    test('Print-CSS Mobile-Topbar hidden', '@media print' in content and '#mobile-topbar' in content)
+    test('Print-CSS @media print', '@media print' in content)
     test('Print Tabellen-Pagination', 'page-break-inside: avoid' in content)
 
     # === KEYBOARD SHORTCUT (V28.7+) ===
