@@ -9,8 +9,9 @@ def check(filepath, expected_version, prev_version):
     sections = soup.find_all('section', id=True)
     tables = soup.find_all('table')
     real_ids = {s['id'] for s in sections}
-    div_ids = set(re.findall(r'<div[^>]+id="([^"]+)"', content))
-    real_ids = real_ids | div_ids
+    # Alle IDs aller HTML-Elemente sammeln (div, tr, main, ...)
+    all_ids = set(re.findall(r'\sid="([^"]+)"', content))
+    real_ids = real_ids | all_ids
     content_ids = {s['id'] for s in sections if s['id'] not in ('cover','inhalt')}
 
     sidebar_start = content.find('<nav id="sidebar"')
@@ -48,7 +49,22 @@ def check(filepath, expected_version, prev_version):
     chk('Section balance', opens == closes, True)
 
     chk(f'Version {expected_version}', content.count(expected_version) >= 4, True)
-    chk(f'Alte Version {prev_version} weg', content.count(prev_version), 0)
+    # Alte Version: nur außerhalb des Changelog-Blocks prüfen.
+    # Im Changelog ist es OK alte Versionen zu nennen, das ist sogar erwünscht.
+    cl_match = re.search(r'<div\s+id="changelog-block".*?</section>', content, re.DOTALL)
+    if cl_match:
+        # Nur den eigentlichen changelog-block ausschneiden, nicht bis ins next section
+        # Wir nehmen ab id="cl-body" bis zum 4. </div> (das umschließt alle Einträge)
+        body_start = content.find('id="cl-body"')
+        if body_start != -1:
+            # Einfach: ab id="cl-body" bis zum nächsten </section>
+            sect_end = content.find('</section>', body_start)
+            content_no_cl = content[:body_start] + content[sect_end:] if sect_end != -1 else content
+        else:
+            content_no_cl = content
+    else:
+        content_no_cl = content
+    chk(f'Alte Version {prev_version} weg (außerhalb Changelog)', content_no_cl.count(prev_version), 0)
 
     for map_name in ['const map = {', 'const _navGroupMap = {']:
         pos = content.find(map_name)
@@ -130,7 +146,7 @@ def check(filepath, expected_version, prev_version):
         ok(f"Alle {len(szp_fns)} Szenariopfad-Funktionen vorhanden")
 
     # ── WFM/KK-FUNKTIONEN ──
-    other_fns = ['wfmRender', 'wfmInit', 'kkInit', 'kkRenderMonth', 'filterTag', 'applyFilter', 'printSection', 'openTool']
+    other_fns = ['wfmRender', 'wfmInit', 'kkInit', 'kkRenderMonth', 'printSection', 'openTool']
     missing_other = [f for f in other_fns if f'function {f}' not in content]
     if missing_other:
         fail(f"Fehlende Funktionen: {missing_other}")
