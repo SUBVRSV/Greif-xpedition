@@ -1,5 +1,5 @@
 // GREIF XPEDITION Krisenhandbuch - Service Worker
-const CACHE = 'greif-V30.1';
+const CACHE = 'greif-V30.2';
 
 // Robuste URL-Erkennung: funktioniert auf GitHub Pages (Unterordner) und Root
 const BASE = self.location.pathname.replace(/sw\.js$/, '');
