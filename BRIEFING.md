@@ -1,73 +1,64 @@
-# GREIF XPEDITION Krisenhandbuch — Briefing für neuen Chat
+# GREIF XPEDITION Krisenhandbuch -- Briefing für neuen Chat
 
 ## Projekt-Übersicht
 Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
-Single-HTML PWA, 86 Kapitel, 459+ Tabellen, ~98k Wörter.
+Single-HTML PWA, 87 Kapitel, 465 Tabellen, ~100.000 Wörter, 1,56 MB.
 Gehostet auf: https://subvrsv.github.io/Greif-xpedition/
-(Direkt GitHub Pages -- kein Redirect, kein SSL-Problem)
+(Direkt GitHub Pages -- kein Redirect, kein SSL-Problem, anonym)
+Claim: "Wahrscheinlich das umfangreichste kostenlose deutschsprachige Handbuch zu Survival & Krisenvorsorge"
 
 ## Aktueller Stand
-**Version: V32.3** (Apr 2026)
-**Dateigröße:** 1,52 MB
-**Release-Check:** 25/25 grün
-**Akzeptanz-Test:** 48/48 grün
-**Titel:** "Wahrscheinlich das umfangreichste kostenlose deutschsprachige Handbuch zu Survival & Krisenvorsorge"
+**Version: V34.3** (Mai 2026)
+**Release-Check:** 25/25 grün | **Akzeptanz-Test:** 48/48 grün
+**Nav-Simulator:** OK (286 IDs, 89 Sidebar-Links, 7 Gruppen)
+**JS-Syntax:** Alle 7 Blöcke fehlerfrei | **Em-Dashes:** 0
 
 ## Dateien
-- `index.html` — Haupt-Datei (alles inline: HTML + CSS + JS + base64-Bilder)
-- `sw.js` — Service Worker (Stale-While-Revalidate, Cache-Name muss mit Version sync sein)
-- `release_check.py` — Versions-Check vor jedem Release
-- `acceptance_test.py` — 48 automatische Tests
-- `test_nav.py` — Nav-Simulator (prüft Sidebar-IDs, navTo, JS-Maps)
-- `linkrot_check.py` — Prüft externe Links (lokal ausführen, nicht im Container)
+- `index.html` -- Haupt-Datei (alles inline: HTML + CSS + JS + base64-Bilder)
+- `sw.js` -- Service Worker (Cache-Name muss mit Version sync sein)
+- `release_check.py` / `acceptance_test.py` / `test_nav.py`
+- `linkrot_check.py` -- nur lokal ausfuehren
 
-## Core-Regeln (IMMER EINHALTEN)
-- Keine Em-Dashes (—), stattdessen Punkt/Komma/Doppelpunkt
-- Version +0.01 bei jeder Änderung, sw.js Cache-Name synchron halten
-- Umlaute korrekt (ä/ö/ü/Ä/Ö/Ü/ß), niemals ae/oe/ue/ss
-- Changelog bei jedem Release aktualisieren
-- Keine Apostrophe in JS-Kommentaren (Scanner-Bug)
-- Light Mode Default: `<body class="light-mode">` direkt im HTML
-- Alle Produktempfehlungen mit „z.B." prefixen
-- Kein Verweis auf KI-Tooling, kein echter Name des Autors
-- `python3 release_check.py index.html VNEW VOLD` vor jedem Release
-- `python3 acceptance_test.py index.html` muss 48/48 grün sein
-- `python3 test_nav.py index.html` muss grün sein
+## Core-Regeln (IMMER)
+- Keine Em-Dashes (--), korrekte Umlaute (ä/ö/ü/ß), keine Apostrophe in JS-Kommentaren
+- Version +0.01 bei jeder Änderung in 4 Stellen: HTML-Kommentar, Sidebar-Footer, Cover-Meta, Cover-Notice
+- sw.js Cache-Name synchron: `const CACHE = 'greif-VX.X'`
+- Alle Produktempfehlungen mit "z.B." prefixen
+- JS Syntax-Check nach jeder JS-Änderung: alle 7 Blöcke mit `node --check`
+- `python3 release_check.py index.html VNEW VOLD` + `acceptance_test.py` (48/48) + `test_nav.py`
 
-## Release-Workflow
-```bash
-# 1. Änderungen machen
-# 2. Version in 4 Stellen updaten:
-#    - HTML-Kommentar oben
-#    - Sidebar-Footer "Survival & Krisenvorsorge VX.X"
-#    - Cover-Meta "VX.X // GREIF XPEDITION Krisenhandbuch"
-#    - Cover-Notice "VX.X: 86 Kapitel..."
-# 3. sw.js Cache-Name updaten: const CACHE = 'greif-VX.X';
-# 4. Changelog-Eintrag schreiben
-# 5. release_check.py + acceptance_test.py + test_nav.py — alle grün
-# 6. Files nach /mnt/user-data/outputs/ kopieren
-# 7. present_files aufrufen
+## Kritische Architektur
+
+### JS-Blöcke (7 Stück)
+Block 4 (~74.500 Zeichen) ist der Haupt-Block mit navTo, const map, _navGroupMap und allen Kernfunktionen.
+Block 6 (~5.500 Zeichen) hat KPG, Fortschrittsanzeige, Online-Status.
+
+### Zwei Maps SYNCHRON halten (beide in Block 4)
+```js
+const map = { 'section-id': 'ng-gruppe', ... }
+const _navGroupMap = { 'section-id': 'ng-gruppe', ... }
 ```
+Neue Section: BEIDE Maps + Sidebar-Link.
 
-## Architektur
-- Single HTML, alles inline (~95 KB JS, ~56 KB CSS, ~87 KB base64-Bilder)
-- localStorage-Keys: theme, personaOpen (weitere: readSections, bookmarks, kk*, wfm*, szpDone, szpCurrent, fontsize)
-- Zwei JS-Maps müssen synchron sein: `const map = {...}` und `const _navGroupMap = {...}`
-  - Beide mappen Section-IDs auf Sidebar-Gruppen
-  - Top-Level (keine Gruppe): cover, einstieg-accordion, checklist, krisenkalender, was-fehlt, szenariopfade
-- FontSize-Toggle: CSS zoom auf #main UND #sidebar (A+=1.12, A++=1.25), Firefox-Fallback mit font-size
-- Service Worker: Stale-While-Revalidate, Cache-Name muss mit Version übereinstimmen
+### HTML-Reihenfolge = Sidebar-Reihenfolge (KRITISCH)
+Sections im HTML muessen in der gleichen Reihenfolge stehen wie in der Sidebar.
+Falsche Reihenfolge = Nav-Sprung beim Scrollen. Behoben in V33.8.
 
-## Sidebar-Gruppen-Struktur (V32.3)
+### JS-Syntax-Fallen
+- Kein `'` in JS-Strings mit HTML-Inhalt (z.B. onclick-Attribute) -- doppelte Quotes verwenden
+- Keine orphaned Codeblöcke nach Umstrukturierungen -- immer alle 7 Blöcke pruefen
+
+## Sidebar-Gruppen (V34.3)
 - **ng-l1:** bug-out-bag, chest-pack, kleidung-ausruestung, tools-hacks, fluessigkeiten-bob
 - **ng-l1b:** nahrung-konzept, essensplan, einkaufsliste, nahrung-lagerung, feldkueche, nahrung-naehrstoffe
 - **ng-l2:** medizin-erstehilfe, medikamente-vorrat, medizin-ohne-arzt, hygiene-sanitaer, haushalts-ressourcen, kommunikation-krise, navigation-krise, energie-strom, technik-field, finanzen-dokumente, finanzkrise, digitale-vorbereitung, soziales-netzwerk
 - **ng-l3:** werkzeug-zuhause, wasservorrat, fahrzeug-krise, mobilitaet-krise, shelter-evakuierung, urban-wohnen, urban-mietwohnung, wohnung-absichern, sicherheit-lager, selbstverteidigung, freie-waffen, wildnis-bushcraft, tiere-fruehwarnung, tarp-aufbau, feuer-bedingungen, signalisierung, anbau-konservierung, langzeitlager, jagd-nahrung, heizung-waerme, saisonale-anpassung, hitzewelle, naturgefahren, krieg-unruhen, abc-schutz, cyberangriff, blackout-stufenplan, blackout-matrix, pandemie-biobedrohung, epidemiologie-krise, recht-krisenfall, drohnen-schutz, familiennotfallplan, alleinstehende-krise
 - **ng-alltag:** sanitaer-notfall, brand-notfall, gasaustritt, krisenkueche, ausruestungspflege, bartering, kinder-krise
-- **ng-zusatz:** mental-staerke, koerperliche-fitness, schlaf-krise, offline-bibliothek, reparieren-krise, mietrecht-krise, warnmeldungen, desinformation-krise, gefahrenerkennung, infrastruktur-karte, staat-planung, ernaehrungs-biochemie, typische-fehler, budget-krisenvorsorge, szenarien
+- **ng-zusatz:** mental-staerke, koerperliche-fitness, schlaf-krise, offline-bibliothek, reparieren-krise, mietrecht-krise, warnmeldungen, desinformation-krise, gefahrenerkennung, infrastruktur-karte, staat-planung, dach-besonderheiten, ernaehrungs-biochemie, typische-fehler, budget-krisenvorsorge, szenarien
 - **ng-anhang:** quellen, shops
+- **Top-Level:** cover, inhalt, changelog, checklist, krisenkalender, einstieg-accordion, was-fehlt, szenariopfade
 
-## Kritische JS-Funktionen (dürfen nicht fehlen)
+## Kritische Funktionen (duerfen nicht fehlen)
 navTo, navSearch, buildSearchIndex, openTool, printSection, doPrint,
 szpShow, szpBannerUpdate, szpBannerNav, szpBannerClose, szpReset, szpSave, szpLoad,
 wfmRender, wfmInit, wfmSave, wfmToggle, wfmReset,
@@ -75,45 +66,52 @@ kkInit, kkRenderNav, kkRenderMonth, kkSave,
 toggleSidebar, _injectChapterNav, _updateReadingUx, _markSectionRead, _initReadMarkers,
 toggleBookmark, _injectBookmarkButtons, _refreshBookmarkUI, favClick,
 _setupExternalLinks, toggleFontSize, _initFontSize, toggleGroup, _initNavGroupAria,
-accToggle, _updateActiveNav
+accToggle, _updateActiveNav, _updateReadProgress,
+kpgAnswer, kpgShowResult, kpgReset, openGroupForSection, updateOnlineStatus
 
-## Design-Entscheidungen (bewusst so, nicht ändern)
-- Mono-Font (IBM Plex Mono), Amber auf Dunkel, Militär-Ästhetik -- Absicht, kein Fehler
-- Autor will NICHT massentauglicher gestalten, Charakter bleibt
-- warn-box und warning-box sind identisch gestylt (beide existieren im HTML)
-- Community-Tipp Badge: grünes `<span class="community-badge">Community-Tipp</span>`
-- tbody-td: Sans-Schrift für Text-Tabellen, erste Spalte bleibt Mono
-- H3-CSS: Amber-Akzentlinie, unterscheidet sich sauber von .subsection
-- Rhetorische Kurzsätze (Dreier-Betonung, Pointen) sind Stilmittel -- nicht anfassen
+## Nav-Tracking (stabil seit V33.8)
+- Algorithmus: "größter sichtbarer Flächenanteil im oberen 2/3 des Viewports"
+- Öffnet Gruppe beim Scrollen (kein Reflow weil Sidebar position:fixed)
+- Sidebar-Scroll via getBoundingClientRect (kein offsetTop)
+- _updateReadingUx: Read-Tracking bei 80% gesehen
+- _updateReadProgress: Fortschrittsanzeige, aufgerufen von _markSectionRead
 
-## Quellen-System
-15 Quellen (q1-q15) in der Quellen-Section als `<tr id="qX" class="cite-target">`.
-14 davon im Fließtext verlinkt mit `<sup class="cite"><a href="#qX">[X]</a></sup>`.
+## Features (V34.3)
+- Fortschrittsanzeige Sidebar ("X von 87 Kapiteln gelesen")
+- Krisenplan-Generator (8 Fragen, 3 Prioritätsstufen), dritter Accordion-Tab
+- DACH-Besonderheiten Kapitel (DE/AT/CH)
+- Fremde an der Tür -- in soziales-netzwerk
+- PTSD & Trauma-Nachsorge -- in mental-staerke
+- Intro-Text Cover: "Dieses Handbuch existiert weil..."
+- Chapter-Nav Mobile Fix (flex-wrap, clamp)
 
-## Accessibility-Stand
-- Skip-Link "Zum Hauptinhalt springen" (oben, unsichtbar bis Tab-Fokus)
-- aria-label auf: Sidebar, Search, Menu-Toggle, Main, FontSize-Toggle-Group, alle Buttons
-- Nav-Group-Header: role=button, tabindex=0, aria-expanded, Enter/Space bedienbar
-- Sidebar auf Mobile: visibility:hidden wenn geschlossen
+## Design (nicht aendern)
+- Mono-Font, Amber auf Dunkel, Militaer-Aesthetik -- Absicht
+- Sidebar bleibt dunkel auch im Light-Mode (Light-Mode-Repair zerschoss Sidebar V33.1)
+- Rhetorische Kurzsätze sind Stilmittel
 
-## Was in dieser Chat-Session erarbeitet wurde (V30.4 -> V32.3)
-Über 60 neue Blöcke und Kapitel, inkl.:
-- h3-Gliederung in allen langen Kapiteln
-- 5 komplett neue Kapitel (medikamente-vorrat, alleinstehende-krise, budget-krisenvorsorge, infrastruktur-karte, medizin-ohne-arzt erweitert)
-- Todesordner, Krisengruppe, Haltbarmachung, Brot ohne Strom, Spezialdiäten
-- EMP-Schutz, Hochwasser, Datenprepping, Fahrzeug-Panne, Kleintierzucht
-- Satellitenkommunikation, Wasseraufbereitung Stufe 2, Erfrierung/Unterkühlung
-- Impfschutz/Tetanus, Edelmetalle, Wasserweg/Kanu, Wind/Wasserkraft
-- Extrembedrohung/Geiselnahme, Fremde an der Tür
-- Großer Strukturumbau V32.0: Kapitel neu gruppiert, Anhang aufgeräumt
-- Dopplungsbereinigung (Zahn, Verbrennung, urban-Lagerung)
-- Rechtschreib- und Sprachdurchlauf
+## Preise (recherchiert Mai 2026, naechste Pruefung Nov 2026)
+- Silber 1 oz: 90-110 EUR | Gold 1 oz: 2.900-3.200 EUR
+- Sawyer Mini: 35-55 EUR | Sawyer Squeeze: 45-70 EUR
+- GRAYL Ultrapress: 85-110 EUR | Leatherman Signal: 120-160 EUR
+- Morakniv Garberg: 75-105 EUR | Olight Perun 2 Mini: 55-80 EUR
+- Exped Versa 5R: 90-135 EUR | Snugpack Ionosphere: 100-200 EUR
+- EcoFlow River 2 Max (512Wh): 300-400 EUR | Powerbank 20k mAh: 30-60 EUR
+- Carinthia Defence 4: 180-250 EUR | DD Tarp 3x3: ca. 70 EUR
 
-## Offen / Nächste Schritte
-1. PTSD & Trauma-Nachsorge (bewusst zurückgestellt)
-2. Linkrot-Checker lokal ausführen: `python3 linkrot_check.py index.html`
-3. Druck-Test: Als PDF aus Chrome drucken und durchblättern
+## Bekannte Bug-Geschichte
+- V32.7: kpgShowResult einfache Quotes in HTML-Strings
+- V32.8-V32.9: Hoisting-Fehler, progress-wrap vor html-Tag
+- V33.3-V33.8: Mehrere orphaned JS-Blöcke
+- V33.8 KRITISCH: Haupt-JS-Block beim Umordnen verloren -- aus V30.4 wiederhergestellt
+- V33.9: Feuerdreieck SVG, Meta-Tag >>, l3-werkzeug-anchor
+- Root Cause Nav-Sprung: HTML-Reihenfolge != Sidebar-Reihenfolge
 
-## Netzwerk-Hinweis für Container
-Externe Domains sind im Claude-Container gesperrt (außer api.anthropic.com, github.com, pypi.org etc.).
-linkrot_check.py muss lokal ausgeführt werden, nicht im Container.
+## Offene Punkte
+1. Linkrot-Check lokal: `python3 linkrot_check.py index.html`
+2. Druck-Test: PDF aus Chrome
+3. Preise: Naechste Pruefung Nov 2026
+
+## Netzwerk
+Container: nur api.anthropic.com, github.com, pypi.org etc. erlaubt.
+Externe Seiten und linkrot_check.py nur lokal.
