@@ -252,7 +252,7 @@ body {
   background: rgba(200,146,10,0.05);
 }
 @media (max-width: 1024px) {
-  .nav-link { padding: 9px 16px 9px 20px; font-size: 13px; }
+  .nav-link { padding: 9px 16px 9px 20px; font-size: 15px; }
 }
 
 /* ── NAV SEARCH ── */
@@ -780,10 +780,10 @@ tbody td {
   vertical-align: top;
   line-height: 1.6;
   font-family: var(--sans);
-  font-size: 13px;
+  font-size: 15px;
 }
 
-tbody td:first-child { color: var(--text); font-family: var(--mono); font-size: 13px; }
+tbody td:first-child { color: var(--text); font-family: var(--mono); font-size: 15px; }
 body.light-mode tbody td:first-child { color: var(--text2); }
 
 /* priority stars */
@@ -1022,8 +1022,8 @@ body.fz-xlarge #sidebar { zoom: 1.25; }
   body.fz-xlarge #main th { font-size: 14px; }
   body.fz-large #main h1, body.fz-large #main h2, body.fz-large #main h3 { font-size: 1.1em; }
   body.fz-xlarge #main h1, body.fz-xlarge #main h2, body.fz-xlarge #main h3 { font-size: 1.2em; }
-  body.fz-large #sidebar .nav-link { font-size: 14px; }
-  body.fz-xlarge #sidebar .nav-link { font-size: 15px; }
+  body.fz-large #sidebar .nav-link { font-size: 16px; }
+  body.fz-xlarge #sidebar .nav-link { font-size: 17px; }
   body.fz-large #sidebar #nav-search { font-size: 14px; }
   body.fz-xlarge #sidebar #nav-search { font-size: 15px; }
   body.fz-large #sidebar .search-result-snippet { font-size: 13px; }
@@ -2138,8 +2138,6 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   
   
   
-  <a class="nav-link" data-id="checklist" style="color:var(--amber3);font-weight:700;" onclick="navTo(&#39;checklist&#39;,this);return false;" href="#checklist">✓ Checklisten &amp; Stand</a>
-  <a class="nav-link top-level-link" data-id="krisenkalender" style="color:var(--amber3);font-weight:600;" href="#krisenkalender" onclick="navTo(&#39;krisenkalender&#39;,this);return false;">📅 Krisenkalender</a>
   <button id="pwa-install-btn" onclick="installPWA()" style="display:none;margin:6px 12px 2px;background:#6a4800;border:1px solid #8a6010;color:#f0e0b0;font-family:var(--mono);font-size:11px;font-weight:700;cursor:pointer;padding:8px 12px;border-radius:3px;letter-spacing:0.5px;align-items:center;gap:6px;width:calc(100% - 24px);">📲 App installieren</button>
   <!-- Favoriten -->
   <div id="favorites-group">
@@ -2193,9 +2191,9 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <a class="nav-link" data-id="soziales-netzwerk" href="#soziales-netzwerk" onclick="navTo(&#39;soziales-netzwerk&#39;,this);return false;">Soziales Netzwerk &amp; Nachbarschaft</a>
     </div>
   </div>
-  <div class="nav-group open" id="ng-l3">
-    <div class="nav-group-header" style="color:#3a7fd4;" onclick="toggleGroup(&#39;ng-l3&#39;)">
-      L3 // Vertieft <span class="nav-arrow">▶</span>
+  <div class="nav-group open" id="ng-l3a">
+    <div class="nav-group-header" style="color:#3a7fd4;" onclick="toggleGroup(&#39;ng-l3a&#39;)">
+      L3 // Wohnen &amp; Sicherheit <span class="nav-arrow">▶</span>
     </div>
     <div class="nav-group-body">
       <a class="nav-link" data-id="werkzeug-zuhause" href="#werkzeug-zuhause" onclick="navTo(&#39;werkzeug-zuhause&#39;,this);return false;">Werkzeug-Grundausstattung</a>
@@ -2209,6 +2207,13 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <a class="nav-link" data-id="sicherheit-lager" href="#sicherheit-lager" onclick="navTo(&#39;sicherheit-lager&#39;,this);return false;">Sicherheit &amp; Lager</a>
       <a class="nav-link" data-id="selbstverteidigung" href="#selbstverteidigung" onclick="navTo(&#39;selbstverteidigung&#39;,this);return false;">Selbstverteidigung</a>
       <a class="nav-link" data-id="freie-waffen" href="#freie-waffen" onclick="navTo(&#39;freie-waffen&#39;,this);return false;">Freiverkäufliche Waffen</a>
+    </div>
+  </div>
+  <div class="nav-group open" id="ng-l3b">
+    <div class="nav-group-header" style="color:#3a7fd4;" onclick="toggleGroup(&#39;ng-l3b&#39;)">
+      L3 // Wildnis &amp; Versorgung <span class="nav-arrow">▶</span>
+    </div>
+    <div class="nav-group-body">
       <a class="nav-link" data-id="wildnis-bushcraft" href="#wildnis-bushcraft" onclick="navTo(&#39;wildnis-bushcraft&#39;,this);return false;">Wildnis &amp; Bushcraft</a>
       <a class="nav-link" data-id="tiere-fruehwarnung" href="#tiere-fruehwarnung" onclick="navTo(&#39;tiere-fruehwarnung&#39;,this);return false;">Tiere: Frühwarnsystem &amp; Bedrohungen</a>
       <a class="nav-link" data-id="tarp-aufbau" href="#tarp-aufbau" onclick="navTo(&#39;tarp-aufbau&#39;,this);return false;">Tarp-Aufbau &amp; Konfigurationen</a>
@@ -2219,6 +2224,13 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <a class="nav-link" data-id="jagd-nahrung" href="#jagd-nahrung" onclick="navTo(&#39;jagd-nahrung&#39;,this);return false;">Jagd &amp; Nahrung</a>
       <a class="nav-link" data-id="heizung-waerme" href="#heizung-waerme" onclick="navTo(&#39;heizung-waerme&#39;,this);return false;">Heizung, Wärme &amp; Licht</a>
       <a class="nav-link" data-id="saisonale-anpassung" href="#saisonale-anpassung" onclick="navTo(&#39;saisonale-anpassung&#39;,this);return false;">Saisonale Anpassung</a>
+    </div>
+  </div>
+  <div class="nav-group open" id="ng-l3c">
+    <div class="nav-group-header" style="color:#3a7fd4;" onclick="toggleGroup(&#39;ng-l3c&#39;)">
+      L3 // Krisen &amp; Bedrohungen <span class="nav-arrow">▶</span>
+    </div>
+    <div class="nav-group-body">
       <a class="nav-link" data-id="hitzewelle" href="#hitzewelle" onclick="navTo(&#39;hitzewelle&#39;,this);return false;">Hitzewelle</a>
       <a class="nav-link" data-id="naturgefahren" href="#naturgefahren" onclick="navTo(&#39;naturgefahren&#39;,this);return false;">Naturgefahren</a>
       <a class="nav-link" data-id="krieg-unruhen" href="#krieg-unruhen" onclick="navTo(&#39;krieg-unruhen&#39;,this);return false;">Krieg &amp; Unruhen</a>
@@ -2281,6 +2293,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <a class="nav-link" data-id="shops" href="#shops" onclick="navTo(&#39;shops&#39;,this);return false;">Shops &amp; Bezugsquellen</a>
     </div>
   </div>
+  <a class="nav-link" data-id="checklist" style="color:var(--amber3);font-weight:700;" onclick="navTo(&#39;checklist&#39;,this);return false;" href="#checklist">✓ Checklisten &amp; Stand</a>
+  <a class="nav-link top-level-link" data-id="krisenkalender" style="color:var(--amber3);font-weight:600;" href="#krisenkalender" onclick="navTo(&#39;krisenkalender&#39;,this);return false;">📅 Krisenkalender</a>
 
 
   <div style="padding:8px 12px 20px;">
@@ -2372,7 +2386,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 <div id="einstieg-accordion">
 <div id="acc-wrap" style="border:1px solid var(--border);border-radius:8px;overflow:hidden;margin:0;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">⚡ Notfall-Übersicht</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -2429,7 +2443,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </div>
   </div>
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">🔍 Schnellentscheider</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -2629,11 +2643,11 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </div>
   </div>
   <div class="acc-item">
-    <button class="acc-header" data-acc="3" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="3" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">🎯 Mein Krisenplan</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
-    <div class="acc-body" id="krisenplan-generator" style="display:none;">
+    <div class="acc-body" id="krisenplan-generator">
       <p class="body-text">Beantworte 8 Fragen. Du bekommst einen personalisierten Aktionsplan mit den wichtigsten Maßnahmen für deine Situation -- in der richtigen Reihenfolge.</p>
       <div id="kpg-wrap" style="font-family:var(--mono);font-size:12px;">
         <div id="kpg-form">
@@ -2722,7 +2736,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </div>
 
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">🛒 Vorratsplaner</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -2998,7 +3012,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </div>
   </div>
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">⏱ Erste 10 Minuten</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -3036,7 +3050,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
 
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">✓ Was fehlt mir noch?</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -3088,7 +3102,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </div>
   </div>
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
+    <button type="button" class="acc-header" data-acc="1" style="border-bottom:1px solid var(--border);">
       <span class="acc-label">🗺 Szenariopfade</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -3139,7 +3153,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </div>
   </div>
   <div class="acc-item">
-    <button class="acc-header" data-acc="1" style="">
+    <button type="button" class="acc-header" data-acc="1" style="">
       <span class="acc-label">❓ Einstieg & FAQ</span>
       <span class="acc-arrow">&#9654;</span>
     </button>
@@ -3190,133 +3204,170 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
 
 <section id="inhalt" class="chapter" style="display:none;">
-  <div class="section-banner"><h2>Inhalt</h2><p>Survival &amp; Krisenvorsorge. Praxisleitfaden // @greif_xpedition</p></div>
+<div class="section-banner"><h2>Inhalt</h2><p>Survival &amp; Krisenvorsorge. Praxisleitfaden // @greif_xpedition</p></div>
 
-  <!-- INHALT GROUP: Level 1 -->
-  <div class="inhalt-group" id="ig-l1">
-    <div class="inhalt-group-header" onclick="toggleInhalt(&#39;ig-l1&#39;)">
-      <span>Level 1. L1 // Ausrüstung</span>
-      <span class="inhalt-arrow">▶</span>
-    </div>
-    <div class="inhalt-group-body">
-      <div class="bullet-list">
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#bug-out-bag"><strong>01</strong>: Bug-Out-Bag / Fluchtrucksack</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#chest-pack"><strong>02</strong>: Chest Pack</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#kleidung-ausruestung"><strong>03</strong>: Kleidung &amp; Ausrüstungsmarken</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#tools-hacks"><strong>Tools &amp; Hacks</strong>: Unter 30 EUR &middot; maximaler Nutzen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-konzept"><strong>04</strong>: Lagebeschreibung &amp; Konzept</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#essensplan"><strong>05</strong>: 28-Tage Essensplan (vollständig)</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#einkaufsliste"><strong>06</strong>: Einkaufsliste nach Kategorien</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-lagerung"><strong>07</strong>: Lagerungsanweisungen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#feldkueche"><strong>08</strong>: Kochtipps &amp; Rezeptgrundlagen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-naehrstoffe"><strong>09</strong>: Kalorien, Saatgut-Kit</a></span></div>
-      </div>
-    </div>
-  </div>
+<!-- INHALT GROUP: Level 1 -->
+<div class="inhalt-group" id="ig-l1">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-l1')">
+<span>Level 1. Ausrüstung &amp; Nahrung</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#bug-out-bag"><strong>Bug-Out-Bag</strong>: Fluchtrucksack · Packliste · Gewicht</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#chest-pack"><strong>Chest Pack</strong>: Ergänzung zum BOB · Schnellzugriff</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#kleidung-ausruestung"><strong>Kleidung &amp; Ausrüstung</strong>: Marken · Schichtprinzip · Kriterien</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#tools-hacks"><strong>Tools &amp; Hacks</strong>: Unter 30 EUR · maximaler Nutzen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#fluessigkeiten-bob"><strong>Flüssigkeiten &amp; Kompaktsysteme</strong>: Wasserfilter · Purification · BOB-Wasser</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-konzept"><strong>Nahrung: Konzept</strong>: Lagebeschreibung · Grundprinzipien</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#essensplan"><strong>28-Tage Essensplan</strong>: Vollständig · Kalorien · Abwechslung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#einkaufsliste"><strong>Einkaufsliste</strong>: Nach Kategorien · Mengen · Preise</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-lagerung"><strong>Lagerung &amp; Haltbarkeit</strong>: Lagerungsanweisungen · Rotation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#feldkueche"><strong>Kochen &amp; Feldküche</strong>: Kochtipps · Rezeptgrundlagen · Ausrüstung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#nahrung-naehrstoffe"><strong>Kalorien &amp; Nährstoffe</strong>: Bedarf · Saatgut-Kit · Mangel</a></span></div>
+</div>
+</div>
+</div>
 
-  <!-- INHALT GROUP: Level 2 -->
-  <div class="inhalt-group" id="ig-l2">
-    <div class="inhalt-group-header" onclick="toggleInhalt(&#39;ig-l2&#39;)" style="color:#c0402a;">
-      <span>Level 2. Erweiterte Vorbereitung</span>
-      <span class="inhalt-arrow">▶</span>
-    </div>
-    <div class="inhalt-group-body">
-      <div class="bullet-list">
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medizin-erstehilfe"><strong>L2.01</strong>: Medizin &amp; Gesundheit (EH-Packliste)</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medizin-erstehilfe" onclick="navTo(&#39;l2-koerper&#39;,null);return false;"><strong>L2.01b</strong>: Körper &amp; Langzeitgesundheit</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medizin-erstehilfe"><strong>L2.02</strong>: Verletzungen &amp; Notfallversorgung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#kommunikation-krise"><strong>L2.03</strong>: Kommunikation &amp; Information</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#navigation-krise"><strong>L2.04</strong>: Navigation ohne Smartphone</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#hygiene-sanitaer"><strong>L2.05</strong>: Hygiene, Sanitär &amp; Kleidungspflege</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#finanzen-dokumente"><strong>L2.06</strong>: Finanzen &amp; Dokumente</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#energie-strom"><strong>L2.07</strong>: Energie &amp; Strom</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#soziales-netzwerk"><strong>L2.08</strong>: Soziales Netzwerk &amp; Gemeinschaft</a></span></div>
-      </div>
-    </div>
-  </div>
+<!-- INHALT GROUP: Level 2 -->
+<div class="inhalt-group" id="ig-l2">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-l2')" style="color:#c0402a;">
+<span>Level 2. Erweiterte Vorbereitung</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medizin-erstehilfe"><strong>Medizin &amp; Erste Hilfe</strong>: EH-Packliste · Wunden · Schock</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medikamente-vorrat"><strong>Medikamente &amp; Chronisch</strong>: Vorrat · Substitution · Lagerung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#medizin-ohne-arzt"><strong>Medizin ohne Arzt</strong>: Notfallversorgung · Diagnose · Behandlung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#hygiene-sanitaer"><strong>Hygiene &amp; Sanitär</strong>: Wasser · Wäsche · Desinfektion</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#haushalts-ressourcen"><strong>Haushaltschemie als Ressource</strong>: Reinigung · Desinfektion · Improvisation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#kommunikation-krise"><strong>Kommunikation</strong>: Funk · Satellit · Signale · Netze</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#navigation-krise"><strong>Navigation</strong>: Karte · Kompass · Sterne · Apps offline</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#energie-strom"><strong>Energie &amp; Strom</strong>: Solar · Powerstation · Generator · Blackout</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#technik-field"><strong>Technik im Feld</strong>: Geräte · Reparatur · Improvisation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#finanzen-dokumente"><strong>Finanzen &amp; Dokumente</strong>: Bargeld · Kopien · Tresor · Gold</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#finanzkrise"><strong>Finanzkrise &amp; Inflation</strong>: Inflationsschutz · Diversifikation · Bargeld</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#digitale-vorbereitung"><strong>Digitale Vorbereitung</strong>: Offline-Backup · Identität · Verschlüsselung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#soziales-netzwerk"><strong>Soziales Netzwerk</strong>: Nachbarschaft · Grauer Mann · Gruppen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#c0402a;">▸</span><span><a href="#werkzeug-zuhause"><strong>Werkzeug-Grundausstattung</strong>: Must-Have · Pflege · Lagerung</a></span></div>
+</div>
+</div>
+</div>
 
-  <!-- INHALT GROUP: Level 3 -->
-  <div class="inhalt-group" id="ig-l3">
-    <div class="inhalt-group-header" onclick="toggleInhalt(&#39;ig-l3&#39;)" style="color:#3a7fd4;">
-      <span>Level 3. Vertieft</span>
-      <span class="inhalt-arrow">▶</span>
-    </div>
-    <div class="inhalt-group-body">
-      <div class="bullet-list">
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#fahrzeug-krise"><strong>L3.01</strong>: Fahrzeug-Vorbereitung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wasservorrat"><strong>L3.02</strong>: Wasservorrat zuhause</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#recht-krisenfall"><strong>L3.03</strong>: Rechtliches</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">&#9658;</span><span><a href="#krieg-unruhen"><strong>L3</strong>: Krieg &amp; Unruhen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">&#9658;</span><span><a href="#familiennotfallplan"><strong>L3.16</strong>: Familiennotfallplan &amp; Ausreise</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#c8920a;">▸</span><span><a href="#bug-out-bag" onclick="navTo('bug-out-bag',null);return false;"><strong>Einstieg &amp; FAQ</strong>: Quickstart · Häufige Fragen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#medizin-erstehilfe"><strong>⚡</strong>: Notfall-Triage: Was tun?</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#digitale-vorbereitung"><strong>L2</strong>: Digitale Vorbereitung &amp; Identität</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#medizin-ohne-arzt"><strong>L3</strong>: Medizin ohne Arzt</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#drohnen-schutz"><strong>L3.17</strong>: Drohnen &amp; Gegenmaßnahmen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#blackout-stufenplan"><strong>L3.18</strong>: Blackout-Stufenplan</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#pandemie-biobedrohung"><strong>L3.19</strong>: Pandemie &amp; biologische Bedrohung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#familiennotfallplan"><strong>L3.20</strong>: Haustiere im Krisenfall</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#shelter-evakuierung"><strong>L3.04</strong>: Bleiben oder Gehen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#saisonale-anpassung"><strong>L3.05</strong>: Saisonale Anpassung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#sicherheit-lager"><strong>L3.06</strong>: Sicherheit &amp; Lager</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#shelter-evakuierung"><strong>L3.07</strong>: Fluchtrouten</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#langzeitlager"><strong>L3.08</strong>: Lagerstandort &amp; Shelterbau</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wildnis-bushcraft"><strong>L3.09</strong>: Wildpflanzen &amp; Pilze</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#jagd-nahrung"><strong>L3.10</strong>: Tiere &amp; Jagd</a></span></div>
-    <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#feuer-bedingungen" onclick="navTo(&#39;l3-feuer&#39;,null);return false;"><strong>L3</strong>: Feuer machen</a></span></div>
-    <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wildnis-bushcraft" onclick="navTo(&#39;l3-knoten&#39;,null);return false;"><strong>L3</strong>: Seile &amp; Knoten</a></span></div>
-    <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#werkzeug-zuhause" onclick="navTo(&#39;l3-werkzeug&#39;,null);return false;"><strong>L3</strong>: Werkzeug pflegen</a></span></div>
-    <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wasservorrat" onclick="navTo(&#39;l3-wasserfinden&#39;,null);return false;"><strong>L3</strong>: Wasser finden</a></span></div>
-    <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#navigation-krise" onclick="navTo(&#39;l3-sternnavigation&#39;,null);return false;"><strong>L3</strong>: Navigation ohne Kompass</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#anbau-konservierung"><strong>L3.11</strong>: Saatgut &amp; Anbau</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#nahrung-lagerung"><strong>L3.12</strong>: Vorräte haltbar machen</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#bartering"><strong>L3.13</strong>: Tauschhandel &amp; Krisenökonomie</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#heizung-waerme"><strong>L3.14</strong>: Heizung &amp; Wärme</a></span></div>
-      </div>
-    </div>
-  </div>
+<!-- INHALT GROUP: Level 3 -->
+<div class="inhalt-group" id="ig-l3">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-l3')" style="color:#3a7fd4;">
+<span>Level 3. Vertieft &amp; Langzeit</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wasservorrat"><strong>Wasservorrat</strong>: Speicherung · Filterung · Beschaffung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#fahrzeug-krise"><strong>Fahrzeug</strong>: Ausrüstung · Wartung · Evakuierungsvorbereitung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#mobilitaet-krise"><strong>Mobile Krisenvorsorge</strong>: Fahrzeugwahl · Quad · Zweiräder · Wasserweg</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#shelter-evakuierung"><strong>Shelter &amp; Evakuierung</strong>: Bleiben oder Gehen · Fluchtrouten · Notunterkünfte</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#urban-wohnen"><strong>Urban: Wohnen im Krisenfall</strong>: Stadtleben · Besonderheiten · Chancen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#urban-mietwohnung"><strong>Urban: Mietwohnung konkret</strong>: Lagerung · Wasser · Strom · Sicherheit</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wohnung-absichern"><strong>Wohnung &amp; Haus absichern</strong>: Türen · Fenster · Zugangskontrolle</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#sicherheit-lager"><strong>Sicherheit &amp; Lager</strong>: Perimeterschutz · Wachen · Lagerorganisation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#selbstverteidigung"><strong>Selbstverteidigung</strong>: Deeskalation · Körperschutz · Gruppenkonzept</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#freie-waffen"><strong>Freie Waffen DACH</strong>: Was legal ist · Einsatz · Grenzen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#wildnis-bushcraft"><strong>Wildnis &amp; Bushcraft</strong>: Wildpflanzen · Pilze · Knoten · Navigation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#tiere-fruehwarnung"><strong>Tiere als Frühwarnsystem</strong>: Verhaltensänderungen · Nutztierhaltung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#tarp-aufbau"><strong>Tarp-Aufbau</strong>: 6 Konfigurationen · Material · Befestigung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#feuer-bedingungen"><strong>Feuer unter schwierigen Bedingungen</strong>: Nass · Wind · Kälte · Methoden</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#signalisierung"><strong>Signalisierung &amp; Gefunden werden</strong>: Spiegel · Rauch · Muster · Prioritäten</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#anbau-konservierung"><strong>Anbau &amp; Konservierung</strong>: Saatgut · Garten · Einmachen · Fermentieren</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#langzeitlager"><strong>Basislager &amp; Langzeitunterschlupf</strong>: Standort · Aufbau · Sicherheit</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#jagd-nahrung"><strong>Jagd &amp; Nahrungsbeschaffung</strong>: Fallen · Fischen · Wild · Recht</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#heizung-waerme"><strong>Heizung, Wärme &amp; Licht</strong>: Kaminofen · Gas · Improvisation · Kerzen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#saisonale-anpassung"><strong>Saisonale Anpassung</strong>: Sommer · Winter · Ausrüstung · Planung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#hitzewelle"><strong>Hitzewelle</strong>: Schutz · Kühlung · Risikogruppen · Wasser</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#naturgefahren"><strong>Naturgefahren</strong>: Hochwasser · Sturm · Erdbeben · Lawine</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#krieg-unruhen"><strong>Krieg &amp; Unruhen</strong>: Verhaltensregeln · Schutzräume · Evakuierung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#abc-schutz"><strong>ABC-Schutz</strong>: Atomare · Biologische · Chemische Bedrohungen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#cyberangriff"><strong>Cyberangriff auf Infrastruktur</strong>: Kritische Infrastruktur · Vorbereitung</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#blackout-stufenplan"><strong>Blackout-Stufenplan</strong>: Stunde 1 bis Woche 4</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#blackout-matrix"><strong>Blackout: Lebensmittel &amp; Kühlung</strong>: Was wann verbrauchen · Kühlkette</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#pandemie-biobedrohung"><strong>Pandemie &amp; Bio-Bedrohung</strong>: Schutz · Vorrat · Isolation · Kommunikation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#epidemiologie-krise"><strong>Epidemiologie &amp; Seuchenschutz</strong>: Übertragung · R-Wert · Prävention</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#recht-krisenfall"><strong>Recht &amp; Gesetze</strong>: Notstandsrecht · Eigentum · Beschlagnahme · Pflichten</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#drohnen-schutz"><strong>Drohnen &amp; Gegenmaßnahmen</strong>: Erkennung · Abwehr · Recht</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#familiennotfallplan"><strong>Familiennotfallplan</strong>: Treffpunkte · Kommunikation · Senioren · Haustiere</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#3a7fd4;">▸</span><span><a href="#alleinstehende-krise"><strong>Alleinstehende in der Krise</strong>: Schwachstellen · Netzwerk · Stärken</a></span></div>
+</div>
+</div>
+</div>
 
-  <!-- INHALT GROUP: Zusatz -->
-  <div class="inhalt-group" id="ig-alltag">
-    <div class="inhalt-group-header" onclick="toggleInhalt(&#39;ig-alltag&#39;)" style="color:#888;">
-      <span>Alltag in der Krise</span>
-      <span class="inhalt-arrow">▶</span>
-    </div>
-    <div class="inhalt-group-body">
-      <div class="bullet-list">
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#sanitaer-notfall"><strong>Sanitär im Notfall</strong>: Toilette ohne Wasser · Hygiene-Vorrat</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#hygiene-sanitaer"><strong>Wäschewaschen</strong>: Handwäsche · Strategie</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#kinder-krise"><strong>Kinder in der Krise</strong>: Kommunikation · Routine</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#familiennotfallplan"><strong>Senioren &amp; Pflege</strong>: Medikamente · Mobilität</a></span></div>
-      </div>
-    </div>
-  </div>
-  <div class="inhalt-group" id="ig-zusatz">
-    <div class="inhalt-group-header" onclick="toggleInhalt(&#39;ig-zusatz&#39;)" style="color:#888;">
-      <span>Zusatz &amp; Weiteres</span>
-      <span class="inhalt-arrow">▶</span>
-    </div>
-    <div class="inhalt-group-body">
-      <div class="bullet-list">
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#checklist"><strong>Checklisten</strong>: Level 1 / 2 / 3</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#mental-staerke"><strong>Mentale Stärke</strong>: Resilienz · Techniken · Gruppenführung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#mental-staerke"><strong>Psych. Erste Hilfe</strong>: Panik · Schockstarre · andere stabilisieren</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#offline-bibliothek"><strong>Offline-Bibliothek</strong>: Wissensvorsorge · Wissens-USB</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#soziales-netzwerk"><strong>Nachbarschaft aktivieren</strong>: Grauer Mann · soziale Intelligenz</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#mietrecht-krise"><strong>Mietrecht &amp; Rechte</strong>: Was Mieter dürfen · Notstandsrecht</a></span></div>
-                <div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#selbstverteidigung"><strong>SV.01</strong>: Selbstverteidigung</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:var(--amber)">▸</span><span><a href="#tools-hacks"><strong>Praxis</strong>: Aus der Praxis @greif_xpedition (28 Erfahrungswerte)</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:var(--amber)">▸</span><span><a href="#szenarien"><strong>Szenarien</strong>: Entscheidungsbäume: Blackout, Evakuierung, Notfall, CBRN</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:var(--amber)">▸</span><span><a href="#krisenkalender"><strong>Monatsplan</strong>: Saisonaler Aktionsplan Januar–Dezember</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow" style="color:#e8a020;">▸</span><span><a href="#szenarien"><strong>HW.01</strong>: Krisenphasen (mit Quellen)</a></span></div>
-        <div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#quellen"><strong>Quellen &amp; Bücher</strong></a></span></div>
-      </div>
-    </div>
-  </div>
+<!-- INHALT GROUP: Alltag -->
+<div class="inhalt-group" id="ig-alltag">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-alltag')" style="color:#888;">
+<span>Alltag in der Krise</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#sanitaer-notfall"><strong>Sanitär im Notfall</strong>: Toilette ohne Wasser · Hygiene-Vorrat</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#brand-notfall"><strong>Brand &amp; Feuernotfall</strong>: Sofortmaßnahmen · Evakuierung · Löschen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#gasaustritt"><strong>Gasaustritt</strong>: Sofortmaßnahmen · Verhalten · Sicherheit</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#krisenkueche"><strong>Krisenküche</strong>: Kochen ohne Strom · Lagerküche · Rezepte</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#ausruestungspflege"><strong>Ausrüstung in Schuss halten</strong>: Pflege · Wartung · Reparatur</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#bartering"><strong>Tauschwirtschaft</strong>: Tauschgüter · Strategie · Netzwerk</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#kinder-krise"><strong>Kinder in der Krise</strong>: Kommunikation · Routine · Alter</a></span></div>
+</div>
+</div>
+</div>
+
+<!-- INHALT GROUP: Wissen -->
+<div class="inhalt-group" id="ig-wissen">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-wissen')" style="color:#888;">
+<span>Wissen &amp; Hintergrund</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#mental-staerke"><strong>Mentale Stärke</strong>: Resilienz · PTSD · Gruppenführung · Krisenpsychologie</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#koerperliche-fitness"><strong>Körperliche Fitness</strong>: Tragefähigkeit · Ausdauer · Training</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#schlaf-krise"><strong>Schlaf als Überlebensfaktor</strong>: Qualität · Schichten · Improvisation</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#offline-bibliothek"><strong>Offline-Bibliothek</strong>: Wissensvorsorge · USB · Empfehlungen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#reparieren-krise"><strong>Reparieren statt ersetzen</strong>: Werkzeug · Techniken · Prioritäten</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#mietrecht-krise"><strong>Mietrecht &amp; Rechte</strong>: Was Mieter dürfen · Notstandsrecht</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#warnmeldungen"><strong>Warnmeldungen verstehen</strong>: NINA · Katwarn · Sirenensignale</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#desinformation-krise"><strong>Desinformation in der Krise</strong>: Erkennung · Quellen · Verhalten</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#gefahrenerkennung"><strong>Gefahrenerkennung</strong>: Umgebung lesen · Frühwarnzeichen · Situational Awareness</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#infrastruktur-karte"><strong>Infrastruktur-Abhängigkeitskarte</strong>: Strom/Wasser/Gas-Kaskaden</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#staat-planung"><strong>Staatliche Krisenplanung</strong>: BBK · Katastrophenschutz · Sirenen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#dach-besonderheiten"><strong>DACH-Besonderheiten</strong>: Deutschland · Österreich · Schweiz</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#ernaehrungs-biochemie"><strong>Ernährungsbiochemie im Mangel</strong>: Mikronährstoffe · Mangelerscheinungen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#typische-fehler"><strong>Typische Fehler</strong>: Was schiefläuft · Gegenmassnahmen</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#budget-krisenvorsorge"><strong>Krisenvorsorge mit knappem Budget</strong>: Prioritäten · Einstieg · Tipps</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:#888;">▸</span><span><a href="#szenarien"><strong>Szenarien</strong>: Entscheidungsbäume: Blackout · Evakuierung · Notfall · CBRN</a></span></div>
+</div>
+</div>
+</div>
+
+<!-- INHALT GROUP: Anhang -->
+<div class="inhalt-group" id="ig-anhang">
+<div class="inhalt-group-header" onclick="toggleInhalt('ig-anhang')" style="color:#888;">
+<span>Anhang &amp; Tools</span>
+<span class="inhalt-arrow">▶</span>
+</div>
+<div class="inhalt-group-body">
+<div class="bullet-list">
+<div class="bullet-item"><span class="bullet-arrow" style="color:var(--amber);">▸</span><span><a href="#checklist"><strong>Checklisten &amp; Bereitschaftsstatus</strong>: Alle 12 Listen · Fortschritt · Export</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow" style="color:var(--amber);">▸</span><span><a href="#krisenkalender"><strong>Krisenkalender</strong>: Monatsplan Januar–Dezember</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#quellen"><strong>Quellen &amp; Bücher</strong>: 30 kuratierte Quellen mit Kommentar</a></span></div>
+<div class="bullet-item"><span class="bullet-arrow">▸</span><span><a href="#shops"><strong>Shops &amp; Bezugsquellen</strong>: Geprüfte Händler · Deutschland · Europa</a></span></div>
+</div>
+</div>
+</div>
+
 </section>
 
+
 <section id="bug-out-bag" class="chapter" data-tags="ausruestung evakuierung">
-  <div class="section-banner"><h2>L1 // Bug-Out-Bag</h2><p>Fluchtrucksack: 72h bis 2 Wochen / 1 Person</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~11 Min</span></div>
+  <div class="section-banner"><h2>L1 // Bug-Out-Bag</h2><p>Fluchtrucksack: 72h bis 2 Wochen / 1 Person</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~1 Min</span></div>
   <div class="chapter-nav-box">
     <span class="chapter-nav-label">ABSCHNITTE:</span>
     <a href="#bug-out-bag" class="chapter-nav-link" onclick="event.preventDefault();document.getElementById('bob-grundprinzip').scrollIntoView({behavior:'smooth',block:'start'})">Grundprinzip</a>
@@ -3497,6 +3548,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="tip-box">FAUSTREGEL: Alles was im Notfall dein Leben sichert → Marke. Alles was nur Komfort oder Organisation betrifft → gerne günstig.</div>
   <div class="warning-box">VERFÜGBARKEIT &amp; TIMING: Bei steigender Nachfrage, etwa bei geopolitischen Krisen, sind Wasserfilter, Schlafsäcke und Notfallausrüstung oft als Erstes ausverkauft oder massiv verteuert. Dieses Setup hat mehrere Jahre Aufbau und Testing erfordert. Beginne früh, schrittweise und ohne Panik, wer wartet bis es brennt, findet leere Regale.</div>
   <div class="inline-cl-wrap"><div id="icl-bob"></div></div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#kleidung-ausruestung" onclick="navTo('kleidung-ausruestung',null);return false;" style="color:var(--amber);">Kleidung & Ausrüstung: Schichtprinzip & Marken</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#fluessigkeiten-bob" onclick="navTo('fluessigkeiten-bob',null);return false;" style="color:var(--amber);">Flüssigkeiten & BOB: Wasserfilter & Kompaktsysteme</a></p>
 </section>
 
 <section id="chest-pack" class="chapter" data-tags="ausruestung evakuierung">
@@ -3655,7 +3708,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <tbody>
       <tr><td>Knotenübersicht</td><td>8–12 wichtigste Knoten mit Schritt-für-Schritt-Zeichnungen, beidseitig bedruckt</td><td>"knot card waterproof" / "Knotenkarte Paracord"</td><td>2–4 €</td></tr>
       <tr><td>Essbare Wildpflanzen</td><td>20–30 essbare Pflanzen Mitteleuropa mit Erkennungsmerkmalen und Saison, oft als 3er-Set</td><td>"edible plants card" / "Wildpflanzen Karte"</td><td>3–6 €</td></tr>
-      <tr><td>Erste-Hilfe-Karte</td><td>Reanimation, Schockbehandlung, Tourniquet, HLW-Schema, laminiert</td><td>"first aid reference card" / "Erste Hilfe Karte"</td><td>2–4 €</td></tr>
+      <tr><td>Erste-Hilfe-Karte</td><td>Reanimation, Schockbehandlung, Tourniquet, HLW-Schema, laminiert</td><td>"first aid reference card" / "Erste-Hilfe-Karte"</td><td>2–4 €</td></tr>
       <tr><td>Navigation / Kompass</td><td>Kompassrose, Koordinatensysteme, Sterne zur Navigation, Geländezeichen</td><td>"navigation survival card" / "Orientierung Karte"</td><td>2–3 €</td></tr>
       <tr><td>Signalgebung</td><td>Morsezeichen, internationale Signale, Notsignale Boden/Luft</td><td>"morse code card" / "survival signal card"</td><td>1–3 €</td></tr>
       <tr><td>Angelknoten-Set</td><td>Spezifisch für Angelknoten. Uni Knot, Palomar, Blutknoten etc.</td><td>"fishing knot card" / "Angelknoten Karte"</td><td>2–4 €</td></tr>
@@ -3830,6 +3883,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="tip-box">MERKSATZ: Das beste Werkzeug ist das zwischen den Ohren. Wer versteht warum etwas funktioniert, kann es mit dem improvisieren was gerade da ist. Wer nur auswendig lernt, scheitert wenn die Bedingungen anders sind als erwartet. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#bug-out-bag" onclick="navTo('bug-out-bag',null);return false;" style="color:var(--amber);">Bug-Out-Bag: Die komplette Packliste</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#ausruestungspflege" onclick="navTo('ausruestungspflege',null);return false;" style="color:var(--amber);">Ausrüstung in Schuss halten: Pflege & Wartung</a></p>
 </section>
 
 <section id="fluessigkeiten-bob" class="chapter" data-tags="ausruestung wasser">
@@ -4440,6 +4495,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <p class="body-text">Ein einfaches Multivitamin-Präparat (z.B. Centrum oder dm-Eigenmarke) deckt die meisten kritischen Mikronährstoffe ab. Vorrat: 1 Tablette täglich = 365 Tabletten pro Person pro Jahr. Haltbarkeit: 2–3 Jahre. Kosten: ca. 15–25 EUR für ein Jahr. Preis-Nutzen kaum zu schlagen als Krisenvorsorge-Ergänzung.</p>
   <div class="tip-box">KINDER-SONDERFALL: Kinder haben andere Nährstoffbedürfnisse. Kindertabletten separat lagern. Stillen so lange wie möglich aufrechterhalten bei Säuglingen. Fertignahrung für Kleinkinder bevorraten wenn relevant.</div>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#ernaehrungs-biochemie" onclick="navTo('ernaehrungs-biochemie',null);return false;" style="color:var(--amber);">Ernährungsbiochemie im Mangel: Mikronährstoffe & Defizite</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#nahrung-konzept" onclick="navTo('nahrung-konzept',null);return false;" style="color:var(--amber);">Nahrung: Konzept & Einführung</a></p>
 </section>
 
 <section id="medizin-erstehilfe" class="chapter" data-tags="medizin">
@@ -4760,10 +4817,12 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Prävention:</strong> Nasse Kleidung ist die häufigste Ursache. Baumwolle tötet im Winter (speichert Feuchtigkeit). Merino-Wolle oder Synthetics als Basis. Mehrlagenprinzip. Hände, Zehen, Nase, Ohren zuerst betroffen.</span></div>
   </div>
   <div class="warn-box">PERSON GILT ERST ALS TOT WENN SIE WARM UND TOT IST: Bei tiefer Hypothermie nie die Reanimation aufgeben solange die Person nicht aufgewärmt wurde. Menschen mit Kerntemperatur unter 20°C wurden vollständig wiederhergestellt. Das ist kein Mythos.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#medikamente-vorrat" onclick="navTo('medikamente-vorrat',null);return false;" style="color:var(--amber);">Medikamente & Chronisch: Vorrat aufbauen</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#hygiene-sanitaer" onclick="navTo('hygiene-sanitaer',null);return false;" style="color:var(--amber);">Hygiene & Sanitär: Infektionsschutz</a></p>
 </section>
 
 <section id="medikamente-vorrat" class="chapter" data-tags="medizin gesundheit">
-<div class="section-banner" style="border-left-color:#c0402a;"><h2>L2 // Medikamente &amp; chronische Erkrankungen</h2><p>Vorrat aufbauen. Haltbarkeit kennen. Alternativen kennen.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~6 Min</span></div>
+<div class="section-banner" style="border-left-color:#c0402a;"><h2>L2 // Medikamente &amp; chronische Erkrankungen</h2><p>Vorrat aufbauen. Haltbarkeit kennen. Alternativen kennen.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~4 Min</span></div>
 <p class="body-text">Wer täglich auf Medikamente angewiesen ist, hat ein Problem das fast kein Krisenhandbuch behandelt. Insulin, Blutdrucktabletten, Schilddrüsenhormone, Antidepressiva, Antikoagulantien -- diese Medikamente können nicht einfach durch Vorräte aus dem Supermarkt ersetzt werden. Ein Vorrat muss legal, systematisch und rechtzeitig aufgebaut werden.</p>
 <h3>Vorrat aufbauen. Legal und systematisch.</h3>
 <div class="subsection">Wie man einen Medikamentenvorrat anlegt ohne das Gesetz zu brechen</div>
@@ -5684,6 +5743,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Beste Kombination für DACH:</strong> Solar (Basis) + Windrad (wo sinnvoll) + LiFePO4-Speicher + Generator als Backup. Solar liefert im Sommer, Wind im Winter wenn Solar schwächelt.</span></div>
   </div>
   <div class="info-box">WINDMESSUNG ZUERST: Vor dem Kauf eines Kleinwindrades mindestens 6-12 Monate die Windgeschwindigkeit messen (günstiger Anemometer, 30-80 EUR). Windkarte des DWD als erste Einschätzung. Ohne Messung: kein Kauf.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#blackout-stufenplan" onclick="navTo('blackout-stufenplan',null);return false;" style="color:var(--amber);">Blackout-Stufenplan: Stunde 1 bis Woche 4</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#wasservorrat" onclick="navTo('wasservorrat',null);return false;" style="color:var(--amber);">Wasservorrat: Was ohne Strom noch funktioniert</a></p>
 </section>
 
 <section id="technik-field" class="chapter" data-tags="ausruestung">
@@ -6136,10 +6197,40 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </table></div>
   <div class="info-box">FAUSTREGEL ENKELTRICK: Familieninternes Sicherheitswort vereinbaren. Wer den Notfall vorgibt aber das Wort nicht kennt, ist Betrüger. Auch bei Stimmen die per KI nachgemacht werden funktioniert das.</div>
 
+  <div class="subsection">Anonymität im öffentlichen Raum. Gesichtserkennung und automatische Kontrollen.<span class="community-badge">Community-Tipp</span></div>
+  <p class="body-text">Wer sich im Krisenfall bewegt -- Evakuierung, Unruhen, Grenzübertritt -- ist sichtbarer als er denkt. Nicht nur durch Personalkontrollen, sondern durch automatisierte Systeme die still im Hintergrund laufen. Das ist kein Grund zur Paranoia, aber ein Grund zur Vorbereitung.</p>
+
+  <div class="table-wrap"><table>
+    <thead><tr><th style="width:200px">Technologie</th><th>Stand DACH 2026</th><th>Krisenrelevanz</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Echtzeit-Gesichtserkennung</strong></td><td>Deutschland: Pilotbetrieb Frankfurt seit Juli 2025, richterlicher Beschluss erforderlich. Oesterreich: punktuell an Bahnhöfen. Schweiz: Fedpol plant Einfuehrung 2026.</td><td>Heute noch selten und aufwendig. Trend: Ausweitung geplant. Grenzuebergaenge und grosse Bahnhoefe sind Schwerpunkte.</td></tr>
+      <tr><td><strong>Nachtraegliche Gesichtserkennung</strong></td><td>BKA-System GES: 313.500 Suchen 2025 -- mehr als doppelt so viele wie 2024. Fehlerrate unter 1%. Kameraaufnahmen koennen rueckwirkend ausgewertet werden.</td><td>Relevant wenn man spaeter identifiziert werden soll. Bewegungsprofile aus Kameramaterial sind rechtlich zulaessig.</td></tr>
+      <tr><td><strong>Automatischer Kennzeichenabgleich</strong></td><td>Bundesweit aktiv auf Autobahnen (Abschnittskontrolle). Alle Kennzeichen werden erfasst und mit Fahndungslisten abgeglichen.</td><td>Fahrzeugbewegungen sind lueckenlos dokumentierbar. Mietwagen oder Fahrrad umgehen das.</td></tr>
+      <tr><td><strong>Handy-Ortung</strong></td><td>Mobilfunkmasten-Ortung ohne Richtererlaubnis in Notlagen moeglich. Bewegungsprofile aus Handydaten sind beweissicher.</td><td>Das Handy ist das groessere Tracking-Problem als das Gesicht. Flugmodus oder SIM-los reduziert das stark.</td></tr>
+      <tr><td><strong>Biometrischer Internetabgleich</strong></td><td>Neue Gesetzentwuerfe (April 2026): BKA soll Gesichter aus oeffentlichen Internetquellen automatisch mit Polizeidaten abgleichen duerfen.</td><td>Wer viele Bilder oeffentlich gepostet hat, ist leichter identifizierbar. Social-Media-Profile koennen Ausgangspunkt sein.</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="subsection">Was im Krisenfall praktisch hilft</div>
+  <div class="table-wrap"><table>
+    <thead><tr><th style="width:220px">Massnahme</th><th>Wirkung</th><th>Aufwand</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Kappe oder Kapuze</strong></td><td>Reduziert Erkennungsrate bei Deckenkameras deutlich -- der Winkel ist entscheidend, nicht das Gesicht frontal. Kappe mit Schirm ist effektiver als Sonnenbrille.</td><td>Null -- bereits im BOB sinnvoll</td></tr>
+      <tr><td><strong>Handy in Flugmodus oder zuhause lassen</strong></td><td>Eliminiert Echtzeit-Ortung vollstaendig. Wichtiger als jede andere Massnahme. Offline-Karte (OsmAnd, OrganicMaps) vorher laden.</td><td>Gering -- Offline-Karte einmal einrichten</td></tr>
+      <tr><td><strong>Bargeld statt Karte</strong></td><td>Kartenzahlungen erzeugen lueckenloses Bewegungsprofil mit Zeitstempel und Ort. Bargeld hinterlaesst keine Spur.</td><td>Null -- Bargeld ohnehin empfohlen</td></tr>
+      <tr><td><strong>Kein eigenes Fahrzeug</strong></td><td>Kennzeichenabgleich entfaellt. OePNV-Tickets bar kaufen wenn moeglich.</td><td>Planungsaufwand je nach Route</td></tr>
+      <tr><td><strong>Routine brechen</strong></td><td>Automatische Systeme erkennen Muster. Wer immer denselben Weg geht, ist leichter profilierbar als jemand der variiert.</td><td>Gewohnheitsaenderung</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="warn-box">REALISTISCH BLEIBEN: Diese Massnahmen sind relevant wenn staatliche Kontrolle zum Problem wird -- in Krisenregionen, bei Evakuierungen oder politischen Unruhen. Im normalen DACH-Alltag ist der praktische Nutzen gering. Wer sich legal verhalt und keine Fahndung gegenueber steht, wird von diesen Systemen statistisch kaum betroffen. Die groessere Bedrohung im Alltag ist der eigene Datenfussabdruck bei Google, Meta und Co. -- nicht die Polizeikamera am Bahnhof.</div>
+
+  <div class="tip-box">WICHTIGSTE ERKENNTNIS: Das Handy ist das effektivste Tracking-Tool -- deutlich mehr als Gesichtserkennung. Wer im Ernstfall anonym bleiben will, laesst das Handy zuhause oder setzt es in den Flugmodus. Alles andere ist nachrangig. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
+
 </section>
 
 <section id="soziales-netzwerk" class="chapter" data-tags="urban familie">
-  <div class="section-banner" style="border-left-color:#c0402a;"><h2>L2 // Soziales Netzwerk &amp; Nachbarschaft</h2><p>Der unterschätzteste Faktor in der Krisenvorsorge</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
+  <div class="section-banner" style="border-left-color:#c0402a;"><h2>L2 // Soziales Netzwerk &amp; Nachbarschaft</h2><p>Der unterschätzteste Faktor in der Krisenvorsorge</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~8 Min</span></div>
   <p class="body-text">Einzelkämpfer überleben Krisen schlechter als Gruppen. Historisch und statistisch ist das eindeutig belegt. Ein funktionierendes soziales Netzwerk ist keine Option, es ist Teil der Ausrüstung.</p>
   <div class="subsection">Warum Gemeinschaft entscheidend ist</div>
   <div class="bullet-list">
@@ -6659,6 +6750,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </tbody>
   </table></div>
   <div class="warn-box">KEIN FILTER MACHT ALLES: Kein einzelner Filter entfernt alles. Chemische Kontaminanten (Pestizide, Schwermetalle, Nitrate) werden von den meisten tragbaren Filtern NICHT entfernt. In industriell belasteten Gebieten oder nach Chemieunfällen hilft nur RO oder Destillation.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#energie-strom" onclick="navTo('energie-strom',null);return false;" style="color:var(--amber);">Energie & Strom: Pumpen & Aufbereitung ohne Netz</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#anbau-konservierung" onclick="navTo('anbau-konservierung',null);return false;" style="color:var(--amber);">Anbau & Konservierung: Bewässerung & Langzeit</a></p>
 </section>
 
 <section id="fahrzeug-krise" class="chapter" data-tags="evakuierung">
@@ -6810,6 +6903,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Kraftstoff nicht unter Viertel lassen:</strong> Tanken als Gewohnheit. Voller Tank gibt Gewicht auf Antriebsachse und Reichweite.</span></div>
   </div>
   <div class="warn-box">LIEGENBLEIBER AUTOBAHN: Fahrzeug sofort auf Standstreifen, Warnweste an, Warndreieck aufstellen (150m Abstand), Leitplanke hinter gehen. Fahrzeug verlassen ist die richtige Entscheidung -- auf der Autobahn sterben Liegenbleiber durch Auffahrunfälle, nicht durch Kälte.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#mobilitaet-krise" onclick="navTo('mobilitaet-krise',null);return false;" style="color:var(--amber);">Mobile Krisenvorsorge: Fahrzeugwahl, Quad, Zweiräder</a></p>
 </section>
 
 <section id="mobilitaet-krise" class="chapter" data-tags="evakuierung">
@@ -7146,6 +7240,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Hochwasser-Warnung:</strong> Strömungsgeschwindigkeit unterschätzen. 2 m/s Strömung (normales Hochwasser) ist für ungeübte Paddler lebensgefährlich. Treibgut, Unterströmungen, Brücken und Wehre sind tödliche Gefahren.</span></div>
   </div>
   <div class="warn-box">HOCHWASSER-PADDELN NUR MIT ERFAHRUNG: Bei aktivem Hochwasser mit Treibgut, hoher Strömung und überschwemmten Hindernissen ist Paddeln lebensgefährlich ohne Erfahrung. Vorher üben: Flussschwimm- oder Wildwasserkurs, nicht erst in der Krise.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#shelter-evakuierung" onclick="navTo('shelter-evakuierung',null);return false;" style="color:var(--amber);">Shelter & Evakuierung: Bleiben oder Gehen</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#familiennotfallplan" onclick="navTo('familiennotfallplan',null);return false;" style="color:var(--amber);">Familiennotfallplan: Treffpunkte & Kommunikation</a></p>
 </section>
 
 <section id="shelter-evakuierung" class="chapter" data-tags="evakuierung">
@@ -7317,6 +7413,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="tip-box">ISOLATION VOM BODEN IST KRITISCHER ALS DACH: Der Boden entzieht dem Körper mehr Wärme als kalte Luft von oben. Isomatte, Elefantenhaut, Laub: alles zwischen Körper und Boden entscheidet. Faustregel: mind. 5 cm Isolation nach unten. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#mobilitaet-krise" onclick="navTo('mobilitaet-krise',null);return false;" style="color:var(--amber);">Mobile Krisenvorsorge: Fahrzeugwahl & Routen</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#familiennotfallplan" onclick="navTo('familiennotfallplan',null);return false;" style="color:var(--amber);">Familiennotfallplan: Treffpunkte festlegen</a></p>
 </section>
 
 <section id="urban-wohnen" class="chapter" data-tags="urban blackout">
@@ -8737,6 +8835,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </table></div>
   <div class="tip-box">PFLANZENGIFT ERSTE HILFE: Verdacht auf Vergiftung → Giftnotruf sofort: Berlin 030 19240, München 089 19240, oder die zentrale Nummer 0800 2255 305 (kostenlos). Pflanze/Beere sichern oder fotografieren. Kein Erbrechen auslösen wenn Pflanze unbekannt (kann Schleimhäute weiter schädigen).</div>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#anbau-konservierung" onclick="navTo('anbau-konservierung',null);return false;" style="color:var(--amber);">Anbau & Konservierung: Nahrung langfristig sichern</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#tiere-fruehwarnung" onclick="navTo('tiere-fruehwarnung',null);return false;" style="color:var(--amber);">Tiere als Frühwarnsystem</a></p>
 </section>
 
 <section id="tiere-fruehwarnung" class="chapter" data-tags="laendlich">
@@ -8883,6 +8983,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="tip-box">SETUP-EMPFEHLUNG (Backpacker Wilderness): Isomatte + Schlafsack auf Bodenplane, Tarp als A-Frame darueber. Keine Heringe wenn möglich: er spannt Paracord zwischen Bäumen und befestigt Ecken mit Steinen an natuerlichen Ankerpunkten. Vorteil: kein Werkzeug, schnell auf und ab. Im Bayerischen Wald schläft er auch bei -10 Grad so, mit dem richtigen Schlafsack. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">Quelle: Backpacker Wilderness / @greif_xpedition</span></div>
   <div class="tip-box">BAUMABSTAND: Der ideale Baumabstand für ein 3x3m Tarp ist 3,5-4m. Zu weit auseinander: Firstleine haengt durch. Zu eng: Tarp haengt wie ein Sack. Noch vor dem Aufbau Bäume abschaetzen. 3 Schritt = ca. 2m. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#wildnis-bushcraft" onclick="navTo('wildnis-bushcraft',null);return false;" style="color:var(--amber);">Wildnis & Bushcraft: Pflanzen, Knoten, Navigation</a></p>
 </section>
 
 <section id="feuer-bedingungen" class="chapter" data-tags="laendlich">
@@ -8927,6 +9028,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </table></div>
 
   <div class="tip-box">BACKUP-SYSTEM: Nie nur ein Zuendmittel. Backpacker Wilderness empfiehlt: Feuerzeug (Haupt), Ferro-Stab (Backup), Wachsstreichhoelzer in Dose (letztes Backup). Ferro-Stab und Zunder-Box immer wasserdicht verpacken, selbst wenn der Rest des Rucksacks nass wird. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">Quelle: Backpacker Wilderness / @greif_xpedition</span></div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#wildnis-bushcraft" onclick="navTo('wildnis-bushcraft',null);return false;" style="color:var(--amber);">Wildnis & Bushcraft: Umfassendes Wildniskapitel</a></p>
 </section>
 
 <section id="signalisierung" class="chapter" data-tags="laendlich">
@@ -8971,6 +9073,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </table></div>
 
   <div class="tip-box">RETTUNGSDECKE ALS SIGNAL: Eine Rettungsdecke auf dem Boden ausgebreitet oder an einem Ast befestigt ist aus der Luft kilometerweit sichtbar. Goldseite reflektiert am besten. Einen flachen, offenen Platz suchen: Lichtung, Flussufer, Bergkuppe. Im Wald ist man aus der Luft unsichtbar. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#wildnis-bushcraft" onclick="navTo('wildnis-bushcraft',null);return false;" style="color:var(--amber);">Wildnis & Bushcraft: Pflanzen, Knoten, Navigation</a></p>
 </section>
 
 <section id="anbau-konservierung" class="chapter" data-tags="laendlich langzeit nahrung">
@@ -10351,6 +10454,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </tbody>
   </table></div>
   <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#medizin-ohne-arzt" onclick="navTo('medizin-ohne-arzt',null);return false;" style="color:var(--amber);">Medizin ohne Arzt: Wenn Versorgung ausfällt</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#energie-strom" onclick="navTo('energie-strom',null);return false;" style="color:var(--amber);">Energie & Strom: Powerstation, Solar, Generator</a></p>
 </section>
 
 <section id="blackout-matrix" class="chapter" data-tags="blackout stadtbewohner">
@@ -10483,6 +10587,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <p class="body-text">@greif_xpedition</p>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#blackout-stufenplan" onclick="navTo('blackout-stufenplan',null);return false;" style="color:var(--amber);">Blackout-Stufenplan: Stunde 1 bis Woche 4</a></p>
 </section>
 
 <section id="pandemie-biobedrohung" class="chapter" data-tags="medizin">
@@ -10645,6 +10750,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   </table></div>
 
   <div class="info-box">KERNAUSSAGE: Hygienemaßnahmen sind die einzige Intervention die in einer Krise ohne medizinische Infrastruktur skaliert. Antibiotika gehen aus. Impfungen sind nicht verfügbar. Ärzte sind überlastet. Sauberes Wasser, Latrinenhygiene und Isolation von Kranken kosten fast nichts und retten Leben. Diese Erkenntnisse sind nicht neu: John Snow identifizierte 1854 in London den Zusammenhang zwischen kontaminiertem Brunnenwasser und Cholera-Ausbruch. 170 Jahre später sterben in Krisenlagen immer noch Menschen weil diese Lektion nicht umgesetzt wird. <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#pandemie-biobedrohung" onclick="navTo('pandemie-biobedrohung',null);return false;" style="color:var(--amber);">Pandemie & Bio-Bedrohung: Schutz, Isolation, Vorrat</a></p>
 </section>
 
 <section id="recht-krisenfall" class="chapter" data-tags="wissen">
@@ -11077,6 +11183,9 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Leine nie ablegen:</strong> In Krisenszenarien mit fremden Menschen und Tieren: Hund immer an der Leine. Auch gut ausgebildete Hunde reagieren anders unter Stress.</span></div>
   </div>
   <div class="warn-box">IBUPROFEN &amp; PARACETAMOL SIND FÜR HUNDE TÖDLICH: Beide Schmerzmittel die für Menschen üblich sind, sind für Hunde hochgiftig -- auch in kleinen Mengen. Nur Hunde-spezifische Schmerzmittel (Metacam, Carprofen) nach Tierarztanweisung verwenden.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#kinder-krise" onclick="navTo('kinder-krise',null);return false;" style="color:var(--amber);">Kinder in der Krise: Kommunikation & Routine</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#shelter-evakuierung" onclick="navTo('shelter-evakuierung',null);return false;" style="color:var(--amber);">Shelter & Evakuierung: Fluchtwege planen</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#kommunikation-krise" onclick="navTo('kommunikation-krise',null);return false;" style="color:var(--amber);">Kommunikation: Funk & Offline-Wege</a></p>
 </section>
 
 <section id="alleinstehende-krise" class="chapter" data-tags="urban familie alltag">
@@ -11831,6 +11940,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="info-box">ANLAUFSTELLEN: Krisentelefon der Telefonseelsorge (kostenlos, 24h): 0800 111 0 111 oder 0800 111 0 222. Psychosoziale Notfallversorgung (PSNV) wird in Deutschland von Feuerwehr, THW und Hilfsorganisationen koordiniert. Traumaambulanzen gibt es in allen größeren Städten -- oft kostenlos und ohne lange Wartezeit nach akuten Ereignissen.</div>
   <div class="warn-box">WARNSIGNAL SUIZIDALITÄT: Wenn jemand nach einer Krise Aussagen macht wie "es wäre besser gewesen wenn ich nicht überlebt hätte" oder Abschiedshandlungen zeigt, ist sofortige professionelle Hilfe notwendig. Telefonseelsorge: 0800 111 0 111 (kostenlos, 24h, anonym).</div>
 
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#koerperliche-fitness" onclick="navTo('koerperliche-fitness',null);return false;" style="color:var(--amber);">Körperliche Fitness: Tragefähigkeit & Ausdauer</a></p>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#schlaf-krise" onclick="navTo('schlaf-krise',null);return false;" style="color:var(--amber);">Schlaf als Überlebensfaktor</a></p>
 </section>
 
 <section id="koerperliche-fitness" class="chapter" data-tags="wissen">
@@ -12109,6 +12220,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </tbody>
   </table></div>
   <div class="tip-box">MIETERVEREIN: Mitgliedschaft im Deutschen Mieterbund (ca. 80 EUR/Jahr) gibt im Krisenfall kostenlose Rechtsberatung zu Mietthemen. Günstigste Rechtsschutzversicherung für Mieter.</div>
+  <p style="font-size:11px;color:var(--text2);margin-top:8px;border-top:1px solid var(--border);padding-top:6px;">Siehe auch: <a href="#recht-krisenfall" onclick="navTo('recht-krisenfall',null);return false;" style="color:var(--amber);">Recht & Gesetze im Krisenfall: Notstandsrecht, Eigentum</a></p>
 </section>
 
 <section id="warnmeldungen" class="chapter" data-tags="blackout">
@@ -12400,7 +12512,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </tbody>
   </table></div>
 
-  <div class="info-box">ESVG: Das Ernährungssicherstellungs- und -vorsorgegesetz ermöglicht dem Staat im Krisen- oder Verteidigungsfall eine hoheitliche Bewirtschaftung von Lebensmitteln. Dann kann der Staat Produktion, Bezug und Zuteilung von Nahrungsmitteln regeln. Das Gesetz wurde zuletzt 2023 aktualisiert.</div>
+  <div class="info-box">ESVG: Das Ernährungssicherstellungs- und -vorsorgegesetz ermöglicht dem Staat im Krisen- oder Verteidigungsfall eine hoheitliche Bewirtschaftung von Lebensmitteln. Dann kann der Staat Produktion, Bezug und Zuteilung von Nahrungsmitteln regeln. Das Gesetz wurde zuletzt 2023 aktualisiert (Stand Redaktion Mai 2026).</div>
 
   <div class="subsection">Was wirklich fehlt. Ehrliche Einschätzung.</div>
   <div class="table-wrap"><table>
@@ -12656,7 +12768,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="budget-krisenvorsorge" class="chapter" data-tags="alltag urban finanzen">
-<div class="section-banner" style="border-left-color:#5a8a4a;"><h2>Zusatz // Krisenvorsorge mit knappem Budget</h2><p>Was kaufe ich zuerst. Maximaler Schutz pro Euro.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~5 Min</span></div>
+<div class="section-banner" style="border-left-color:#5a8a4a;"><h2>Zusatz // Krisenvorsorge mit knappem Budget</h2><p>Was kaufe ich zuerst. Maximaler Schutz pro Euro.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
 <p class="body-text">Krisenvorsorge wird oft als teures Hobby dargestellt. Das stimmt nicht. Wer 50 EUR im Monat investiert und in der richtigen Reihenfolge vorgeht, ist nach 6 Monaten besser vorbereitet als jemand der 2.000 EUR falsch ausgibt. Die Reihenfolge entscheidet. Nicht das Budget.</p>
 <h3>Die Reihenfolge. Was zuerst, was später.</h3>
 <div class="subsection">Preis-Nutzen-Ranking: maximaler Schutz pro Euro</div>
@@ -13290,89 +13402,89 @@ function toggleGroup(id) {
 // ── ACTIVE NAV ON SCROLL ──
 
 const _navGroupMap = {
-    'abc-schutz': 'ng-l3',
-    'alleinstehende-krise': 'ng-l3',
-    'anbau-konservierung': 'ng-l3',
+    'abc-schutz': 'ng-l3c',
+    'alleinstehende-krise': 'ng-l3c',
+    'anbau-konservierung': 'ng-l3b',
     'ausruestungspflege': 'ng-alltag',
     'bartering': 'ng-alltag',
-    'blackout-matrix': 'ng-l3',
-    'blackout-stufenplan': 'ng-l3',
+    'blackout-matrix': 'ng-l3c',
+    'blackout-stufenplan': 'ng-l3c',
     'brand-notfall': 'ng-alltag',
     'budget-krisenvorsorge': 'ng-zusatz',
     'bug-out-bag': 'ng-l1',
     'chest-pack': 'ng-l1',
-    'cyberangriff': 'ng-l3',
+    'cyberangriff': 'ng-l3c',
     'dach-besonderheiten': 'ng-zusatz',
     'desinformation-krise': 'ng-zusatz',
     'digitale-vorbereitung': 'ng-l2',
-    'drohnen-schutz': 'ng-l3',
+    'drohnen-schutz': 'ng-l3c',
     'einkaufsliste': 'ng-l1b',
     'energie-strom': 'ng-l2',
-    'epidemiologie-krise': 'ng-l3',
+    'epidemiologie-krise': 'ng-l3c',
     'ernaehrungs-biochemie': 'ng-zusatz',
     'essensplan': 'ng-l1b',
-    'fahrzeug-krise': 'ng-l3',
-    'familiennotfallplan': 'ng-l3',
+    'fahrzeug-krise': 'ng-l3a',
+    'familiennotfallplan': 'ng-l3c',
     'feldkueche': 'ng-l1b',
-    'feuer-bedingungen': 'ng-l3',
+    'feuer-bedingungen': 'ng-l3b',
     'finanzen-dokumente': 'ng-l2',
     'finanzkrise': 'ng-l2',
     'fluessigkeiten-bob': 'ng-l1',
-    'freie-waffen': 'ng-l3',
+    'freie-waffen': 'ng-l3a',
     'gasaustritt': 'ng-alltag',
     'gefahrenerkennung': 'ng-zusatz',
     'haushalts-ressourcen': 'ng-l2',
-    'heizung-waerme': 'ng-l3',
-    'hitzewelle': 'ng-l3',
+    'heizung-waerme': 'ng-l3b',
+    'hitzewelle': 'ng-l3c',
     'hygiene-sanitaer': 'ng-l2',
     'infrastruktur-karte': 'ng-zusatz',
-    'jagd-nahrung': 'ng-l3',
+    'jagd-nahrung': 'ng-l3b',
     'kinder-krise': 'ng-alltag',
     'kleidung-ausruestung': 'ng-l1',
     'koerperliche-fitness': 'ng-zusatz',
     'kommunikation-krise': 'ng-l2',
-    'krieg-unruhen': 'ng-l3',
+    'krieg-unruhen': 'ng-l3c',
     'krisenkueche': 'ng-alltag',
-    'langzeitlager': 'ng-l3',
+    'langzeitlager': 'ng-l3b',
     'medikamente-vorrat': 'ng-l2',
     'medizin-erstehilfe': 'ng-l2',
     'medizin-ohne-arzt': 'ng-l2',
     'mental-staerke': 'ng-zusatz',
     'mietrecht-krise': 'ng-zusatz',
-    'mobilitaet-krise': 'ng-l3',
+    'mobilitaet-krise': 'ng-l3a',
     'nahrung-konzept': 'ng-l1b',
     'nahrung-lagerung': 'ng-l1b',
     'nahrung-naehrstoffe': 'ng-l1b',
-    'naturgefahren': 'ng-l3',
+    'naturgefahren': 'ng-l3c',
     'navigation-krise': 'ng-l2',
     'offline-bibliothek': 'ng-zusatz',
-    'pandemie-biobedrohung': 'ng-l3',
+    'pandemie-biobedrohung': 'ng-l3c',
     'quellen': 'ng-anhang',
-    'recht-krisenfall': 'ng-l3',
+    'recht-krisenfall': 'ng-l3c',
     'reparieren-krise': 'ng-zusatz',
-    'saisonale-anpassung': 'ng-l3',
+    'saisonale-anpassung': 'ng-l3b',
     'sanitaer-notfall': 'ng-alltag',
     'schlaf-krise': 'ng-zusatz',
-    'selbstverteidigung': 'ng-l3',
-    'shelter-evakuierung': 'ng-l3',
+    'selbstverteidigung': 'ng-l3a',
+    'shelter-evakuierung': 'ng-l3a',
     'shops': 'ng-anhang',
-    'sicherheit-lager': 'ng-l3',
-    'signalisierung': 'ng-l3',
+    'sicherheit-lager': 'ng-l3a',
+    'signalisierung': 'ng-l3b',
     'soziales-netzwerk': 'ng-l2',
     'staat-planung': 'ng-zusatz',
     'szenarien': 'ng-zusatz',
-    'tarp-aufbau': 'ng-l3',
+    'tarp-aufbau': 'ng-l3b',
     'technik-field': 'ng-l2',
-    'tiere-fruehwarnung': 'ng-l3',
+    'tiere-fruehwarnung': 'ng-l3b',
     'tools-hacks': 'ng-l1',
     'typische-fehler': 'ng-zusatz',
-    'urban-mietwohnung': 'ng-l3',
-    'urban-wohnen': 'ng-l3',
+    'urban-mietwohnung': 'ng-l3a',
+    'urban-wohnen': 'ng-l3a',
     'warnmeldungen': 'ng-zusatz',
-    'wasservorrat': 'ng-l3',
-    'werkzeug-zuhause': 'ng-l3',
-    'wildnis-bushcraft': 'ng-l3',
-    'wohnung-absichern': 'ng-l3',
+    'wasservorrat': 'ng-l3a',
+    'werkzeug-zuhause': 'ng-l3a',
+    'wildnis-bushcraft': 'ng-l3b',
+    'wohnung-absichern': 'ng-l3a',
   };
 
 const _allSections = Array.from(document.querySelectorAll('section[id]'));
@@ -13605,89 +13717,89 @@ function buildSearchIndex(q) {
 
 function openGroupForSection(sectionId) {
   const map = {
-    'abc-schutz': 'ng-l3',
-    'alleinstehende-krise': 'ng-l3',
-    'anbau-konservierung': 'ng-l3',
+    'abc-schutz': 'ng-l3c',
+    'alleinstehende-krise': 'ng-l3c',
+    'anbau-konservierung': 'ng-l3b',
     'ausruestungspflege': 'ng-alltag',
     'bartering': 'ng-alltag',
-    'blackout-matrix': 'ng-l3',
-    'blackout-stufenplan': 'ng-l3',
+    'blackout-matrix': 'ng-l3c',
+    'blackout-stufenplan': 'ng-l3c',
     'brand-notfall': 'ng-alltag',
     'budget-krisenvorsorge': 'ng-zusatz',
     'bug-out-bag': 'ng-l1',
     'chest-pack': 'ng-l1',
-    'cyberangriff': 'ng-l3',
+    'cyberangriff': 'ng-l3c',
     'dach-besonderheiten': 'ng-zusatz',
     'desinformation-krise': 'ng-zusatz',
     'digitale-vorbereitung': 'ng-l2',
-    'drohnen-schutz': 'ng-l3',
+    'drohnen-schutz': 'ng-l3c',
     'einkaufsliste': 'ng-l1b',
     'energie-strom': 'ng-l2',
-    'epidemiologie-krise': 'ng-l3',
+    'epidemiologie-krise': 'ng-l3c',
     'ernaehrungs-biochemie': 'ng-zusatz',
     'essensplan': 'ng-l1b',
-    'fahrzeug-krise': 'ng-l3',
-    'familiennotfallplan': 'ng-l3',
+    'fahrzeug-krise': 'ng-l3a',
+    'familiennotfallplan': 'ng-l3c',
     'feldkueche': 'ng-l1b',
-    'feuer-bedingungen': 'ng-l3',
+    'feuer-bedingungen': 'ng-l3b',
     'finanzen-dokumente': 'ng-l2',
     'finanzkrise': 'ng-l2',
     'fluessigkeiten-bob': 'ng-l1',
-    'freie-waffen': 'ng-l3',
+    'freie-waffen': 'ng-l3a',
     'gasaustritt': 'ng-alltag',
     'gefahrenerkennung': 'ng-zusatz',
     'haushalts-ressourcen': 'ng-l2',
-    'heizung-waerme': 'ng-l3',
-    'hitzewelle': 'ng-l3',
+    'heizung-waerme': 'ng-l3b',
+    'hitzewelle': 'ng-l3c',
     'hygiene-sanitaer': 'ng-l2',
     'infrastruktur-karte': 'ng-zusatz',
-    'jagd-nahrung': 'ng-l3',
+    'jagd-nahrung': 'ng-l3b',
     'kinder-krise': 'ng-alltag',
     'kleidung-ausruestung': 'ng-l1',
     'koerperliche-fitness': 'ng-zusatz',
     'kommunikation-krise': 'ng-l2',
-    'krieg-unruhen': 'ng-l3',
+    'krieg-unruhen': 'ng-l3c',
     'krisenkueche': 'ng-alltag',
-    'langzeitlager': 'ng-l3',
+    'langzeitlager': 'ng-l3b',
     'medikamente-vorrat': 'ng-l2',
     'medizin-erstehilfe': 'ng-l2',
     'medizin-ohne-arzt': 'ng-l2',
     'mental-staerke': 'ng-zusatz',
     'mietrecht-krise': 'ng-zusatz',
-    'mobilitaet-krise': 'ng-l3',
+    'mobilitaet-krise': 'ng-l3a',
     'nahrung-konzept': 'ng-l1b',
     'nahrung-lagerung': 'ng-l1b',
     'nahrung-naehrstoffe': 'ng-l1b',
-    'naturgefahren': 'ng-l3',
+    'naturgefahren': 'ng-l3c',
     'navigation-krise': 'ng-l2',
     'offline-bibliothek': 'ng-zusatz',
-    'pandemie-biobedrohung': 'ng-l3',
+    'pandemie-biobedrohung': 'ng-l3c',
     'quellen': 'ng-anhang',
-    'recht-krisenfall': 'ng-l3',
+    'recht-krisenfall': 'ng-l3c',
     'reparieren-krise': 'ng-zusatz',
-    'saisonale-anpassung': 'ng-l3',
+    'saisonale-anpassung': 'ng-l3b',
     'sanitaer-notfall': 'ng-alltag',
     'schlaf-krise': 'ng-zusatz',
-    'selbstverteidigung': 'ng-l3',
-    'shelter-evakuierung': 'ng-l3',
+    'selbstverteidigung': 'ng-l3a',
+    'shelter-evakuierung': 'ng-l3a',
     'shops': 'ng-anhang',
-    'sicherheit-lager': 'ng-l3',
-    'signalisierung': 'ng-l3',
+    'sicherheit-lager': 'ng-l3a',
+    'signalisierung': 'ng-l3b',
     'soziales-netzwerk': 'ng-l2',
     'staat-planung': 'ng-zusatz',
     'szenarien': 'ng-zusatz',
-    'tarp-aufbau': 'ng-l3',
+    'tarp-aufbau': 'ng-l3b',
     'technik-field': 'ng-l2',
-    'tiere-fruehwarnung': 'ng-l3',
+    'tiere-fruehwarnung': 'ng-l3b',
     'tools-hacks': 'ng-l1',
     'typische-fehler': 'ng-zusatz',
-    'urban-mietwohnung': 'ng-l3',
-    'urban-wohnen': 'ng-l3',
+    'urban-mietwohnung': 'ng-l3a',
+    'urban-wohnen': 'ng-l3a',
     'warnmeldungen': 'ng-zusatz',
-    'wasservorrat': 'ng-l3',
-    'werkzeug-zuhause': 'ng-l3',
-    'wildnis-bushcraft': 'ng-l3',
-    'wohnung-absichern': 'ng-l3',
+    'wasservorrat': 'ng-l3a',
+    'werkzeug-zuhause': 'ng-l3a',
+    'wildnis-bushcraft': 'ng-l3b',
+    'wohnung-absichern': 'ng-l3a',
   };
   const groupId = map[sectionId];
   if (groupId) {
@@ -15176,6 +15288,7 @@ document.querySelectorAll('.nav-link').forEach(l => l.addEventListener('click', 
 document.getElementById('main').addEventListener('click', () => {
   if (window.innerWidth <= 1024) document.getElementById('sidebar').classList.remove('open');
 });
+
 
 </script>
 </main>
