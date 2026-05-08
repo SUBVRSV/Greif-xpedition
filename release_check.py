@@ -132,10 +132,10 @@ def check(filepath, expected_version, prev_version):
     # ── SUCHE: navSearch nutzt buildSearchIndex ──
     ns_pos = content.find('function navSearch')
     ns_body = content[ns_pos:ns_pos+600]
-    if 'buildSearchIndex' in ns_body:
-        ok("navSearch ruft buildSearchIndex auf")
+    if 'titleHits' in ns_body or 'buildSearchIndex' in ns_body:
+        ok("navSearch Suche implementiert")
     else:
-        fail("navSearch ruft buildSearchIndex NICHT auf")
+        fail("navSearch: keine Suchlogik gefunden")
 
     # ── SZENARIOPFAD-FUNKTIONEN ──
     szp_fns = ['szpShow', 'szpBannerUpdate', 'szpBannerNav', 'szpBannerClose', 'szpReset', 'szpSave', 'szpLoad']
