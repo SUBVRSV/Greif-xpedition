@@ -780,10 +780,10 @@ tbody td {
   vertical-align: top;
   line-height: 1.6;
   font-family: var(--sans);
-  font-size: 15px;
+  font-size: 14px;
 }
 
-tbody td:first-child { color: var(--text); font-family: var(--mono); font-size: 15px; }
+tbody td:first-child { color: var(--text); font-family: var(--sans); font-size: 14px; }
 body.light-mode tbody td:first-child { color: var(--text2); }
 
 /* priority stars */
@@ -2391,7 +2391,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <span class="acc-arrow">&#9654;</span>
     </button>
     <div class="acc-body" id="notfall-triage">
-<p class="body-text">Nicht suchen. Nicht lesen. Szenario wählen, Kapitel aufrufen, handeln. Für Schritt-für-Schritt-Anleitung pro Szenario: <a href="#schnellentscheider" onclick="navigateTo('schnellentscheider');return false;" style="color:var(--amber);">Schnellentscheider</a> nutzen.</p>
+<p class="body-text">Nicht suchen. Nicht lesen. Szenario wählen, Kapitel aufrufen, handeln. Für Schritt-für-Schritt-Anleitung pro Szenario: <a href="#schnellentscheider" onclick="navTo('schnellentscheider');return false;" style="color:var(--amber);">Schnellentscheider</a> nutzen.</p>
 
   <div class="table-wrap"><table>
     <thead><tr><th style="width:220px">Situation</th><th>Sofort-Priorität</th><th>Direkt zu</th></tr></thead>
@@ -2630,7 +2630,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   function qdNav(el) {
     var sec = el.getAttribute('data-sec');
-    if (sec && typeof navigateTo === 'function') navigateTo(sec);
+    if (sec && typeof navigateTo === 'function') navTo(sec);
   }
 
   function qdBack() {
@@ -3164,12 +3164,12 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="table-wrap"><table>
     <thead><tr><th>Schritt</th><th>Was</th><th>Zeitaufwand</th><th>Kapitel</th></tr></thead>
     <tbody>
-      <tr><td>1</td><td>28 Liter Trinkwasser pro Person bevorraten (2L/Tag)</td><td>1h + Einkauf</td><td><a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
-      <tr><td>2</td><td>2 Wochen Grundnahrung: Reis, Nudeln, Haferflocken, Konserven</td><td>1–2h + Einkauf</td><td><a href="#nahrung-konzept" onclick="navigateTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
-      <tr><td>3</td><td>Hausapotheke prüfen + Dauermedikamente: 3-Monats-Vorrat</td><td>30 Min + Arztgespräch</td><td><a href="#medizin-erstehilfe" onclick="navigateTo('medizin-erstehilfe');return false;" style="color:var(--amber);">L2 // Medizin</a></td></tr>
-      <tr><td>4</td><td>Bargeld in kleinen Scheinen (10er, 20er) zuhause</td><td>10 Min</td><td><a href="#finanzen-dokumente" onclick="navigateTo('finanzen-dokumente');return false;" style="color:var(--amber);">L2 // Finanzen</a></td></tr>
-      <tr><td>5</td><td>NINA und KATWARN App installieren, Standort einstellen</td><td>5 Min</td><td><a href="#warnmeldungen" onclick="navigateTo('warnmeldungen');return false;" style="color:var(--amber);">Warnmeldungen</a></td></tr>
-      <tr><td>6</td><td>Familiennotfallplan: Treffpunkt + Notfallkontakte festlegen</td><td>30 Min</td><td><a href="#familiennotfallplan" onclick="navigateTo('familiennotfallplan');return false;" style="color:var(--amber);">L3 // Familienplan</a></td></tr>
+      <tr><td>1</td><td>28 Liter Trinkwasser pro Person bevorraten (2L/Tag)</td><td>1h + Einkauf</td><td><a href="#wasservorrat" onclick="navTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
+      <tr><td>2</td><td>2 Wochen Grundnahrung: Reis, Nudeln, Haferflocken, Konserven</td><td>1–2h + Einkauf</td><td><a href="#nahrung-konzept" onclick="navTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
+      <tr><td>3</td><td>Hausapotheke prüfen + Dauermedikamente: 3-Monats-Vorrat</td><td>30 Min + Arztgespräch</td><td><a href="#medizin-erstehilfe" onclick="navTo('medizin-erstehilfe');return false;" style="color:var(--amber);">L2 // Medizin</a></td></tr>
+      <tr><td>4</td><td>Bargeld in kleinen Scheinen (10er, 20er) zuhause</td><td>10 Min</td><td><a href="#finanzen-dokumente" onclick="navTo('finanzen-dokumente');return false;" style="color:var(--amber);">L2 // Finanzen</a></td></tr>
+      <tr><td>5</td><td>NINA und KATWARN App installieren, Standort einstellen</td><td>5 Min</td><td><a href="#warnmeldungen" onclick="navTo('warnmeldungen');return false;" style="color:var(--amber);">Warnmeldungen</a></td></tr>
+      <tr><td>6</td><td>Familiennotfallplan: Treffpunkt + Notfallkontakte festlegen</td><td>30 Min</td><td><a href="#familiennotfallplan" onclick="navTo('familiennotfallplan');return false;" style="color:var(--amber);">L3 // Familienplan</a></td></tr>
     </tbody>
   </table></div>
 
@@ -3177,22 +3177,22 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="table-wrap"><table>
     <thead><tr><th>Frage</th><th>Antwort</th><th>Kapitel</th></tr></thead>
     <tbody>
-      <tr><td><strong>Wo anfangen?</strong></td><td>Wasser zuerst. 2 Wochen Vorrat kostet ca. 20 EUR und dauert eine Stunde. Dann Nahrung. Dann alles andere.</td><td><a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
-      <tr><td><strong>Wieviel Wasser?</strong></td><td>2L/Person/Tag Trinken + 0,5L Kochen + 0,5L Hygiene. Minimum 2L, Ziel 3L. Für 2 Personen / 14 Tage: 56–84 Liter.</td><td><a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
-      <tr><td><strong>Kein Keller, wo lagern?</strong></td><td>Unter dem Bett, im Kleiderschrank, hinter dem Sofa. Kühl und dunkel reicht. Keller ist kein Pflicht.</td><td><a href="#urban-mietwohnung" onclick="navigateTo('urban-mietwohnung');return false;" style="color:var(--amber);">Urban // Mietwohnung</a></td></tr>
-      <tr><td><strong>Dauermedikamente?</strong></td><td>3-Monats-Vorrat beim Arzt beantragen. Die meisten stellen das Rezept aus. Krankenkassen übernehmen es.</td><td><a href="#medizin-erstehilfe" onclick="navigateTo('medizin-erstehilfe');return false;" style="color:var(--amber);">L2 // Medizin</a></td></tr>
-      <tr><td><strong>Was kostet der Grundvorrat?</strong></td><td>2 Wochen für 2 Personen: ca. 150–200 EUR einmalig. Pro Monat danach fast nichts wenn man rotiert.</td><td><a href="#nahrung-konzept" onclick="navigateTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
-      <tr><td><strong>Wie lagere ich diskret?</strong></td><td>Vorräte in normale Möbel integrieren. Wasserkanister hinter dem Sofa. Konserven im Kleiderschrank. Niemand muss wissen was du hast.</td><td><a href="#urban-mietwohnung" onclick="navigateTo('urban-mietwohnung');return false;" style="color:var(--amber);">Urban // Mietwohnung</a></td></tr>
+      <tr><td><strong>Wo anfangen?</strong></td><td>Wasser zuerst. 2 Wochen Vorrat kostet ca. 20 EUR und dauert eine Stunde. Dann Nahrung. Dann alles andere.</td><td><a href="#wasservorrat" onclick="navTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
+      <tr><td><strong>Wieviel Wasser?</strong></td><td>2L/Person/Tag Trinken + 0,5L Kochen + 0,5L Hygiene. Minimum 2L, Ziel 3L. Für 2 Personen / 14 Tage: 56–84 Liter.</td><td><a href="#wasservorrat" onclick="navTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
+      <tr><td><strong>Kein Keller, wo lagern?</strong></td><td>Unter dem Bett, im Kleiderschrank, hinter dem Sofa. Kühl und dunkel reicht. Keller ist kein Pflicht.</td><td><a href="#urban-mietwohnung" onclick="navTo('urban-mietwohnung');return false;" style="color:var(--amber);">Urban // Mietwohnung</a></td></tr>
+      <tr><td><strong>Dauermedikamente?</strong></td><td>3-Monats-Vorrat beim Arzt beantragen. Die meisten stellen das Rezept aus. Krankenkassen übernehmen es.</td><td><a href="#medizin-erstehilfe" onclick="navTo('medizin-erstehilfe');return false;" style="color:var(--amber);">L2 // Medizin</a></td></tr>
+      <tr><td><strong>Was kostet der Grundvorrat?</strong></td><td>2 Wochen für 2 Personen: ca. 150–200 EUR einmalig. Pro Monat danach fast nichts wenn man rotiert.</td><td><a href="#nahrung-konzept" onclick="navTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
+      <tr><td><strong>Wie lagere ich diskret?</strong></td><td>Vorräte in normale Möbel integrieren. Wasserkanister hinter dem Sofa. Konserven im Kleiderschrank. Niemand muss wissen was du hast.</td><td><a href="#urban-mietwohnung" onclick="navTo('urban-mietwohnung');return false;" style="color:var(--amber);">Urban // Mietwohnung</a></td></tr>
       <tr><td><strong>Bin ich ein "Prepper"?</strong></td><td>Nein. Wer eine Hausapotheke hat und ein Reserverad ist kein Prepper. Das hier ist das gleiche Prinzip: Vernunft, nicht Paranoia.</td><td></td></tr>
       <tr><td><strong>Was wenn kein Blackout kommt?</strong></td><td>Du hast Lebensmittel die du sowieso isst. Kein Verlust. Wer nichts vorsorgt und es passiert doch, hat ein echtes Problem.</td><td></td></tr>
-      <tr><td><strong>Wie lange hält Vorrat?</strong></td><td>Reis und Nudeln 3–5 Jahre, Konserven 2–5 Jahre, Haferflocken 1–2 Jahre. Mit Rotation läuft er nie ab.</td><td><a href="#langzeitlager" onclick="navigateTo('langzeitlager');return false;" style="color:var(--amber);">Langzeitlager</a></td></tr>
-      <tr><td><strong>BOB oder Hausvorrat zuerst?</strong></td><td>Hausvorrat hat Priorität. 95% der Krisen werden zuhause überlebt. BOB ist für die anderen 5%.</td><td><a href="#bug-out-bag" onclick="navigateTo('bug-out-bag');return false;" style="color:var(--amber);">L1 // BOB</a></td></tr>
-      <tr><td><strong>Was wenn ich allein wohne?</strong></td><td>Nachbarschaftsnetzwerk aufbauen. Mindestens eine Person im Haus kennen die weiß dass du allein bist.</td><td><a href="#soziales-netzwerk" onclick="navigateTo('soziales-netzwerk');return false;" style="color:var(--amber);">L2 // Soziales Netzwerk</a></td></tr>
-      <tr><td><strong>Wann evakuiere ich?</strong></td><td>Nur auf offizielle Anweisung oder bei unmittelbarer Lebensgefahr (Feuer, Flut). Bleiben ist fast immer sicherer.</td><td><a href="#shelter-evakuierung" onclick="navigateTo('shelter-evakuierung');return false;" style="color:var(--amber);">L3 // Shelter</a></td></tr>
-      <tr><td><strong>Wie bereite ich meine Familie vor?</strong></td><td>Gespräch ohne Panikmache. Gemeinsamer Notfallplan. Treffpunkt vereinbaren. Kinder altersgerecht einbeziehen.</td><td><a href="#familiennotfallplan" onclick="navigateTo('familiennotfallplan');return false;" style="color:var(--amber);">L3 // Familienplan</a></td></tr>
-      <tr><td><strong>Was ist das realistischste Szenario?</strong></td><td>Regionaler Stromausfall 2–5 Tage. Kein Apokalypse-Szenario. Dafür lohnt sich Vorbereitung am meisten.</td><td><a href="#blackout-stufenplan" onclick="navigateTo('blackout-stufenplan');return false;" style="color:var(--amber);">Blackout-Stufenplan</a></td></tr>
-      <tr><td><strong>Wie teste ich meinen Vorrat?</strong></td><td>Eine Woche lang nur vom Vorrat kochen ohne einkaufen. Zeigt sofort was fehlt und was abläuft.</td><td><a href="#nahrung-konzept" onclick="navigateTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
-      <tr><td><strong>Was ist der erste Schritt heute?</strong></td><td>10 Liter Wasser kaufen. Jetzt. Das kostet 3 EUR und dauert 10 Minuten. Danach bist du besser vorbereitet als 70% der Bevölkerung.</td><td><a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
+      <tr><td><strong>Wie lange hält Vorrat?</strong></td><td>Reis und Nudeln 3–5 Jahre, Konserven 2–5 Jahre, Haferflocken 1–2 Jahre. Mit Rotation läuft er nie ab.</td><td><a href="#langzeitlager" onclick="navTo('langzeitlager');return false;" style="color:var(--amber);">Langzeitlager</a></td></tr>
+      <tr><td><strong>BOB oder Hausvorrat zuerst?</strong></td><td>Hausvorrat hat Priorität. 95% der Krisen werden zuhause überlebt. BOB ist für die anderen 5%.</td><td><a href="#bug-out-bag" onclick="navTo('bug-out-bag');return false;" style="color:var(--amber);">L1 // BOB</a></td></tr>
+      <tr><td><strong>Was wenn ich allein wohne?</strong></td><td>Nachbarschaftsnetzwerk aufbauen. Mindestens eine Person im Haus kennen die weiß dass du allein bist.</td><td><a href="#soziales-netzwerk" onclick="navTo('soziales-netzwerk');return false;" style="color:var(--amber);">L2 // Soziales Netzwerk</a></td></tr>
+      <tr><td><strong>Wann evakuiere ich?</strong></td><td>Nur auf offizielle Anweisung oder bei unmittelbarer Lebensgefahr (Feuer, Flut). Bleiben ist fast immer sicherer.</td><td><a href="#shelter-evakuierung" onclick="navTo('shelter-evakuierung');return false;" style="color:var(--amber);">L3 // Shelter</a></td></tr>
+      <tr><td><strong>Wie bereite ich meine Familie vor?</strong></td><td>Gespräch ohne Panikmache. Gemeinsamer Notfallplan. Treffpunkt vereinbaren. Kinder altersgerecht einbeziehen.</td><td><a href="#familiennotfallplan" onclick="navTo('familiennotfallplan');return false;" style="color:var(--amber);">L3 // Familienplan</a></td></tr>
+      <tr><td><strong>Was ist das realistischste Szenario?</strong></td><td>Regionaler Stromausfall 2–5 Tage. Kein Apokalypse-Szenario. Dafür lohnt sich Vorbereitung am meisten.</td><td><a href="#blackout-stufenplan" onclick="navTo('blackout-stufenplan');return false;" style="color:var(--amber);">Blackout-Stufenplan</a></td></tr>
+      <tr><td><strong>Wie teste ich meinen Vorrat?</strong></td><td>Eine Woche lang nur vom Vorrat kochen ohne einkaufen. Zeigt sofort was fehlt und was abläuft.</td><td><a href="#nahrung-konzept" onclick="navTo('nahrung-konzept');return false;" style="color:var(--amber);">Nahrung // Konzept</a></td></tr>
+      <tr><td><strong>Was ist der erste Schritt heute?</strong></td><td>10 Liter Wasser kaufen. Jetzt. Das kostet 3 EUR und dauert 10 Minuten. Danach bist du besser vorbereitet als 70% der Bevölkerung.</td><td><a href="#wasservorrat" onclick="navTo('wasservorrat');return false;" style="color:var(--amber);">L3 // Wasser</a></td></tr>
     </tbody>
   </table></div>
     </div>
@@ -3695,7 +3695,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="tools-hacks" class="chapter" data-tags="ausruestung">
-  <div class="section-banner" style="border-left-color:var(--amber);"><h2>L1 // Tools &amp; Hacks</h2><p>Fast umsonst, maximaler Nutzen · Unter 30 EUR</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~6 Min</span></div>
+  <div class="section-banner" style="border-left-color:#c8920a;"><h2>L1 // Tools &amp; Hacks</h2><p>Fast umsonst, maximaler Nutzen · Unter 30 EUR</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~6 Min</span></div>
 
   <div class="section-divider"><span>Tools &amp; Hacks, fast umsonst, maximaler Nutzen</span></div>
 
@@ -6273,7 +6273,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="subsection">Nachbarschaft. Netzwerk ohne aufzufallen.</div>
   <p class="body-text">Das schwierigste soziale Problem in der Krisenvorsorge: Wie baut man ein Netzwerk auf ohne als "Prepper" abgestempelt zu werden oder Sicherheitsrisiken zu schaffen? Wer alle Nachbarn weiß was er hat, hat ein Problem.</p>
-  <div class="info-box">Grauer-Mann-Prinzip: unauffällig sein, nicht zeigen was man hat. Details: <a href="#sicherheit-lager" onclick="navigateTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>.</div>
+  <div class="info-box">Grauer-Mann-Prinzip: unauffällig sein, nicht zeigen was man hat. Details: <a href="#sicherheit-lager" onclick="navTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>.</div>
 
   <div class="subsection">Netzwerk aufbauen ohne Misstrauen zu wecken</div>
   <div class="table-wrap"><table>
@@ -7325,7 +7325,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     </tbody>
   </table></div>
 
-  <div class="tip-box">TANK IMMER ÜBER HALBVOLL: Eine der wichtigsten Vorbereitungsmaßnahmen kostet nichts extra. Tank immer über 50% halten (Details: <a href="#fahrzeug-krise" onclick="navigateTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>). <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
+  <div class="tip-box">TANK IMMER ÜBER HALBVOLL: Eine der wichtigsten Vorbereitungsmaßnahmen kostet nichts extra. Tank immer über 50% halten (Details: <a href="#fahrzeug-krise" onclick="navTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>). <span style="font-family:var(--mono);font-size:10px;color:var(--amber)">✓ @greif_xpedition</span></div>
 
   <div id="shelter-feld" class="subsection">Feldunterkunft. Wenn kein Gebäude verfügbar ist.</div>
   <div class="table-wrap"><table>
@@ -7548,7 +7548,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="subsection">OPSEC im Mehrfamilienhaus. Konkret.</div>
 
-  <p class="body-text">Grundlagen zu OPSEC und dem Grauer-Mann-Prinzip: <a href="#sicherheit-lager" onclick="navigateTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>. Praktische Massnahmen in der Mietwohnung:</p>
+  <p class="body-text">Grundlagen zu OPSEC und dem Grauer-Mann-Prinzip: <a href="#sicherheit-lager" onclick="navTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>. Praktische Massnahmen in der Mietwohnung:</p>
 
   <div class="bullet-list">
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Kochgerüche:</strong> Im Krisenfall wenn Nachbarn hungern kann Kochgeruch Aufmerksamkeit erzeugen, die man nicht will. Geruchsneutrale Kaltküche bevorzugen: Riegel, Nüsse, Konserven kalt. Wenn gekocht wird: früh morgens, Fenster zu, Abzug an.</span></div>
@@ -7673,7 +7673,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Schwachstellen abdichten:</strong> Briefschlitz, Rollladenkasten, Kellertür mit Klebeband oder Tuch. 1h Arbeit, deutlich spürbarer Effekt auf die Raumtemperatur.</span></div>
   </div>
 
-  <div class="subsection">OPSEC: Unsichtbar bleiben. (Grundlagen: <a href="#sicherheit-lager" onclick="navigateTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>)</div>
+  <div class="subsection">OPSEC: Unsichtbar bleiben. (Grundlagen: <a href="#sicherheit-lager" onclick="navTo('sicherheit-lager');return false;">L3.06 // Sicherheit &amp; Lager</a>)</div>
   <div class="bullet-list">
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Licht-Disziplin:</strong> Wer das einzige Licht im Block hat, ist das einzige Ziel. Kerzenlicht hinter Verdunkelung. Stirnlampe statt Raumlampe. Alle Gardinen nachts zu.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Geruch-Disziplin:</strong> Kochgerüche ziehen durch Lüftungsschächte. Fenster beim Kochen schließen. In frühen Krisenwochen kein Problem. In späteren: Aufmerksamkeit die man nicht braucht.</span></div>
@@ -7898,7 +7898,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Zu spät starten:</strong> Wer wartet bis offizielle Evakuierungsanordnung kommt, kämpft sich durch das Chaos anderer. Wer früh fährt, hat freie Straßen.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Nur eine Route kennen:</strong> Brücken können gesperrt sein, Straßen überflutet, Tunnel blockiert. Immer mindestens zwei Routen kennen.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>GPS vertrauen:</strong> GPS fällt aus, Signale können gestört sein. Papier-Karte ist Pflicht, und du musst sie lesen können.</span></div>
-    <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Tanken während der Flucht:</strong> Tank voll halten (Details: <a href="#fahrzeug-krise" onclick="navigateTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</span></div>
+    <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Tanken während der Flucht:</strong> Tank voll halten (Details: <a href="#fahrzeug-krise" onclick="navTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</span></div>
   </div>
 
   <div class="subsection">Wegpunkte definieren &amp; einzeichnen</div>
@@ -8072,7 +8072,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="selbstverteidigung" class="chapter" data-tags="sicherheit">
-  <div class="section-banner" style="border-left-color:#888;"><h2>SV.01 // Selbstverteidigung</h2><p>Prävention · Ausrüstung · Technik · Ausbildung</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~6 Min</span></div>
+  <div class="section-banner" style="border-left-color:#6a6050;"><h2>SV.01 // Selbstverteidigung</h2><p>Prävention · Ausrüstung · Technik · Ausbildung</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~6 Min</span></div>
   <div class="chapter-nav-box">
     <span class="chapter-nav-label">ABSCHNITTE:</span>
     <a href="#selbstverteidigung" class="chapter-nav-link" onclick="event.preventDefault();document.getElementById('sv-prioritaeten').scrollIntoView({behavior:'smooth',block:'start'})">Prioritäten</a>
@@ -9126,8 +9126,8 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
       <tr><td>Zucchini / Kürbis</td><td>1 Tüte</td><td>4–6 Jahre</td><td>Hoher Ertrag auf kleiner Fläche</td></tr>
     </tbody>
   </table></div>
-  <div class="tip-box">SAATGUT LAGERN: Trocken, dunkel, kühl und luftdicht (Schraubglas mit Trockenmittel). Samenfestes Saatgut kaufen (kein F1-Hybrid): davon kann man selbst Samen gewinnen für die nächste Saison. im Einsatz: Dreschflegel.de oder Bingenheimer Saatgut, regional, samenfest, nachbaufähig.
-  <div class="warning-box">WICHTIG: Anbau braucht Zeit. Mit dem Anbau beginnen BEVOR die Vorräte knapp werden, nicht wenn der Hunger schon da ist. Wer in Woche 1 sät, erntet in Woche 4–6.</div>
+  <div class="tip-box">SAATGUT LAGERN: Trocken, dunkel, kühl und luftdicht (Schraubglas mit Trockenmittel). Samenfestes Saatgut kaufen (kein F1-Hybrid): davon kann man selbst Samen gewinnen für die nächste Saison. im Einsatz: Dreschflegel.de oder Bingenheimer Saatgut, regional, samenfest, nachbaufähig.</div>
+<div class="warning-box">WICHTIG: Anbau braucht Zeit. Mit dem Anbau beginnen BEVOR die Vorräte knapp werden, nicht wenn der Hunger schon da ist. Wer in Woche 1 sät, erntet in Woche 4–6.</div>
 
   <div class="subsection">Kalorienertrag pro m². Was sich wirklich lohnt.</div>
   <p class="body-text">Nicht jede Pflanze ist gleich wertvoll. Wer Fläche hat, nimmt was pro m² am meisten Kalorien liefert, nicht was am schönsten aussieht.</p>
@@ -9203,7 +9203,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Sprossen im Becher:</strong> Jeder Becher, Topf oder Dose funktioniert. Linsen einweichen (8h), täglich spülen, schräg stellen. Tag 3–4: essbar.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Erde aus dem Wald:</strong> Für Radieschen und Salat reicht lockere Walderde in einem kleinen Behälter. Waldboden ist nährstoffreicher als gedacht.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Regen nutzen:</strong> Natürliches Wasser für Bewässerung sammeln, spart die eigenen Wasserreserven.</span></div>
-  </div>
+
   <div class="tip-box">EMPFEHLUNG: Das Saatgut-Kit ist eine der besten Investitionen pro Gramm in der gesamten Ausrüstung. Unter 100g, unter 10 EUR, hält Jahre, und liefert frische Vitamine wenn alles andere aufgebraucht ist. Ein Set zuhause lagern, ein Set in den BOB.</div>
   
 
@@ -9291,7 +9291,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Nicht abhängig werden:</strong> Eigene Versorgung sicherstellen bevor getauscht wird. Wer zum Tauschen gezwungen ist, verhandelt schlecht.</span></div>
   </div>
 
-  <div class="info-box">Bargeld bleibt in frühen Krisenwochen relevant. Details: <a href="#finanzen-dokumente" onclick="navigateTo('finanzen-dokumente');return false;">L2 // Finanzen &amp; Dokumente</a>.</div>
+  <div class="info-box">Bargeld bleibt in frühen Krisenwochen relevant. Details: <a href="#finanzen-dokumente" onclick="navTo('finanzen-dokumente');return false;">L2 // Finanzen &amp; Dokumente</a>.</div>
 
   <div class="section-divider"><span>Abfallwirtschaft &amp; Kompostierung</span></div>
   <p class="body-text">Wenn keine Müllabfuhr kommt, wird Abfall zum Problem und zur Ressource. Beides gleichzeitig. Wer früh sortiert, hat später Dünger statt Seuchenrisiko.</p>
@@ -9530,7 +9530,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="table-wrap"><table>
     <thead><tr><th style="width:180px">Element</th><th>Primitive Lösung</th><th>Aufwand</th></tr></thead>
     <tbody>
-      <tr><td>Wasserversorgung</td><td>Bach oder Quelle in Reichweite. Wasser täglich holen und filtern (<a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;">Sawyer, GRAYL</a> oder Abkochen). Vorratsbehälter (Kanister, ausgehöhlter Baumstamm als Trog). Primitive Wasserleitung aus ausgehöhlten Ästen oder ausgehöhlten Holzrohren möglich bei Gefälle.</td><td>Sofort nutzbar. Trog: 1 Tag.</td></tr>
+      <tr><td>Wasserversorgung</td><td>Bach oder Quelle in Reichweite. Wasser täglich holen und filtern (<a href="#wasservorrat" onclick="navTo('wasservorrat');return false;">Sawyer, GRAYL</a> oder Abkochen). Vorratsbehälter (Kanister, ausgehöhlter Baumstamm als Trog). Primitive Wasserleitung aus ausgehöhlten Ästen oder ausgehöhlten Holzrohren möglich bei Gefälle.</td><td>Sofort nutzbar. Trog: 1 Tag.</td></tr>
       <tr><td>Feuerstelle und Kochbereich</td><td>Steinring außerhalb des Shelters für Kochen. Überdacht mit kleinem Schutzdach. Getrennt vom Schlafbereich (Brandschutz). Holzvorrat immer trocken unter Dach lagern.</td><td>1–2 Stunden.</td></tr>
       <tr><td>Vorratslagerung</td><td>Erhöhter Lagerbereich (mind. 1,5 m über Boden) für Nahrung: Tiere und Feuchtigkeit fernhalten. Baumhänger aus Stämmen. Vorräte in luftdichten Behältern wenn verfügbar.</td><td>1 Tag.</td></tr>
       <tr><td>Sanitär</td><td>Latrine mind. 60 m vom Lager und vom Gewässer entfernt. Loch 50 cm tief, nach jeder Nutzung mit Erde bedecken. Separate Waschstation am Bach flussabwärts vom Trinkwasserentnahmepunkt.</td><td>1–2 Stunden.</td></tr>
@@ -10204,7 +10204,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="abc-schutz" class="chapter" data-tags="sicherheit">
-  <div class="section-banner" style="border-left-color:#8b1a8b;">
+  <div class="section-banner" style="border-left-color:#7a3a8a;">
     <div class="section-banner-label">L3 // BEDROHUNGEN</div>
     <div class="section-banner-title">ABC-Schutz. Basiswissen.</div>
     <div class="section-banner-sub">Atomar · Biologisch · Chemisch · Wann handeln · Wann schützen · Stand: Apr 2026 <span class="read-time">· ~4 Min</span></div>
@@ -10425,7 +10425,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
     <tbody>
       <tr><td>Staat richtet Verteilzentren für Wasser und Essen ein.</td><td>Kein Bedarf. Schlangen und Risiken meiden.</td></tr>
       <tr><td>Ausgangssperren möglich.</td><td>Rechtslage kennen. Dokumente griffbereit.</td></tr>
-      <tr><td>Treibstoff rationiert.</td><td>Tank halb voll gehalten. Reservekanister vorhanden (siehe <a href="#fahrzeug-krise" onclick="navigateTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</td></tr>
+      <tr><td>Treibstoff rationiert.</td><td>Tank halb voll gehalten. Reservekanister vorhanden (siehe <a href="#fahrzeug-krise" onclick="navTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</td></tr>
       <tr><td>Erste Todesopfer durch Kälte, fehlende Medikamente.</td><td>Medizinische Vorräte vollständig. EH-Kenntnisse.</td></tr>
     </tbody>
   </table></div>
@@ -10591,7 +10591,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="pandemie-biobedrohung" class="chapter" data-tags="medizin">
-  <div class="section-banner" style="border-left-color:#8b1a8b;"><h2>L3 // Pandemie &amp; Bio-Bedrohung</h2><p>Quarantäne · Schutzausrüstung · Vorräte · Verhalten</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
+  <div class="section-banner" style="border-left-color:#7a3a8a;"><h2>L3 // Pandemie &amp; Bio-Bedrohung</h2><p>Quarantäne · Schutzausrüstung · Vorräte · Verhalten</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
   <div class="chapter-nav-box">
     <span class="chapter-nav-label">ABSCHNITTE:</span>
     <a href="#pandemie-biobedrohung" class="chapter-nav-link" onclick="event.preventDefault();document.getElementById('pandemie-grundlagen').scrollIntoView({behavior:'smooth',block:'start'})">Grundlagen</a>
@@ -10691,7 +10691,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="epidemiologie-krise" class="chapter" data-tags="medizin">
-  <div class="section-banner" style="border-left-color:#8b1a8b;"><h2>Wissen // Epidemiologie &amp; Seuchenprävention</h2><p>Wie Krankheiten sich ausbreiten. Was die Wissenschaft lehrt. Was im Feld gilt.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~4 Min</span></div>
+  <div class="section-banner" style="border-left-color:#7a3a8a;"><h2>Wissen // Epidemiologie &amp; Seuchenprävention</h2><p>Wie Krankheiten sich ausbreiten. Was die Wissenschaft lehrt. Was im Feld gilt.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~4 Min</span></div>
   <p class="body-text">In den meisten dokumentierten Krisenszenarien starben mehr Menschen an Infektionskrankheiten als an der ursprünglichen Katastrophe selbst. Im Ersten Weltkrieg tötete die Spanische Grippe mehr Menschen als der Krieg. Nach dem Erdbeben in Haiti 2010 tötete eine Cholera-Epidemie über 10.000 Menschen. Epidemiologie zu verstehen ist kein theoretisches Thema: es ist direkt überlebenswichtig.</p>
 
   <div class="subsection">Grundbegriffe. Wie Ausbreitung funktioniert.</div>
@@ -11010,7 +11010,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
   <div class="table-wrap"><table>
     <thead><tr><th>Hindernis</th><th>Was passiert</th><th>Pragmatische Lösung</th></tr></thead>
     <tbody>
-      <tr><td>Grenzstau / Überfüllung</td><td>Ukraine 2022: Stunden bis Tage Wartezeit an Landgrenzen. Benzin wird knapp, Versorgung bricht zusammen.</td><td>FRÜH fahren. Stunden oder Tage vor dem allgemeinen Ansturm. Wer wartet verliert. Reservekanister Pflicht (Details: <a href="#fahrzeug-krise" onclick="navigateTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</td></tr>
+      <tr><td>Grenzstau / Überfüllung</td><td>Ukraine 2022: Stunden bis Tage Wartezeit an Landgrenzen. Benzin wird knapp, Versorgung bricht zusammen.</td><td>FRÜH fahren. Stunden oder Tage vor dem allgemeinen Ansturm. Wer wartet verliert. Reservekanister Pflicht (Details: <a href="#fahrzeug-krise" onclick="navTo('fahrzeug-krise');return false;">L3 // Fahrzeug</a>).</td></tr>
       <tr><td>Bargeld-Engpass</td><td>Geldautomaten sind sofort leer oder außer Betrieb. Kartenzahlung kann ausfallen.</td><td>Bargeldvorrat in verschiedenen Währungen. EUR + CHF + USD. Aufgeteilt auf mehrere Personen und Verstecke.</td></tr>
       <tr><td>Kreditkarten gesperrt</td><td>Bei totalem Systemausfall funktionieren Kreditkarten nicht. Auch bei Kontosperrung durch Behörden möglich.</td><td>Bargeld. Edelmetalle (kleine Silbermünzen) als Backup. Krypto als letztes Mittel wenn Internet noch geht.</td></tr>
       <tr><td>Treibstoffmangel</td><td>Tankstellen sofort überlastet oder leer, besonders an Grenzregionen.</td><td>Voller Tank + Reservekanister (20L) sind Pflicht. Alternativrouten mit bekannten Tankstellen planen.</td></tr>
@@ -12382,7 +12382,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 
   <div class="bullet-list">
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Was TDS misst:</strong> Total Dissolved Solids: Alle gelösten Feststoffe im Wasser (Mineralien, Salze, Schwermetalle indirekt). Zeigt nicht ob Bakterien oder Viren vorhanden sind. Aber: sehr hohe TDS-Werte (über 500 ppm bei normalem Leitungswasser) weisen auf Verunreinigung oder schlechte Quelle hin.</span></div>
-    <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Orientierungswerte:</strong> Leitungswasser Deutschland: 200–500 ppm normal. Gefiltertes Wasser (<a href="#wasservorrat" onclick="navigateTo('wasservorrat');return false;">Sawyer</a>): 50–200 ppm. Destilliertes Wasser: 0–5 ppm. Über 1000 ppm: stark mineralisiert oder kontaminiert, nicht trinken ohne Aufbereitung.</span></div>
+    <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Orientierungswerte:</strong> Leitungswasser Deutschland: 200–500 ppm normal. Gefiltertes Wasser (<a href="#wasservorrat" onclick="navTo('wasservorrat');return false;">Sawyer</a>): 50–200 ppm. Destilliertes Wasser: 0–5 ppm. Über 1000 ppm: stark mineralisiert oder kontaminiert, nicht trinken ohne Aufbereitung.</span></div>
     <div class="bullet-item"><span class="bullet-arrow">▸</span><span><strong>Wassertest-Streifen als Ergänzung:</strong> 16-in-1 Trinkwasser-Teststreifen (Nitrat, Chlor, pH, Blei, Kupfer, Härte u.a.) gibt es für 10–15 EUR auf Amazon. Schnell, ohne Strom, liefert mehr Informationen als TDS-Meter allein. Gute Ergänzung zum Filter.</span></div>
   </div>
 
@@ -12768,7 +12768,7 @@ body.light-mode .chapter-nav-link { background: var(--bg3); color: var(--amber);
 </section>
 
 <section id="budget-krisenvorsorge" class="chapter" data-tags="alltag urban finanzen">
-<div class="section-banner" style="border-left-color:#5a8a4a;"><h2>Zusatz // Krisenvorsorge mit knappem Budget</h2><p>Was kaufe ich zuerst. Maximaler Schutz pro Euro.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
+<div class="section-banner" style="border-left-color:#5a7a3a;"><h2>Zusatz // Krisenvorsorge mit knappem Budget</h2><p>Was kaufe ich zuerst. Maximaler Schutz pro Euro.</p><span style="font-size:10px;color:#6a6050;font-family:var(--mono);float:right;margin-top:2px;">Stand: Apr 2026</span> <span class="read-time">· ~3 Min</span></div>
 <p class="body-text">Krisenvorsorge wird oft als teures Hobby dargestellt. Das stimmt nicht. Wer 50 EUR im Monat investiert und in der richtigen Reihenfolge vorgeht, ist nach 6 Monaten besser vorbereitet als jemand der 2.000 EUR falsch ausgibt. Die Reihenfolge entscheidet. Nicht das Budget.</p>
 <h3>Die Reihenfolge. Was zuerst, was später.</h3>
 <div class="subsection">Preis-Nutzen-Ranking: maximaler Schutz pro Euro</div>
