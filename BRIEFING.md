@@ -5,13 +5,13 @@ Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
 Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/
 
 ## Aktueller Stand
-**Version: V39.1** (Mai 2026)
+**Version: V39.4** (Mai 2026)
 87 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
 Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Mai 2026.
 
 ## Dateien
 - `index.html` -- alles inline (HTML + CSS + JS + base64-Bilder)
-- `sw.js` -- Service Worker (Cache-Name: greif-V39.1 -- synchron mit HTML)
+- `sw.js` -- Service Worker (Cache-Name: greif-V39.4 -- synchron mit HTML)
 - `acceptance_test.py` / `test_nav.py` -- Testreihe (47/48 + Nav OK)
 - `linkrot_check.py` -- Linkrot-Checker (DNS-Fehler vs. Bot-Block-Erkennung, Unicode-URLs)
 
@@ -93,6 +93,7 @@ Akkordeon-Tabs: Notfall-Übersicht, Schnellentscheider, Mein Krisenplan, Vorrats
 - Tarp-Aufbau: A-Frame Schritt-für-Schritt, Lagerplatz wählen, Fehler-Tabelle
 - Feuer: 5 Holzkategorien, 4 Aufbautypen, Feuer im Winter
 - Read-Times für 15 Kapitel korrigiert
+- Bugfix: 8 kaputte Weiterführend-Links im Schnellentscheider (l2-energie -> energie-strom, l3-shelter -> shelter-evakuierung, ch08 -> bug-out-bag etc.)
 - Alle 87 Kapitel auf Stand Mai 2026
 - linkrot_check.py: Linkrot-Checker mit Bot-Block-Erkennung
 - Suche: Kapitel / Auch erwähnt in Trennung, Volltext ab 3 Zeichen
@@ -109,6 +110,7 @@ EcoFlow River 2 Max: 300-400 EUR | Carinthia Defence 4: 180-250 EUR
 
 ## Offene Punkte (nächste Session -- V39.2)
 - Keine bekannten inhaltlichen Lücken
+- Bugfix V39.2: 8 kaputte Weiterführend-Links im Schnellentscheider repariert (l2-energie, l3-shelter, ch08 etc.)
 - Linkrot-Check mit `python3 linkrot_check.py index.html --only-errors` auf eigenem Rechner durchführen (DNS war in Sandbox blockiert)
 - Druck-Test: PDF aus Chrome (Print-CSS vorhanden, noch nicht verifiziert)
 - Preise November 2026 prüfen
