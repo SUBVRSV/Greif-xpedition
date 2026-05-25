@@ -5,13 +5,13 @@ Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
 Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/
 
 ## Aktueller Stand
-**Version: V39.7** (Mai 2026)
+**Version: V39.8** (Mai 2026)
 87 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
 Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Mai 2026.
 
 ## Dateien
 - `index.html` -- alles inline (HTML + CSS + JS + base64-Bilder)
-- `sw.js` -- Service Worker (Cache-Name: greif-V39.7 -- synchron mit HTML)
+- `sw.js` -- Service Worker (Cache-Name: greif-V39.8 -- synchron mit HTML)
 - `acceptance_test.py` / `test_nav.py` -- Testreihe (47/48 + Nav OK)
 - `linkrot_check.py` -- Linkrot-Checker (DNS-Fehler vs. Bot-Block-Erkennung, Unicode-URLs)
 
