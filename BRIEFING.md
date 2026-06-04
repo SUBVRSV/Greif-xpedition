@@ -5,13 +5,13 @@ Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
 Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/
 
 ## Aktueller Stand
-**Version: V40.9** (Mai 2026)
+**Version: V41.0** (Mai 2026)
 87 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
 Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Mai 2026.
 
 ## Dateien
 - `index.html` -- alles inline (HTML + CSS + JS + base64-Bilder)
-- `sw.js` -- Service Worker (Cache-Name: greif-V40.9 -- synchron mit HTML)
+- `sw.js` -- Service Worker (Cache-Name: greif-V41.0 -- synchron mit HTML)
 - `acceptance_test.py` / `test_nav.py` -- Testreihe (47/48 + Nav OK)
 - `linkrot_check.py` -- Linkrot-Checker (DNS-Fehler vs. Bot-Block-Erkennung, Unicode-URLs)
 
@@ -93,7 +93,7 @@ Akkordeon-Tabs: Notfall-Übersicht, Schnellentscheider, Mein Krisenplan, Vorrats
 - Tarp-Aufbau: A-Frame Schritt-für-Schritt, Lagerplatz wählen, Fehler-Tabelle
 - Feuer: 5 Holzkategorien, 4 Aufbautypen, Feuer im Winter
 - Read-Times für 15 Kapitel korrigiert
-- V40.9 Usability: Resume-Banner (Zuletzt gelesen), Notfall-Button (⚡ Schnellentscheider), Kapitel-Link kopieren, Allergien & Unverträglichkeiten in Lagerung
+- V41.0 Usability: Resume-Banner (Zuletzt gelesen), Notfall-Button (⚡ Schnellentscheider), Kapitel-Link kopieren, Allergien & Unverträglichkeiten in Lagerung
 - Bugfix: 8 kaputte Weiterführend-Links im Schnellentscheider (l2-energie -> energie-strom, l3-shelter -> shelter-evakuierung, ch08 -> bug-out-bag etc.)
 - Alle 87 Kapitel auf Stand Mai 2026
 - linkrot_check.py: Linkrot-Checker mit Bot-Block-Erkennung
