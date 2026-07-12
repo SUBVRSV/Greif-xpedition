@@ -5,13 +5,13 @@ Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
 Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/
 
 ## Aktueller Stand
-**Version: V42.4** (Mai 2026)
-91 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
-Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Mai 2026.
+**Version: V42.9** (Juli 2026)
+93 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
+Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Juli 2026.
 
 ## Dateien
 - `index.html` -- alles inline (HTML + CSS + JS + base64-Bilder)
-- `sw.js` -- Service Worker (Cache-Name: greif-V42.4 -- synchron mit HTML)
+- `sw.js` -- Service Worker (Cache-Name: greif-V42.9 -- synchron mit HTML)
 - `acceptance_test.py` / `test_nav.py` -- Testreihe (47/48 + Nav OK)
 - `linkrot_check.py` -- Linkrot-Checker (DNS-Fehler vs. Bot-Block-Erkennung, Unicode-URLs)
 
@@ -88,14 +88,14 @@ Akkordeon-Tabs: Notfall-Übersicht, Schnellentscheider, Mein Krisenplan, Vorrats
 - Babys & Kleinkinder komplett (Stillen, Windeln, Wärme, Baby-BOB) in kinder-krise
 - KI-Desinformation (Deepfakes, Audiofakes, Verifikations-Workflow) in desinformation-krise
 - Alleinstehende: Stufenplan + Psychologie + Familienvergleich in alleinstehende-krise
-- Budget: Preise Mai 2026 + Einkaufsquellen-Tabelle in budget-krisenvorsorge
+- Budget: Preise Juli 2026 + Einkaufsquellen-Tabelle in budget-krisenvorsorge
 - Nav-Boxen in 8 grossen Kapiteln ohne Sprungnavigation (mobilitaet-krise, energie-strom, kommunikation-krise, navigation-krise, fahrzeug-krise, urban-mietwohnung, tools-hacks, fluessigkeiten-bob)
 - Tarp-Aufbau: A-Frame Schritt-für-Schritt, Lagerplatz wählen, Fehler-Tabelle
 - Feuer: 5 Holzkategorien, 4 Aufbautypen, Feuer im Winter
 - Read-Times für 15 Kapitel korrigiert
-- V42.4 Usability: Resume-Banner (Zuletzt gelesen), Notfall-Button (⚡ Schnellentscheider), Kapitel-Link kopieren, Allergien & Unverträglichkeiten in Lagerung
+- V42.9 Usability: Resume-Banner (Zuletzt gelesen), Notfall-Button (⚡ Schnellentscheider), Kapitel-Link kopieren, Allergien & Unverträglichkeiten in Lagerung
 - Bugfix: 8 kaputte Weiterführend-Links im Schnellentscheider (l2-energie -> energie-strom, l3-shelter -> shelter-evakuierung, ch08 -> bug-out-bag etc.)
-- Alle 91 Kapitel auf Stand Mai 2026
+- Alle 93 Kapitel auf Stand Juli 2026
 - linkrot_check.py: Linkrot-Checker mit Bot-Block-Erkennung
 - Suche: Kapitel / Auch erwähnt in Trennung, Volltext ab 3 Zeichen
 - Fortschrittsanzeige Sidebar (X von 81 Kapiteln gelesen)
@@ -103,7 +103,7 @@ Akkordeon-Tabs: Notfall-Übersicht, Schnellentscheider, Mein Krisenplan, Vorrats
 - SW Update-Banner (kein harter Reload)
 - Print-CSS: Akkordeons aufgeklappt
 
-## Preise (Mai 2026 -- nächste Prüfung Nov 2026)
+## Preise (Juli 2026 -- nächste Prüfung Nov 2026)
 Silber 1 oz: 90-110 EUR | Gold 1 oz: 2.900-3.200 EUR
 Sawyer Mini: 35-55 EUR | Leatherman Signal: 120-160 EUR
 Morakniv Garberg: 75-105 EUR | GRAYL Ultrapress: 85-110 EUR
