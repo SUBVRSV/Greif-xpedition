@@ -12,7 +12,7 @@ Prueft:
   2. sw.js Cache-Name synchron mit HTML-Version
   3. Keine Em-Dashes (U+2014)
   4. Section-Balance (<section id= und </section> gleich oft)
-  5. Keine JS-Syntaxfehler (node --check auf alle 7 Bloecke)
+  5. Keine JS-Syntaxfehler (node --check auf alle 6 Bloecke)
   6. VOLD kommt nicht mehr vor (wenn angegeben)
   7. acceptance_test.py (47/48, Persona-Karten absichtlich fehlend)
   8. test_nav.py (Nav OK)
@@ -93,10 +93,10 @@ def run_check(html_path, v_new, v_old=None):
         fail(f'Unbalanciert: {open_sections} oeffnend, {close_sections} schliessend')
 
     # ===== 5. JS SYNTAX CHECK =====
-    print('\n[5] JS Syntax-Check (node --check, alle 7 Bloecke)')
+    print('\n[5] JS Syntax-Check (node --check, alle 6 Bloecke)')
     scripts = re.findall(r'<script>(.*?)</script>', content, re.DOTALL)
-    if len(scripts) != 7:
-        fail(f'Erwarte 7 JS-Bloecke, gefunden: {len(scripts)}')
+    if len(scripts) != 6:
+        fail(f'Erwarte 6 JS-Bloecke, gefunden: {len(scripts)}')
     else:
         ok(f'{len(scripts)} JS-Bloecke gefunden')
         all_ok = True
