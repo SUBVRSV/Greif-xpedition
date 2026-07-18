@@ -2,124 +2,77 @@
 
 ## Projekt
 Deutsches Krisenvorsorge-Handbuch von @greif_xpedition.
-Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/
+Single-HTML PWA. Gehostet: https://subvrsv.github.io/Greif-xpedition/ und https://greif-xpedition.subvrsv.de
 
 ## Aktueller Stand
-**Version: V43.8** (Juli 2026)
-93 Kapitel | 1,72 MB | 7 JS-Blöcke | 118.000 Wörter
-Alle Tests grün: 47/48 (Persona-Karten absichtlich entfernt), Nav OK (333 IDs, 86 Sidebar-Links, 9 Gruppen), keine Em-Dashes, alle Stände auf Juli 2026.
+**Version: V44.0** (Juli 2026)
+93 Kapitel | ~1,79 MB | **6 JS-Blöcke** | ~131.000 Wörter
+Alle Tests grün. Sidebar: **11 Gruppen** (ng-l3c und ng-zusatz wurden in V43.6 gesplittet).
 
 ## Dateien
 - `index.html` -- alles inline (HTML + CSS + JS + base64-Bilder)
-- `sw.js` -- Service Worker (Cache-Name: greif-V43.8 -- synchron mit HTML)
-- `acceptance_test.py` / `test_nav.py` -- Testreihe (47/48 + Nav OK)
-- `linkrot_check.py` -- Linkrot-Checker (DNS-Fehler vs. Bot-Block-Erkennung, Unicode-URLs)
+- `sw.js` -- Service Worker (Cache-Name: greif-V44.0 -- synchron mit HTML)
+- `acceptance_test.py` / `test_nav.py` -- Testreihe (Achtung: nach Sandbox-Reset liegt in /mnt/user-data/uploads die ALTE Version mit Tests für entfernte Features krisenkalender/szpShow/kkInit -- diese Referenzen vor dem Lauf entfernen)
+- `release_check.py` -- erwartet jetzt **6** JS-Blöcke (nicht 7)
+- `linkrot_check.py` -- Linkrot-Checker, lokal beim User laufen lassen (Sandbox erreicht die meisten Domains nicht)
+- `preview.png` -- 1200x630 OG-Bild, bei Kapitelzahl- oder Versionsänderung regenerieren (PIL-Skript, "93 Kapitel · V44.0")
 
 ## Core-Regeln
-- Keine Em-Dashes (--), korrekte Umlaute, keine Apostrophe in JS-Kommentaren
-- Version +0.1 bei jeder Änderung in 4 Stellen (HTML-Kommentar, Sidebar-Footer, Cover-Meta, Cover-Notice) + sw.js Cache-Name
-- JS Syntax-Check: `node --check` auf alle 7 Blöcke nach jeder JS-Änderung
-- `acceptance_test.py` (47/48) + `test_nav.py` (Nav OK) nach jeder Änderung
-- Immer BEIDE Dateien ausgeben: index.html + sw.js
-- Stand-Datum in Section-Banner bei inhaltlichen Änderungen auf aktuelles Datum setzen
+- Keine Em-Dashes (U+2014), nur `--`; korrekte Umlaute; keine Apostrophe in JS-Kommentaren
+- Version +0.1 bei jeder Änderung in 4 HTML-Stellen (HTML-Kommentar, Sidebar-Footer, Cover-Meta, Cover-Notice) + sw.js Cache-Name
+- `node --check` auf alle **6** JS-Blöcke nach jeder JS-Änderung
+- `python3 release_check.py index.html VNEU VALT` muss "Alle Checks bestanden" liefern
+- Immer BEIDE Dateien ausliefern: index.html + sw.js (plus preview.png, BRIEFING.md, release_check.py, linkrot_check.py via present_files)
+- `navTo(id, link)` verwenden -- `navigateTo()` existiert NICHT
+- Zwei Maps SYNCHRON halten: `const map` + `_navGroupMap` (beide in Haupt-JS-Block, je 2 Vorkommen)
+- HTML-Reihenfolge der Sections = Sidebar-Reihenfolge (sonst Nav-Sprung beim Scrollen)
 
-## Sidebar-Gruppen (V39.1 -- unverändert seit V38.5)
+## In V43.x ENTFERNTE Features (nicht wieder einbauen, Reste nicht "reparieren")
+Sofort-Panel, Schnellentscheider (qd*), Krisenplan-Generator (kpg*), Szenariopfade (szp*), Krisenkalender (kk*, war eigene Section), Wochennudge, Chapter-Completion-Toast, Keyboard-Shortcut-Popup, Persona-Karten. Der schwebende Notfall-Button (#emergency-btn) führt jetzt per openTool('notfall-triage') zur statischen Notfall-Übersicht im Cover.
+
+## Verbliebene interaktive Features
+Suche mit Highlight, Bookmarks/Favoriten (favorites-group), Resume-Banner (greif_lastRead), Fortschrittsring, Dark/Light-Mode (toggleTheme, Button: #light-mode-btn), PWA-Install, Vorratsplaner (vpCalc), Was-fehlt-mir (wfmInit), Notfall-Übersicht + Erste-10-Minuten + FAQ (Accordions, openTool mit toolIds), Familiennotfallplan-Inputs (fnpInit speichert per input-Listener in localStorage greif_fnp; Buttons als window.fnpPrint/fnpDownload/fnpExport/fnpReset), Kapitel-Link-Kopieren, Aktions-Box je Kapitel-Banner.
+
+## Sidebar-Gruppen (11, seit V43.6)
 - **ng-l1:** bug-out-bag, chest-pack, kleidung-ausruestung, tools-hacks, fluessigkeiten-bob
 - **ng-l1b:** nahrung-konzept, essensplan, einkaufsliste, nahrung-lagerung, feldkueche, nahrung-naehrstoffe
-- **ng-l2:** medizin-erstehilfe, medikamente-vorrat, medizin-ohne-arzt, hygiene-sanitaer, haushalts-ressourcen, kommunikation-krise, navigation-krise, energie-strom, technik-field, finanzen-dokumente, finanzkrise, digitale-vorbereitung, soziales-netzwerk, werkzeug-zuhause
-- **ng-l3a (Wohnen & Sicherheit):** werkzeug-zuhause, wasservorrat, fahrzeug-krise, mobilitaet-krise, shelter-evakuierung, urban-wohnen, urban-mietwohnung, wohnung-absichern, sicherheit-lager, selbstverteidigung, freie-waffen
+- **ng-l2:** medizin-erstehilfe, medikamente-vorrat, medizin-ohne-arzt, hygiene-sanitaer, haushalts-ressourcen, kommunikation-krise, navigation-krise, energie-strom, technik-field, finanzen-dokumente, finanzkrise, digitale-vorbereitung, soziales-netzwerk
+- **ng-l3a (Wohnen & Sicherheit):** werkzeug-zuhause, wasservorrat, fahrzeug-krise, mobilitaet-krise, shelter-evakuierung, **extremwetter-unterwegs (NEU V43.7)**, urban-wohnen, urban-mietwohnung, wohnung-absichern, sicherheit-lager, selbstverteidigung, freie-waffen
 - **ng-l3b (Wildnis & Versorgung):** wildnis-bushcraft, tiere-fruehwarnung, tarp-aufbau, feuer-bedingungen, signalisierung, anbau-konservierung, langzeitlager, jagd-nahrung, heizung-waerme, saisonale-anpassung
-- **ng-l3c (Krisen & Bedrohungen):** hitzewelle, naturgefahren, krieg-unruhen, abc-schutz, cyberangriff, blackout-stufenplan, blackout-matrix, pandemie-biobedrohung, epidemiologie-krise, recht-krisenfall, drohnen-schutz, familiennotfallplan, alleinstehende-krise
+- **ng-l3c1 (Infrastruktur-Krisen):** blackout-matrix, blackout-stufenplan, gasausfall-szenario, solarsturm-szenario, lieferketten-ausfall, cyberangriff, drohnen-schutz
+- **ng-l3c2 (Katastrophen, Personen & Recht):** naturgefahren, hitzewelle, abc-schutz, epidemiologie-krise, pandemie-biobedrohung, krieg-unruhen, familiennotfallplan, alleinstehende-krise, behinderung-krise, haustier-krise (NEU V42.9), recovery-nachkrise (NEU V42.9), recht-krisenfall
 - **ng-alltag:** sanitaer-notfall, brand-notfall, gasaustritt, krisenkueche, ausruestungspflege, bartering, kinder-krise
-- **ng-zusatz:** mental-staerke, koerperliche-fitness, schlaf-krise, offline-bibliothek, reparieren-krise, mietrecht-krise, warnmeldungen, desinformation-krise, gefahrenerkennung, infrastruktur-karte, staat-planung, dach-besonderheiten, ernaehrungs-biochemie, typische-fehler, budget-krisenvorsorge, szenarien
+- **ng-zusatz1 (Körper, Geist & Werkstatt):** mental-staerke, koerperliche-fitness, schlaf-krise, ernaehrungs-biochemie, reparieren-krise, offline-bibliothek
+- **ng-zusatz2 (Recht, System & Kontext):** budget-krisenvorsorge, dach-besonderheiten, mietrecht-krise, staat-planung, desinformation-krise, gefahrenerkennung, warnmeldungen, infrastruktur-karte, szenarien, typische-fehler
 - **ng-anhang:** quellen, shops
-- **Top-Level (keine Gruppe):** cover, inhalt, checklist, krisenkalender
+- **Top-Level ohne Gruppe:** cover, inhalt, checklist
 
-## JS-Blöcke (7 Stück -- alle müssen fehlerfrei sein)
-- Block 0: Theme-Init (138 Zeichen)
-- Block 1: Theme-Init 2 (149 Zeichen)
-- Block 2: Quickdecider-Daten (~11k Zeichen) -- 9 Szenarien inkl. "unterwegs"
-- Block 3: Vorratsplaner (~8k Zeichen)
-- Block 4: Haupt-JS (~80k Zeichen) -- navTo, const map, _navGroupMap, alle Kernfunktionen
-- Block 5: PWA Service Worker Registration (~2k Zeichen)
-- Block 6: Online-Status + KPG + Fortschritt (~6k Zeichen)
+## JS-Blöcke (6, seit V43.1)
+- Block 0/1: Theme-Init (je ~140 B)
+- Block 2: Vorratsplaner-Daten (~8 KB)
+- Block 3: Haupt-JS (~68 KB) -- navTo, const map, _navGroupMap, Suche, Bookmarks, openTool, fnpInit
+- Block 4: PWA SW-Registration (~2 KB)
+- Block 5: Online-Status, Fortschrittsring, FNP-Buttons als window.* (~10 KB)
 
-## Kritische Architektur
-- **Drei Maps SYNCHRON:** `const map` und `const _navGroupMap` (beide in Block 4) -- ng-l3 ist aufgeteilt in ng-l3a/b/c
-- **HTML-Reihenfolge = Sidebar-Reihenfolge** (KRITISCH -- sonst Nav-Sprung beim Scrollen)
-- **Sidebar ist position:fixed** -- bleibt dunkel auch im Light-Mode (bewusst)
-- **Nav-Algorithmus:** größter sichtbarer Flächenanteil im oberen 2/3 des Viewports
-- **Sidebar-Scroll:** sidebar.scrollTop (KEIN scrollIntoView -- scrollt sonst die ganze Seite)
-- **Akkordeon-Handler:** document.addEventListener('click') auf [data-acc] -- KEIN zusätzlicher Handler nötig
-- **Sidebar-Scrollbar:** ausgeblendet via scrollbar-width:none + ::-webkit-scrollbar {display:none}
-- **chapter-nav-box:** Sprungnavigation innerhalb langer Kapitel -- IDs auf subsection-divs setzen
+## Faktencheck-Historie (Stufen 1-4 plus Medizin, alle abgeschlossen)
+- **V42.1:** Warntag = ZWEITER Do im Sept; Cell Broadcast Test 8.12.2022 / Wirkbetrieb 23.2.2023; TAB-Bericht 2011 (Petermann et al., nicht "Bundestag-Bericht"); BfArM führt Engpassliste (nicht ABDA, 892 Meldungen 2024); KIRAS-Studie EV-A 2015 (nicht "Saurugg 2021")
+- **V42.2:** Balkonkraftwerk seit 16.5.2024: 800W WR / 2000Wp Module, Anmeldung NUR MaStR (Netzbetreiber-Anmeldung entfallen); Kleinwindanlage 50-800 kWh/JAHR (nicht Monat); EcoFlow River 2 Pro 768Wh/800W, Max 512Wh (kein "Trail" in der Serie)
+- **V42.3:** Sicherheitspaket 31.10.2024: §42b WaffG (Messerverbot Fernverkehr/Bahnhöfe, BW auch ÖPNV seit 22.7.2025), §42c (anlasslose Kontrollen), §42 neu (Veranstaltungen); Tonfa/Teleskopschlagstock LEGAL zu besitzen (nur Führverbot §42a); Springmesser seit 31.10.2024 verboten; Tierabwehrspray OHNE gesetzliche Altersgrenze
+- **V42.4:** §138 AO = Auslandsbeteiligungen (Konten laufen über CRS); AWV-Grenze 50.000 EUR seit 1.1.2025 (war im Handbuch schon korrekt); Einlagensicherung 100k/7 Arbeitstage ist gesetzlich und wird eingehalten (Greensill 2021); Verteidigungsfall = Art. 115a GG
+- **V42.5/V42.6:** ESEE 4: 160-190 EUR; Olight Perun 2 Mini: 70-110 EUR; Leatherman Signal: 125-165 EUR; Gold/Silber nur noch mit Datumsstand + Volatilitätshinweis; Amateurfunk Klasse E: 4 KW-Bänder (160/80/15/10m), Klasse N seit 24.6.2024
+- **V44.0 (Medizin):** Jodblockade SSK: 13-45 Jahre 130mg (nicht 13-17), über 45 ABRATUNG, Schwangere 130mg altersunabhängig, Kinderdosen 16,25/32,5/65mg; Ibuprofen Selbstmedikation max 1,2g/Tag (2,4g nur ärztlich); H2O2 ist KEINE Trinkwasser-Desinfektion; kolloidales Silber: BfR rät ab (nur Silberionen-Konservierung für sauberes Wasser); "chlorfreies Natriumhypochlorit" war Unsinn → "unparfümiert"
 
-## Schrift / Tabellen (unverändert seit V38.5)
-- `tbody td`: Sans 14px
-- `tbody td:first-child`: Sans 14px (kein Mono, kein fett)
-- `.nav-link`: 15px
-- `.body-text`: 15px
-- Sidebar bleibt Mono (nav-links, badges, meta)
+## Preise (Stand Juli 2026, nächste Prüfung Jan 2027)
+Silber 1oz: ~75-85 EUR (volatil! Spot 2026: 55-120 USD) | Gold 1oz: 3.100-3.500 EUR | Sawyer Mini: 35-55 | GRAYL Ultrapress: 85-110 | Morakniv Garberg: 75-105 | Leatherman Signal: 125-165 | ESEE 4: 160-190 | EcoFlow River 2 Max: 300-400 | Carinthia Defence 4: 180-250 | Olight Perun 2 Mini: 70-110
 
-## Cover-Struktur (NICHT MEHR ANFASSEN)
-Das Cover hat eine fragile HTML-Struktur. Elemente landen leicht in der Sidebar.
-Akkordeon-Tabs: Notfall-Übersicht, Schnellentscheider, Mein Krisenplan, Vorratsplaner, Erste 10 Minuten, Was fehlt mir noch?, Szenariopfade, Einstieg & FAQ
+## Feedback-Kanal (seit V43.0)
+Im Quellen-Kapitel + beiden Preishinweisen: @greif_xpedition (Twitter/X), github.com/subvrsv/Greif-xpedition (Repo existiert, public, verifiziert), greif-xpedition.subvrsv.de. Changelog-Tabelle im Quellen-Kapitel pflegen!
 
-## Bekannte Fallen
-- USP-Block im Cover wandert leicht in die Sidebar -- nach jeder Cover-Änderung prüfen
-- scrollIntoView() NICHT in _updateActiveNav verwenden -- scrollt die ganze Seite
-- JS-Strings mit HTML-Inhalt: doppelte Quotes verwenden (keine einfachen -- Syntaxfehler)
-- Orphaned JS-Blöcke nach Umstrukturierungen immer node --check prüfen
-- HTML-Reihenfolge nach Sections-Umordnung mit test_nav.py verifizieren
-- navigateTo() existiert NICHT -- immer navTo() verwenden
-- Beide JS-Maps (const map + const _navGroupMap) müssen synchron bleiben wenn Gruppen geändert werden
-- box-shadow auf overflow-y:auto Elementen wird von Chrome abgeschnitten -- nicht verwenden
-- chapter-nav-box Anker-IDs müssen auf div/h3 im selben Chapter gesetzt werden (nicht auf andere Sections)
+## NICHT ANFASSEN
+Cover-Struktur, Light-Mode CSS (Sidebar bleibt dunkel), Nav-Algorithmus (stabil seit V36.5), Akkordeon-Handler (document-Listener auf [data-acc]), Sidebar-Scrollbar (versteckt), dünne Kapitel (bewusst kompakt), mental-staerke + budget-krisenvorsorge Ton (passt).
 
-## Features (V39.1 -- vollständige Liste)
-- Schnellentscheider: 9 Szenarien inkl. "Ich bin unterwegs" (Auto/Öffis ausgefallen)
-- Ampel-Stufenplan (Grün/Gelb/Orange/Rot) in shelter-evakuierung + familiennotfallplan
-- OsmAnd GPX-Tutorial (7 Schritte) in navigation-krise
-- Offline-Karten-Abschnitt (OsmAnd, Maps.me, Google, Garmin) in navigation-krise
-- "Zu Fuß durch die Stadt" als 6. Akkordeon in mobilitaet-krise
-- Fahrrad-Reparatur (Platten, Kette, Bremse, Schaltung) in mobilitaet-krise
-- Nahrung ohne Kochen (10 Optionen, 24h-BOB-Ration) in feldkueche
-- Kaliumiodid-Protokoll (Dosis, Altersgruppen, Kontraindikationen) in abc-schutz
-- Babys & Kleinkinder komplett (Stillen, Windeln, Wärme, Baby-BOB) in kinder-krise
-- KI-Desinformation (Deepfakes, Audiofakes, Verifikations-Workflow) in desinformation-krise
-- Alleinstehende: Stufenplan + Psychologie + Familienvergleich in alleinstehende-krise
-- Budget: Preise Juli 2026 + Einkaufsquellen-Tabelle in budget-krisenvorsorge
-- Nav-Boxen in 8 grossen Kapiteln ohne Sprungnavigation (mobilitaet-krise, energie-strom, kommunikation-krise, navigation-krise, fahrzeug-krise, urban-mietwohnung, tools-hacks, fluessigkeiten-bob)
-- Tarp-Aufbau: A-Frame Schritt-für-Schritt, Lagerplatz wählen, Fehler-Tabelle
-- Feuer: 5 Holzkategorien, 4 Aufbautypen, Feuer im Winter
-- Read-Times für 15 Kapitel korrigiert
-- V43.8 Usability: Resume-Banner (Zuletzt gelesen), Notfall-Button (⚡ Schnellentscheider), Kapitel-Link kopieren, Allergien & Unverträglichkeiten in Lagerung
-- Bugfix: 8 kaputte Weiterführend-Links im Schnellentscheider (l2-energie -> energie-strom, l3-shelter -> shelter-evakuierung, ch08 -> bug-out-bag etc.)
-- Alle 93 Kapitel auf Stand Juli 2026
-- linkrot_check.py: Linkrot-Checker mit Bot-Block-Erkennung
-- Suche: Kapitel / Auch erwähnt in Trennung, Volltext ab 3 Zeichen
-- Fortschrittsanzeige Sidebar (X von 81 Kapiteln gelesen)
-- Krisenplan-Generator (8 Fragen, 3 Prioritätsstufen)
-- SW Update-Banner (kein harter Reload)
-- Print-CSS: Akkordeons aufgeklappt
-
-## Preise (Juli 2026 -- nächste Prüfung Nov 2026)
-Silber 1 oz: 90-110 EUR | Gold 1 oz: 2.900-3.200 EUR
-Sawyer Mini: 35-55 EUR | Leatherman Signal: 120-160 EUR
-Morakniv Garberg: 75-105 EUR | GRAYL Ultrapress: 85-110 EUR
-EcoFlow River 2 Max: 300-400 EUR | Carinthia Defence 4: 180-250 EUR
-
-## Offene Punkte (nächste Session -- V39.2)
-- Keine bekannten inhaltlichen Lücken
-- Bugfix V39.2: 8 kaputte Weiterführend-Links im Schnellentscheider repariert (l2-energie, l3-shelter, ch08 etc.)
-- Linkrot-Check mit `python3 linkrot_check.py index.html --only-errors` auf eigenem Rechner durchführen (DNS war in Sandbox blockiert)
-- Druck-Test: PDF aus Chrome (Print-CSS vorhanden, noch nicht verifiziert)
-- Preise November 2026 prüfen
-
-## NICHT MEHR ANFASSEN
-- Cover-Struktur (zu fragil)
-- Light-Mode CSS (Sidebar bleibt dunkel -- bewusst)
-- Nav-Algorithmus (stabil seit V36.5)
-- Akkordeon-Handler (funktioniert via document click auf [data-acc])
-- Sidebar-Scrollbar (ausgeblendet -- bewusst, sieht sonst aus wie defekter Strich)
-- Sidebar-Gruppen und JS-Maps (synchron und stabil -- nur ändern wenn neue Kapitel/Gruppen)
+## Offene Punkte / bewusst nicht gemacht
+- ~500 Rest-Preise, Zeitangaben, Gewichte ungeprüft (geringes Risiko, Feedback-Kanal + Jan-2027-Prüfung)
+- Dateigröße-Optimierung verworfen (nur 90 KB Bilder, Rest Text; gzip macht der Server)
+- Kapitel-individuelle Änderungsdaten verworfen (Changelog-Tabelle löst das)
+- linkrot_check.py sollte der User lokal laufen lassen (100 externe URLs, v.a. Amazon-Links altern schnell)
