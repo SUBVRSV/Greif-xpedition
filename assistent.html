@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- GREIF XPEDITION // Assistent (offline) // V1.2 -->
+<!-- GREIF XPEDITION // Assistent (offline) // V1.5 -->
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -73,9 +73,33 @@ header p{color:var(--text2);font-size:0.9rem;max-width:520px;margin:0 auto}
 footer{border-top:1px solid var(--border);padding:18px 16px 30px;text-align:center;
   font-family:var(--mono);font-size:0.66rem;color:var(--text3);line-height:1.9}
 footer a{color:var(--amber2);text-decoration:none}
+
+/* Einheitliche Top-Navigation */
+#topnav{position:sticky;top:0;z-index:30;display:flex;align-items:center;gap:4px;
+  background:var(--bg2);border-bottom:1px solid var(--border);
+  padding:calc(8px + env(safe-area-inset-top)) 12px 8px;font-family:var(--sans)}
+#topnav .tn-link{font-size:0.85rem;color:var(--text2);text-decoration:none;padding:6px 11px;border-radius:7px;transition:all .2s;cursor:pointer}
+#topnav a.tn-link:hover{background:var(--bg3);color:var(--amber3)}
+#topnav .tn-active{color:var(--amber3);font-weight:600}
+#topnav #tn-theme{margin-left:auto;background:transparent;border:1px solid var(--border);color:var(--text2);
+  border-radius:7px;padding:5px 11px;cursor:pointer;font-size:0.9rem}
+#topnav #tn-theme:hover{border-color:var(--amber);color:var(--amber)}
+
+/* Light-Mode für den Assistenten */
+body.light{
+  --bg:#f4efe6;--bg2:#ebe4d6;--bg3:#e2dac9;--border:#d8cdb8;--border2:#e0d8c8;
+  --text:#1e1a14;--text2:#4a443a;--text3:#8a8070;
+  --amber:#b07d08;--amber2:#c8920a;--amber3:#8a6206;--blue:#2d5f9e;
+}
 </style>
 </head>
 <body>
+<div id="topnav">
+  <a href="index.html" class="tn-link">← Handbuch</a>
+  <a href="buch.html" class="tn-link">📖 Buch</a>
+  <span class="tn-link tn-active">💬 Berater</span>
+  <button id="tn-theme" onclick="toggleTheme()" title="Hell/Dunkel">◐</button>
+</div>
 <div class="wrap">
   <header>
     <div class="kicker">GREIF XPEDITION</div>
@@ -98,8 +122,9 @@ footer a{color:var(--amber2);text-decoration:none}
 
 <footer>
   GREIF XPEDITION · Krisenberater (offline) · V1.0<br>
-  Antworten aus geprüftem Material, Stand Juli 2026 · <a href="index.html">Handbuch</a> · <a href="buch.html">Buch</a><br>
-  Bei akuter Gefahr immer Notruf 112 · @greif_xpedition
+  Antworten aus geprüftem Material, Stand September 2026 · <a href="index.html">Handbuch</a> · <a href="buch.html">Buch</a><br>
+  Bei akuter Gefahr immer Notruf 112 · @greif_xpedition<br>
+  <span style="opacity:0.75">Inhalte KI-gestützt erstellt und aktualisiert, redaktionell geprüft und an offiziellen Quellen belegt. Konzept & Verantwortung: GREIF XPEDITION.</span>
 </footer>
 
 <script>
@@ -188,6 +213,16 @@ function cardHTML(e){
     '<a class="open" href="'+file+'#'+e.id+'">Vollständiges Kapitel öffnen</a>'+
     '</div>';
 }
+function toggleTheme(){
+  var isLight = document.body.classList.toggle('light');
+  try{ localStorage.setItem('greif_theme', isLight?'light':'dark'); }catch(e){}
+}
+(function(){
+  try{
+    var t = localStorage.getItem('greif_theme');
+    if(t==='light') document.body.classList.add('light');
+  }catch(e){}
+})();
 // Init
 const qInput = document.getElementById('q');
 function go(){ const v = qInput.value.trim(); if(v) render(v); }

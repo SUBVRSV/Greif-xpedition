@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<!-- GREIF XPEDITION // Pitch-Infografik // V1.0 -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GREIF XPEDITION – Auf einen Blick</title>
+<style>
+:root{
+  --bg:#0c0b09;--bg2:#151310;--panel:#1a1712;--border:#3a352c;
+  --amber:#c8920a;--amber2:#e8ab10;--amber3:#f0bf30;
+  --text:#f0ebe1;--text2:#b5ad9d;--text3:#7d7566;
+  --green:#4a9d6a;--red:#b0463c;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'IBM Plex Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:radial-gradient(ellipse at 50% 0%, #17140f 0%, var(--bg) 70%);
+  color:var(--text);font-family:var(--sans);line-height:1.5;
+  min-height:100vh;
+  padding:calc(28px + env(safe-area-inset-top)) 20px calc(28px + env(safe-area-inset-bottom));
+  display:flex;flex-direction:column;align-items:center;-webkit-text-size-adjust:100%}
+.wrap{width:100%;max-width:840px}
+
+/* HERO */
+.kicker{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.24em;text-transform:uppercase;color:var(--amber);text-align:center;margin-bottom:14px}
+h1{font-size:2.1rem;line-height:1.12;text-align:center;letter-spacing:-0.01em;margin-bottom:12px;font-weight:600}
+h1 .hl{color:var(--amber3)}
+.claim{text-align:center;font-size:1.12rem;color:var(--text2);max-width:600px;margin:0 auto 30px;line-height:1.5}
+
+/* USP BAND */
+.usp{background:linear-gradient(135deg, rgba(200,146,10,0.14), rgba(200,146,10,0.04));
+  border:1px solid rgba(200,146,10,0.4);border-radius:14px;
+  padding:22px 24px;text-align:center;margin-bottom:26px}
+.usp .lbl{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.usp .big{font-size:1.5rem;font-weight:600;line-height:1.25;color:var(--text)}
+.usp .big em{color:var(--amber3);font-style:normal}
+
+/* KONTRAST: statt / bei uns */
+.contrast{display:flex;gap:12px;margin-bottom:28px;flex-wrap:wrap}
+.contrast .col{flex:1;min-width:240px;border-radius:12px;padding:16px 18px}
+.contrast .bad{background:rgba(176,70,60,0.08);border:1px solid rgba(176,70,60,0.3)}
+.contrast .good{background:rgba(74,157,106,0.08);border:1px solid rgba(74,157,106,0.35)}
+.contrast .h{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;margin-bottom:12px}
+.contrast .bad .h{color:#d07068}
+.contrast .good .h{color:#6ec98d}
+.contrast ul{list-style:none}
+.contrast li{font-size:0.9rem;padding:5px 0 5px 26px;position:relative;color:var(--text2)}
+.contrast .bad li::before{content:"✕";position:absolute;left:0;color:var(--red);font-weight:700}
+.contrast .good li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:700}
+.contrast .good li{color:var(--text)}
+
+/* VIER SÄULEN */
+.pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:28px}
+.pillar{background:var(--panel);border:1px solid var(--border);border-radius:12px;padding:16px 13px;text-align:center}
+.pillar .ic{font-size:1.6rem;margin-bottom:8px;display:block}
+.pillar .t{font-size:0.9rem;font-weight:600;margin-bottom:5px;color:var(--amber3)}
+.pillar .d{font-size:0.76rem;color:var(--text2);line-height:1.45}
+
+/* WAS ES IST */
+.what{display:flex;gap:12px;margin-bottom:26px;flex-wrap:wrap}
+.what .box{flex:1;min-width:150px;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 15px;text-align:center}
+.what .n{font-family:var(--mono);font-size:1.5rem;font-weight:600;color:var(--amber2);line-height:1}
+.what .l{font-size:0.8rem;color:var(--text2);margin-top:6px}
+
+/* FOOT */
+.tag{text-align:center;font-size:1.05rem;color:var(--text);margin-bottom:8px}
+.tag strong{color:var(--amber3)}
+.brand{font-family:var(--mono);font-size:0.72rem;letter-spacing:0.16em;color:var(--text3);text-align:center;margin-top:18px}
+
+@media(max-width:620px){
+  h1{font-size:1.6rem}
+  .pillars{grid-template-columns:repeat(2,1fr)}
+  .usp .big{font-size:1.2rem}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="kicker">GREIF XPEDITION</div>
+  <h1>Krisenvorsorge, der man <span class="hl">vertrauen</span> kann.</h1>
+  <p class="claim">Handbuch, Buch und KI-Assistent für den Ernstfall. Aus einer Quelle, die stimmt.</p>
+
+  <div class="usp">
+    <div class="lbl">Der Unterschied</div>
+    <div class="big">Jede Angabe <em>geprüft</em>. Kein Netz-Mythos, keine KI-Erfindung, sondern belegtes Wissen mit Praxisbezug.</div>
+  </div>
+
+  <div class="contrast">
+    <div class="col bad">
+      <div class="h">Wo man sonst landet</div>
+      <ul>
+        <li>Google-Halbwissen und Foren-Mythen</li>
+        <li>KI-Chatbots, die Fakten erfinden</li>
+        <li>Prepper-Panik und Angstverkauf</li>
+        <li>Theorie ohne Praxisbezug</li>
+      </ul>
+    </div>
+    <div class="col good">
+      <div class="h">GREIF XPEDITION</div>
+      <ul>
+        <li>Jede Zahl an der Quelle geprüft</li>
+        <li>KI antwortet nur aus geprüftem Material</li>
+        <li>Ruhig, sachlich, ohne Angstmache</li>
+        <li>Aus der Praxis, für die Praxis</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pillars">
+    <div class="pillar">
+      <span class="ic">✓</span>
+      <div class="t">Geprüft</div>
+      <div class="d">Fakten, Zahlen und Gesetze an offiziellen Quellen belegt.</div>
+    </div>
+    <div class="pillar">
+      <span class="ic">⛊</span>
+      <div class="t">Keine Halluzination</div>
+      <div class="d">Der Assistent antwortet ausschließlich aus dem geprüften Material.</div>
+    </div>
+    <div class="pillar">
+      <span class="ic">⚒</span>
+      <div class="t">Praxisbezug</div>
+      <div class="d">Konkrete Mengen, Schritte, Listen. Keine graue Theorie.</div>
+    </div>
+    <div class="pillar">
+      <span class="ic">☺</span>
+      <div class="t">Mensch dahinter</div>
+      <div class="d">Kuratiert und verantwortet von einem Menschen, nicht von einem Algorithmus.</div>
+    </div>
+  </div>
+
+  <div class="what">
+    <div class="box"><div class="n">94</div><div class="l">Handbuch-Kapitel<br>das Wie</div></div>
+    <div class="box"><div class="n">10</div><div class="l">Buch-Kapitel<br>das Warum</div></div>
+    <div class="box"><div class="n">1</div><div class="l">KI-Assistent<br>auf geprüfter Basis</div></div>
+    <div class="box"><div class="n">∞</div><div class="l">offline &amp; frei<br>weitergebbar</div></div>
+  </div>
+
+  <p class="tag"><strong>Das Wie, das Warum, und ein Berater, der nicht lügt.</strong></p>
+
+  <div class="brand">GREIF XPEDITION · Krisenvorsorge für DACH · @greif_xpedition</div>
+
+</div>
+</body>
+</html>

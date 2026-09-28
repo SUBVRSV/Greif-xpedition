@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<!-- GREIF XPEDITION // Projekt-Übersicht // V1.0 -->
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GREIF XPEDITION – Projekt-Übersicht</title>
+<style>
+:root{
+  --bg:#0a0a0a;--bg2:#111;--bg3:#181818;--border:#383530;
+  --amber:#c8920a;--amber2:#e8ab10;--amber3:#f0bf30;
+  --text:#e8e4de;--text2:#b0aa9e;--text3:#777;
+  --blue:#3a7fd4;--green:#3a9d5c;--grey:#666;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;--sans:'IBM Plex Sans',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;
+  padding:calc(20px + env(safe-area-inset-top)) 16px calc(40px + env(safe-area-inset-bottom));
+  max-width:960px;margin:0 auto;-webkit-text-size-adjust:100%}
+h1{font-size:1.5rem;letter-spacing:0.02em;margin-bottom:4px}
+.kicker{font-family:var(--mono);font-size:0.7rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--amber);margin-bottom:8px}
+.sub{color:var(--text2);font-size:0.95rem;margin-bottom:28px}
+h2{font-size:1.05rem;color:var(--amber3);margin:34px 0 14px;padding-bottom:6px;border-bottom:1px solid var(--border);letter-spacing:0.02em}
+.legend{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:0.7rem;color:var(--text2);margin-bottom:8px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:10px;height:10px;border-radius:2px;display:inline-block}
+.dot.done{background:var(--green)}
+.dot.plan{background:var(--amber)}
+.dot.idea{background:var(--grey)}
+
+/* Fluss-Diagramm */
+.flow{display:flex;flex-direction:column;gap:0;margin:10px 0 8px}
+.layer{background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:14px 16px;position:relative}
+.layer-label{font-family:var(--mono);font-size:0.66rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
+.cards{display:flex;flex-wrap:wrap;gap:10px}
+.card{flex:1;min-width:150px;background:var(--bg3);border:1px solid var(--border);border-left-width:3px;border-radius:8px;padding:11px 13px}
+.card.done{border-left-color:var(--green)}
+.card.plan{border-left-color:var(--amber)}
+.card.idea{border-left-color:var(--grey);opacity:0.82}
+.card h3{font-size:0.92rem;margin-bottom:3px;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.card .st{font-family:var(--mono);font-size:0.58rem;letter-spacing:0.1em;text-transform:uppercase;padding:1px 6px;border-radius:4px;white-space:nowrap}
+.st.done{background:rgba(58,157,92,0.18);color:#6ec98d}
+.st.plan{background:rgba(200,146,10,0.18);color:var(--amber3)}
+.st.idea{background:rgba(120,120,120,0.18);color:#999}
+.card p{font-size:0.8rem;color:var(--text2);line-height:1.5}
+.card .meta{font-family:var(--mono);font-size:0.66rem;color:var(--text3);margin-top:6px}
+.arrow{text-align:center;color:var(--amber);font-size:1.1rem;line-height:1;padding:7px 0}
+
+/* verzweigung 3 stufen */
+.branch{display:flex;flex-wrap:wrap;gap:10px;margin-top:2px}
+.branch .card{flex:1;min-width:210px}
+
+.note{background:rgba(200,146,10,0.07);border:1px solid rgba(200,146,10,0.28);border-radius:8px;padding:12px 15px;font-size:0.85rem;color:var(--text2);margin:14px 0}
+.note strong{color:var(--amber3)}
+table{width:100%;border-collapse:collapse;margin:6px 0;font-size:0.82rem}
+td,th{text-align:left;padding:7px 9px;border-bottom:1px solid var(--border);vertical-align:top}
+th{font-family:var(--mono);font-size:0.64rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--text3);font-weight:400}
+td.f{font-family:var(--mono);font-size:0.75rem;color:var(--amber2);white-space:nowrap}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid var(--border);font-family:var(--mono);font-size:0.68rem;color:var(--text3);text-align:center;line-height:1.8}
+a{color:var(--amber2)}
+</style>
+</head>
+<body>
+  <div class="kicker">GREIF XPEDITION</div>
+  <h1>Projekt-Übersicht</h1>
+  <p class="sub">Was gebaut wurde und wie am Ende alles zusammenhängt. Stand: Juli 2026.</p>
+
+  <div class="legend">
+    <span><span class="dot done"></span> fertig</span>
+    <span><span class="dot plan"></span> geplant</span>
+    <span><span class="dot idea"></span> spätere Idee</span>
+  </div>
+
+  <!-- ============ EBENE 1: INHALT ============ -->
+  <h2>1 · Die Inhalte (das Wissen)</h2>
+  <div class="flow">
+    <div class="layer">
+      <div class="layer-label">Zwei verzahnte Werke, gemeinsame Optik, beide offline nutzbar</div>
+      <div class="cards">
+        <div class="card done">
+          <h3>Das Handbuch <span class="st done">fertig</span></h3>
+          <p>Das <em>Wie</em>. Nachschlagewerk mit 94 Kapiteln: konkrete Mengen, Listen, Anleitungen, Vorratsplaner. Zum gezielten Nachschlagen im Ernstfall.</p>
+          <div class="meta">index.html · V44.x · ~1,8 MB</div>
+        </div>
+        <div class="card done">
+          <h3>Das Buch <span class="st done">fertig</span></h3>
+          <p>Das <em>Warum</em>. Erzählendes Sachbuch mit 10 Kapiteln, ~17.000 Wörter (~68 Seiten). Geschichten und Hintergründe, zum Lesen am Stück.</p>
+          <div class="meta">buch.html · V3.0 · verlinkt ins Handbuch</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓ &nbsp; speisen &nbsp; ↓</div>
+
+  <!-- ============ EBENE 2: WISSENSBASIS ============ -->
+  <h2>2 · Die Wissensbasis (das Fundament des Assistenten)</h2>
+  <div class="flow">
+    <div class="layer">
+      <div class="layer-label">Einmal gebaut, speist alle Assistenten-Stufen · unabhängig von jeder Technik</div>
+      <div class="cards">
+        <div class="card done">
+          <h3>Volltext <span class="st done">fertig</span></h3>
+          <p>Alle 104 Kapitel strukturiert als Daten. Für KI-Umgebungen, die viel verarbeiten.</p>
+          <div class="meta">wissensbasis.json · ~1,1 MB</div>
+        </div>
+        <div class="card done">
+          <h3>Kompaktversion <span class="st done">fertig</span></h3>
+          <p>Kernaussagen pro Kapitel mit Verweis-IDs. ~17.000 Wörter, passt in fast jede KI.</p>
+          <div class="meta">wissensbasis-kompakt.md · ~126 KB</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓ &nbsp; daraus entstehen drei Ausgabeformen &nbsp; ↓</div>
+
+  <!-- ============ EBENE 3: DIE DREI STUFEN ============ -->
+  <h2>3 · Der Assistent (drei Stufen, eine Grundlage)</h2>
+  <div class="branch">
+    <div class="card done">
+      <h3>Stufe 1<br>Einspiel-Paket <span class="st done">fertig</span></h3>
+      <p>Für Menschen mit eigener KI (ChatGPT, Claude &amp; Co). Wissensdatei + Verhaltens-Anweisung + Anleitung. In 5 Minuten der eigene GREIF-Berater. Kostenlos, unabhängig, sofort weitergebbar.</p>
+      <div class="meta">systemprompt.md + ANLEITUNG.md + Wissensbasis</div>
+    </div>
+    <div class="card done">
+      <h3>Stufe 2<br>Offline-Seite <span class="st done">fertig</span></h3>
+      <p>Für alle, auch ohne KI-Kenntnisse. Eine Datei wie das Handbuch: Frage eingeben, Antwort aus dem Material bekommen. Clevere Suche statt echter KI, läuft offline, sogar im Blackout. Herunterladbar, kostenlos.</p>
+      <div class="meta">assistent.html · kommt als Nächstes</div>
+    </div>
+    <div class="card plan">
+      <h3>Stufe 3<br>KI-Schalter <span class="st plan">geplant</span></h3>
+      <p>Dieselbe Seite, optionaler Schalter: Wer will, trägt seinen eigenen KI-Schlüssel ein und schaltet auf einen frei formulierenden Assistenten um. Kosten trägt der Nutzer selbst. Beste Version obendrauf, ohne die Unabhängigkeit aufzugeben.</p>
+      <div class="meta">Erweiterung von assistent.html</div>
+    </div>
+  </div>
+
+  <div class="note">
+    <strong>Das Leitprinzip:</strong> Eine Grundlage, drei Ausgabeformen. Alles bleibt kostenlos, offline-fähig und weitergebbar wie das Handbuch. Kein Server, keine laufenden Kosten, keine Bindung an einen Anbieter. Der Assistent <em>berät und führt</em>, er handelt nicht selbst (kein automatisches Bestellen o. Ä.), denn das würde die Unabhängigkeit brechen.
+  </div>
+
+  <!-- ============ DATEIEN-ÜBERSICHT ============ -->
+  <h2>4 · Alle Dateien auf einen Blick</h2>
+  <table>
+    <thead><tr><th>Datei</th><th>Was</th><th>Status</th></tr></thead>
+    <tbody>
+      <tr><td class="f">index.html</td><td>Das Handbuch (94 Kapitel)</td><td>fertig</td></tr>
+      <tr><td class="f">buch.html</td><td>Das Buch (10 Kapitel)</td><td>fertig</td></tr>
+      <tr><td class="f">sw.js</td><td>Offline-Technik für Handbuch &amp; Buch</td><td>fertig</td></tr>
+      <tr><td class="f">wissensbasis.json</td><td>Volltext-Wissensbasis</td><td>fertig</td></tr>
+      <tr><td class="f">wissensbasis-kompakt.md</td><td>Kompakte Wissensbasis</td><td>fertig</td></tr>
+      <tr><td class="f">systemprompt.md</td><td>Verhaltens-Anweisung für die KI</td><td>fertig</td></tr>
+      <tr><td class="f">ANLEITUNG.md</td><td>Einspiel-Anleitung (4 Wege)</td><td>fertig</td></tr>
+      <tr><td class="f">assistent.html</td><td>Offline-Assistenten-Seite (Frage-Antwort)</td><td>fertig</td></tr>
+    </tbody>
+  </table>
+
+  <!-- ============ WEG ============ -->
+  <h2>5 · Der Weg von hier</h2>
+  <table>
+    <tbody>
+      <tr><td class="f">→ jetzt</td><td>Stufe 1 testen: Einspiel-Paket in eine KI laden und ausprobieren, wie sich der Berater anfühlt.</td></tr>
+      <tr><td class="f">→ als Nächstes</td><td>Stufe 2 bauen: die Offline-Assistenten-Seite (assistent.html) aus der Wissensbasis.</td></tr>
+      <tr><td class="f">→ danach</td><td>Stufe 3: den optionalen KI-Schalter in dieselbe Seite einbauen.</td></tr>
+      <tr><td class="f">→ laufend</td><td>Handbuch &amp; Buch aktuell halten; nächste Faktenprüfung Januar 2027.</td></tr>
+    </tbody>
+  </table>
+
+
+  <!-- ============ ZUKUNFTSVISION ============ -->
+  <h2>6 · Zukunftsvision: die Methode auf andere Krisen übertragen</h2>
+  <p class="sub" style="margin-bottom:14px">Langfristige Idee, <strong style="color:var(--text2)">nachrangig</strong>. GREIF XPEDITION wird zuerst fertig gebaut. Der Bauplan (Wissensbasis → Handbuch + Buch + gestufter Assistent) lässt sich auf andere Lebenskrisen übertragen, jede als eigenes Projekt, am Ende unter einem gemeinsamen Dach.</p>
+
+  <div class="branch">
+    <div class="card idea">
+      <h3>Getrennte Projekte <span class="st idea">Idee</span></h3>
+      <p>Jede Krise ein eigenes Haus: Trennung, Jobverlust, Krankheit, Tod &amp; Trauer, Pflege. Eigener Ton, eigene Fachquellen, eigene Sicherheitsgrenzen.</p>
+    </div>
+    <div class="card idea">
+      <h3>Gemeinsames Dach <span class="st idea">Idee</span></h3>
+      <p>Der Anker für alle Krisen. Verbindet die Projekte und leitet den Menschen je nach Lage ins richtige, denn Krisen kommen selten allein.</p>
+    </div>
+  </div>
+
+  <div class="note" style="border-color:rgba(200,50,50,0.4);background:rgba(200,50,50,0.07)">
+    <strong style="color:#e88">Wichtigste Leitplanke:</strong> Diese Themen sind kein Sachwissen wie Watt und Liter, sondern menschliches Leid. Der Assistent <em>berät hier nicht</em> im Sinne einer Fachperson. Er ist ruhiger Erst-Wegweiser: Orientierung, erste Schritte, Struktur ins Chaos, und immer die klare, deutliche Weiterleitung zu echten Menschen (Ärzte, Therapeuten, Anwälte, Seelsorge, Beratungsstellen). Bei Suizidgedanken, akuten psychischen oder medizinischen Notlagen: immer sofort Notruf und Krisendienst, nie ein Ratschlag. Jedes Projekt beginnt mit dieser Sicherheitsarchitektur, erst dann kommt der Inhalt.
+  </div>
+
+  <table>
+    <tbody>
+      <tr><td class="f">Schritt 1</td><td>GREIF XPEDITION vollständig fertigstellen (Assistent Stufe 2 + 3). <strong style="color:var(--amber3)">Hat Priorität.</strong></td></tr>
+      <tr><td class="f">Schritt 2</td><td>Methode an einem weniger heiklen Thema erproben (z. B. Jobverlust, Umzug), wo Fehler weniger kosten.</td></tr>
+      <tr><td class="f">Schritt 3</td><td>Erst mit dieser Sicherheit an die schweren Themen (Krankheit, Tod, Trauer), mit fachlicher Absicherung.</td></tr>
+      <tr><td class="f">Schritt 4</td><td>Das gemeinsame Dach bauen, wenn mehrere Häuser sicher stehen.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot">
+    GREIF XPEDITION · Krisenvorsorge für DACH<br>
+    Handbuch + Buch + Assistent · @greif_xpedition<br>
+    Diese Übersicht: uebersicht.html
+  </div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- GREIF XPEDITION // Das Buch // V3.0 -->
+<!-- GREIF XPEDITION // Das Buch // V3.6 -->
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -26,7 +26,7 @@
   --rule: #d8cdb8;
   --serif: 'Spectral', Georgia, serif;
   --sans: 'IBM Plex Sans', system-ui, sans-serif;
-  --measure: 34rem;
+  --measure:46rem;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html {
@@ -38,8 +38,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--serif);
-  font-size: 1.18rem;
-  line-height: 1.75;
+  font-size: 1.24rem;
+  line-height: 1.8;
   padding-top: env(safe-area-inset-top, 0px);
   padding-bottom: env(safe-area-inset-bottom, 0px);
   transition: background 0.3s, color 0.3s;
@@ -206,7 +206,7 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
 #titlepage .tp-start:hover { background: var(--amber3); }
 
 @media (max-width: 600px) {
-  body { font-size: 1.1rem; }
+  body { font-size: 1.14rem; line-height: 1.75; }
   .chapter h1 { font-size: 1.9rem; }
   #titlepage h1 { font-size: 2.2rem; }
   .chapter-end-nav { flex-direction: column; }
@@ -229,17 +229,52 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
 #toc .toc-item.pending { opacity: 0.55; }
 #toc .toc-item.pending:hover { color: var(--ink2); }
 
+
+/* Kapitel-Menü in der Topbar */
+#toc-btn{font-family:var(--sans);font-size:0.82rem;background:transparent;border:1px solid var(--rule);
+  color:var(--ink2);border-radius:6px;padding:5px 10px;cursor:pointer;transition:all .2s}
+#toc-btn:hover{border-color:var(--amber);color:var(--amber)}
+#toc-menu{position:fixed;top:0;left:0;right:0;bottom:0;z-index:200;background:rgba(0,0,0,0.5);
+  display:none;padding:0}
+#toc-menu.open{display:block}
+.toc-menu-inner{background:var(--paper);max-width:var(--measure);margin:0 auto;
+  min-height:100%;padding:calc(20px + env(safe-area-inset-top)) 24px 40px;border-left:1px solid var(--rule);border-right:1px solid var(--rule)}
+.toc-menu-inner .tm-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.toc-menu-inner .tm-title{font-family:var(--sans);font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber)}
+.toc-menu-inner .tm-close{background:transparent;border:1px solid var(--rule);color:var(--ink2);border-radius:6px;padding:4px 12px;cursor:pointer;font-size:0.9rem}
+.toc-menu-inner a{display:block;text-decoration:none;color:var(--ink);padding:10px 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:1.05rem}
+.toc-menu-inner a:hover{color:var(--amber)}
+.toc-menu-inner a .tm-num{font-family:var(--sans);font-size:0.8rem;color:var(--amber);font-weight:600;margin-right:10px}
+.toc-menu-inner a.tm-soon{opacity:0.5}
+
+/* Druck / PDF */
+@media print{
+  #topbar,#toc-menu,#progress,.chapter-end-nav,.to-handbook,.tp-start{display:none !important}
+  body{background:#fff !important;color:#000 !important;font-size:11pt}
+  .chapter{page-break-before:always;padding-top:0}
+  #titlepage{page-break-after:always;min-height:auto}
+  main{max-width:100%;padding:0}
+  .scene,.pull,.sources{color:#333 !important}
+  a{color:#000 !important;text-decoration:none}
+  h1,h2{color:#000 !important}
+  .chapter h1::first-letter,.opening::first-letter{color:#000 !important}
+}
 </style>
 </head>
 <body>
 <div id="progress"></div>
 <div id="topbar">
+  <button id="toc-btn" onclick="toggleTocMenu()" title="Kapitel">☰ Kapitel</button>
   <span class="brand">Wenn es ernst wird</span>
   <div class="controls">
+    <button onclick="window.print()" title="Drucken / als PDF speichern">⎙</button>
     <button id="theme-btn" onclick="toggleTheme()" title="Hell/Dunkel">◐</button>
     <button onclick="location.href='assistent.html'" title="Krisenberater">Berater</button>
-    <button onclick="location.href='index.html'" title="Zum Handbuch">Handbuch ↔</button>
+    <button onclick="location.href='index.html'" title="Zum Handbuch">Handbuch</button>
   </div>
+</div>
+<div id="toc-menu">
+  <div class="toc-menu-inner" id="toc-menu-inner"></div>
 </div>
 
 <main>
@@ -1065,19 +1100,49 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
 </article>
 
 
+
+<div style="max-width:var(--measure);margin:0 auto;padding:30px 24px 50px;border-top:1px solid var(--rule);text-align:center;font-family:var(--sans);font-size:0.72rem;color:var(--ink2);line-height:1.8">
+  WENN ES ERNST WIRD · Begleitbuch zum GREIF XPEDITION Krisenhandbuch<br>
+  <a href="index.html" style="color:var(--amber)">Handbuch</a> · <a href="assistent.html" style="color:var(--amber)">Krisenberater</a> · @greif_xpedition<br>
+  <span style="opacity:0.8">Inhalte KI-gestützt erstellt und aktualisiert, redaktionell geprüft und an offiziellen Quellen belegt. Konzept &amp; Verantwortung: GREIF XPEDITION.</span>
+</div>
 </main>
 
 <script>
+
+// Kapitel-Menü aufbauen
+function buildTocMenu(){
+  var arts = document.querySelectorAll('article.chapter');
+  var html = '<div class="tm-head"><span class="tm-title">Inhalt</span><button class="tm-close" onclick="toggleTocMenu()">Schließen</button></div>';
+  html += '<a href="#titlepage" onclick="setTimeout(toggleTocMenu,50)"><span class="tm-num">·</span>Titelseite</a>';
+  arts.forEach(function(a){
+    var num = a.querySelector('.chapter-num');
+    var h1 = a.querySelector('h1');
+    var soon = a.querySelector('.subtitle') && /nächsten Ausbaustufe|noch nicht geschrieben/.test(a.textContent);
+    if(h1){
+      var n = num ? num.textContent.replace('Kapitel ','') : '';
+      html += '<a href="#'+a.id+'" onclick="setTimeout(toggleTocMenu,50)" class="'+(soon?'tm-soon':'')+'"><span class="tm-num">'+n+'</span>'+h1.textContent+'</a>';
+    }
+  });
+  document.getElementById('toc-menu-inner').innerHTML = html;
+}
+function toggleTocMenu(){
+  var m = document.getElementById('toc-menu');
+  if(!m.classList.contains('open')){ buildTocMenu(); }
+  m.classList.toggle('open');
+}
+
 function toggleTheme() {
   document.body.classList.toggle('dark');
-  try { localStorage.setItem('greif_buch_theme', document.body.classList.contains('dark') ? 'dark' : 'light'); } catch(e) {}
+  var mode = document.body.classList.contains('dark') ? 'dark' : 'light';
+  try { localStorage.setItem('greif_theme', mode); localStorage.setItem('greif_buch_theme', mode); } catch(e) {}
 }
 (function() {
   try {
-    var saved = localStorage.getItem('greif_buch_theme');
-    // Default: folge System, sonst hell (Buch = Papier)
+    var saved = localStorage.getItem('greif_theme') || localStorage.getItem('greif_buch_theme');
     if (saved === 'dark') document.body.classList.add('dark');
-    else if (!saved && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.classList.add('dark');
+    else if (saved === 'light') document.body.classList.remove('dark');
+    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.classList.add('dark');
   } catch(e) {}
 })();
 // Fortschrittsbalken
