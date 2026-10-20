@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- GREIF XPEDITION // Das Buch // V3.6 -->
+<!-- GREIF XPEDITION // Das Buch // V4.0 -->
 <html lang="de">
 <head>
 <meta charset="UTF-8">
@@ -259,6 +259,18 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
   h1,h2{color:#000 !important}
   .chapter h1::first-letter,.opening::first-letter{color:#000 !important}
 }
+
+/* Weiterlesen-Angebot (dezent, oben) */
+#resume-bar{position:fixed;left:50%;transform:translateX(-50%);
+  top:calc(56px + env(safe-area-inset-top,0px));z-index:150;
+  background:var(--amber);color:#100d07;border-radius:10px;
+  padding:8px 10px 8px 16px;display:flex;align-items:center;gap:10px;
+  font-family:var(--sans);font-size:0.85rem;box-shadow:0 4px 16px rgba(0,0,0,0.3);
+  max-width:calc(100vw - 24px)}
+#resume-bar button{background:rgba(0,0,0,0.15);border:none;color:#100d07;
+  font-family:var(--sans);font-weight:600;font-size:0.82rem;
+  border-radius:6px;padding:5px 11px;cursor:pointer}
+#resume-bar #resume-no{padding:5px 9px;font-size:1rem;line-height:1}
 </style>
 </head>
 <body>
@@ -910,6 +922,10 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
 
   <p>Zweitens kann der Mythos sich selbst wahr machen. Wenn genug Menschen glauben, dass gleich alle die Regale leerkaufen, dann kaufen sie selbst die Regale leer, und schon ist der Ansturm da, den alle befürchtet hatten. Das Toilettenpapier von 2020 war genau das: keine echte Knappheit, sondern eine sich selbst erfüllende Erwartung, wie wir im Kapitel über den Vorrat gesehen haben. Der Glaube an das schlechte Verhalten der anderen ist der zuverlässigste Weg, das eigene schlechte Verhalten zu rechtfertigen. Deshalb ist es keine naive Schönfärberei, das realistische Bild zu betonen, sondern eine praktische Notwendigkeit.</p>
 
+  <h2>Und was ist mit Paris?</h2>
+
+  <p>Wer diese Zeilen im Oktober 2026 liest, hat Bilder aus Frankreich im Kopf. Am 17. und 18. Oktober brannten bei Protesten Rathäuser, Geschäfte wurden geplündert, die Behörden meldeten über zweitausend Festnahmen. Widerlegt das den Befund dieses Kapitels? Nein, aber es zeigt seine Grenze. Die Forschung zu den Desaster-Mythen beschreibt, wie sich Menschen in gemeinsam erlittenen Notlagen verhalten, nach der Flut, nach dem Erdbeben, im Stromausfall. Dort trifft die Not alle zugleich, und die Hilfsbereitschaft ist die Regel. Unruhen sind etwas anderes. Sie sind ein sozialer Konflikt, in dem Teile einer Menge bewusst Gewalt ausüben, wie in Frankreich am Rand einer Großdemonstration. Beides gibt es, und es hilft niemandem, beides zu vermischen. Wer nach einer Flut Plünderer erwartet, liegt in aller Regel falsch. Wer an einem angekündigten Protesttag in der Innenstadt Gewalt für ausgeschlossen hält, ebenfalls. Das Handbuch behandelt den zweiten Fall in einem eigenen Kapitel: <a href="index.html#unruhen-ausschreitungen">Unruhen &amp; Ausschreitungen</a>.</p>
+
   <h2>Die unbequeme Kehrseite</h2>
 
   <p>Es wäre allerdings unehrlich, hier aufzuhören, denn die Forschung hat auch eine unbequemere Seite zutage gefördert. Die Solidarität in Katastrophen ist real, aber sie fließt nicht gleichmäßig. Menschen helfen am schnellsten und am meisten dort, wo schon vorher eine Beziehung bestand: der Familie, den Freunden, den Nachbarn, die man kennt. Hilfe für völlig Fremde gibt es auch, wie das Ahrtal eindrucksvoll zeigt, aber die allererste, unmittelbare Hilfe in den entscheidenden Stunden kommt fast immer aus dem Nahbereich, von denen, die schon da sind.<sup class="fn">4</sup></p>
@@ -983,7 +999,7 @@ sup.fn { color: var(--amber); font-size: 0.7em; font-weight: 600; cursor: pointe
 
   <p>Man könnte meinen, all das sei eine skandinavische Eigenheit, das Erbe von Ländern mit langer Grenze zu einem großen Nachbarn. Doch auch in Deutschland hat sich seit 2022 grundlegend etwas verschoben, leiser als in Skandinavien, aber unübersehbar. Nach dem Ende des Kalten Krieges hatte man den Zivilschutz für weitgehend überflüssig gehalten. Bunker wurden umgewidmet oder abgerissen, das Sirenennetz abgebaut, die zivile Verteidigung, wie ein Bericht der Bundeszentrale für politische Bildung nüchtern feststellt, nahezu in Gänze eingestellt. Das war die logische Konsequenz einer Zeit, in der niemand mehr an eine reale Bedrohung glaubte.</p>
 
-  <p>Diese Zeit ist vorbei. Die Bundeswehr hat 2024 erstmals seit dem Kalten Krieg wieder einen umfassenden Plan zur gesamtstaatlichen Verteidigung erstellt, den Operationsplan Deutschland, der militärische und zivile Maßnahmen verzahnt. Es wird über ein nationales Schutzraumkonzept nachgedacht, und die Politik hat angekündigt, in den kommenden Jahren erhebliche Summen in den Zivilschutz zu investieren.<sup class="fn">2</sup> Der Staat, mit anderen Worten, nimmt das Thema wieder ernst, so wie er es jahrzehntelang nicht getan hat.</p>
+  <p>Diese Zeit ist vorbei. Die Bundeswehr hat 2024 erstmals seit dem Kalten Krieg wieder einen umfassenden Plan zur gesamtstaatlichen Verteidigung erstellt, den Operationsplan Deutschland, der militärische und zivile Maßnahmen verzahnt. Im Mai 2026 beschloss die Bundesregierung den „Pakt für den Bevölkerungsschutz", nach eigener Darstellung den größten Modernisierungsschub im Zivilschutz seit Jahrzehnten: zehn Milliarden Euro bis 2029, ein neuer Steuerungsstab zur Verzahnung von ziviler und militärischer Planung, und ein Schutzraumkataster, das über die Warn-App auffindbar gemacht wird.<sup class="fn">2</sup> Der Staat, mit anderen Worten, nimmt das Thema wieder ernst, so wie er es jahrzehntelang nicht getan hat.</p>
 
   <p>Interessant ist dabei, welche Schlussfolgerung die Fachleute selbst ziehen. Man könnte erwarten, dass sie zum Bunkerbau raten. Das Gegenteil ist der Fall. Deutschland verfügt nur noch über wenige Hundert öffentliche Schutzräume, sanierungsbedürftig und für einen kleinen Bruchteil der Bevölkerung ausgelegt, und selbst zu besten Zeiten gab es nie Plätze für mehr als drei Prozent der Menschen. Ein Expertenbericht stellte zudem klar, dass große, zentrale Bunker gegen moderne Präzisionswaffen ohnehin kaum Schutz bieten. Die praktische Empfehlung, die daraus folgt, ist bemerkenswert und führt uns direkt zum Kern dieses Buches zurück: Der realistischste Schutz für die allermeisten Menschen ist nicht der öffentliche Bunker, sondern die private Vorsorge, verbunden mit der Ertüchtigung der Keller, U-Bahnhöfe und Tiefgaragen, die es ohnehin gibt. Der Staat selbst verweist die Bürger also auf genau das, was dieses Buch von der ersten Seite an behandelt.</p>
 
@@ -1140,9 +1156,9 @@ function toggleTheme() {
 (function() {
   try {
     var saved = localStorage.getItem('greif_theme') || localStorage.getItem('greif_buch_theme');
+    // Standard ist hell (Papier). Nur dunkel, wenn explizit gewählt.
     if (saved === 'dark') document.body.classList.add('dark');
-    else if (saved === 'light') document.body.classList.remove('dark');
-    else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) document.body.classList.add('dark');
+    else document.body.classList.remove('dark');
   } catch(e) {}
 })();
 // Fortschrittsbalken
@@ -1159,9 +1175,20 @@ updateProgress();
 // Leseposition merken
 (function() {
   try {
+    // Kein automatisches Springen mehr. Stattdessen: wenn eine Leseposition existiert
+    // UND man nicht über einen Anker (#kap-x) kommt, ein dezentes "Weiterlesen"-Angebot zeigen.
     var last = localStorage.getItem('greif_buch_pos');
-    if (last && parseInt(last) > 400) {
-      setTimeout(function(){ window.scrollTo(0, parseInt(last)); }, 100);
+    if (last && parseInt(last) > 600 && !window.location.hash) {
+      var y = parseInt(last);
+      var bar = document.createElement('div');
+      bar.id = 'resume-bar';
+      bar.innerHTML = '<span>Zuletzt gelesen &middot; hier weiterlesen?</span>' +
+        '<button id="resume-yes">Weiterlesen</button>' +
+        '<button id="resume-no">&times;</button>';
+      document.body.appendChild(bar);
+      document.getElementById('resume-yes').onclick = function(){ window.scrollTo({top:y,behavior:'smooth'}); bar.remove(); };
+      document.getElementById('resume-no').onclick = function(){ bar.remove(); };
+      setTimeout(function(){ if(document.getElementById('resume-bar')) bar.remove(); }, 8000);
     }
   } catch(e) {}
   var saveTimer;
