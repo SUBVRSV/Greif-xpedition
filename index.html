@@ -275,8 +275,11 @@ body {
 
 /* ── V45.8: Suche im Inhalt, Notfall-Knopf mit Text, Schriftgrößen, Tabellen als Karten ── */
 #cover-search-wrap { margin: 0 0 30px; position: relative; }
-#cover-search { width: 100%; box-sizing: border-box; font-family: var(--mono); font-size: 15px; padding: 13px 16px; color: var(--text); background: var(--bg2, rgba(255,255,255,0.04)); border: 1.5px solid var(--amber); border-radius: 6px; outline: none; }
-#cover-search:focus { box-shadow: 0 0 0 3px rgba(200,146,10,0.25); }
+#cover-search-wrap::before { content: ''; position: absolute; left: 18px; top: 29px; width: 20px; height: 20px; transform: translateY(-50%); pointer-events: none; background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c1a16' stroke-width='2.6' stroke-linecap='round'%3E%3Ccircle cx='10.5' cy='10.5' r='6.5'/%3E%3Cpath d='M15.5 15.5L21 21'/%3E%3C/svg%3E"); }
+#cover-search { width: 100%; height: 58px; box-sizing: border-box; font-family: var(--mono); font-size: 16px; font-weight: 600; padding: 0 16px 0 50px; color: #1c1a16; background: #f6d98a; border: 2.5px solid var(--amber); border-radius: 8px; outline: none; box-shadow: 0 3px 0 rgba(140,100,0,0.35), 0 6px 18px rgba(200,146,10,0.18); -webkit-appearance: none; appearance: none; }
+#cover-search::placeholder { color: #5a4a1c; opacity: 1; font-weight: 500; }
+#cover-search:hover { background: #f9e09a; }
+#cover-search:focus { background: #fff6dc; box-shadow: 0 0 0 4px rgba(200,146,10,0.35), 0 3px 0 rgba(140,100,0,0.35); }
 #cover-search-results { display: none; margin-top: 6px; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--bg2, rgba(255,255,255,0.03)); }
 #cover-search-results.active { display: block; }
 #cover-search-results .search-result-item { display: block; padding: 11px 16px; text-decoration: none; color: var(--text); border-bottom: 1px solid var(--border); font-size: 15px; }
